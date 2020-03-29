@@ -18,5 +18,4 @@ inline Statementlistptr listcombine(Statementlistptr list, Statementptr input){
 	return list;
 };
 	
-
 #endif

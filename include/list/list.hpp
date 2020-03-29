@@ -2,12 +2,27 @@
 #define LIST_HPP
 
 #include "Statement.hpp"
+#include "Statementlist.hpp"
 
 class list : public Statement {
 public:
-	list(std::vector<Statementptr> p1){subs = p1;};
+	list(std::vector<Statementptr> p1){statementlistptr = p1;};
 	virtual ~list(){};
-	Statementlist get_list(){return subs;}
+	Statementlist get_list(){return statementlist;}
+	virtual virtual void translate(std::ostream &dst)const override{
+		int content = statementlistptr -> size();
+		if(content == 0){return;}
+		if(content == 1){dst << statementlistptr ->at(0);}
+		else{
+			for(int i =0; i<content-1;i++){
+         dst << at(i) << ",";
+			}
+			dst << at(content-1);
+		}
+	}
+
+private:
+  Statementlistptr statementlistptr;
 };
 
 
@@ -22,27 +37,27 @@ public:
 };
 
 class declarationlist : public list {
-public:	
+public:
 	using list::list;
 };
 
 class qualifierlist : public list {
-public:	
+public:
 	using list::list;
 };
 
 class enumeratorlist : public list {
-public:	
+public:
 	using list::list;
 };
 
 class parameterlist : public list {
-public:	
+public:
 	using list::list;
 };
 
 class identifierlist : public list {
-public:	
+public:
 	using list::list;
 };
 

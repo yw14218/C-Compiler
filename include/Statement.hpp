@@ -12,8 +12,7 @@ typedef const Statement *Statementptr;
 class Statement{
 public:
 	virtual ~Statement(){};
-protected:
-	std::vector<Statementptr> subs;
+	virtual translate(std::ostream &dst)const =0;
 };
 
 

@@ -7,7 +7,7 @@ class Operator : public Statement{
 public:
 	virtual ~Operator(){};
 	Operator(Statementptr p1, Statementptr p2){left = p1 ; right = p2; }
-  virtual void translate(std::ostream &dst)const override{}
+  virtual virtual void translate(std::ostream &dst)const override{}
 protected:
 	Statementptr left;
 	Statementprt right;
@@ -19,7 +19,7 @@ public:
 	timesoperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-  void translate(std::ostream &dst){ dst << left << "*" << right;}
+  virtual void translate(std::ostream &dst){ dst << left << "*" << right;}
 };
 
 
@@ -29,7 +29,7 @@ public:
 	divideoperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-  void translate(std::ostream &dst){ dst << left << "/" << right;}
+  virtual void translate(std::ostream &dst){ dst << left << "/" << right;}
 };
 
 class percentageoperator : public Operator{
@@ -46,7 +46,7 @@ public:
 	plusoperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-  void translate(std::ostream &dst){ dst << left << "+" << right;}
+  virtual void translate(std::ostream &dst){ dst << left << "+" << right;}
 };
 
 class minusoperator : public Operator{
@@ -55,7 +55,7 @@ public:
 	minusoperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-        void translate(std::ostream &dst){ dst << left << "-" << right;}
+        virtual void translate(std::ostream &dst){ dst << left << "-" << right;}
 };
 class lshiftoperator : public Operator{
 public:
@@ -77,7 +77,7 @@ public:
 	smalleroperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-        void translate(std::ostream &dst){ dst << left << "<" << right;}
+        virtual void translate(std::ostream &dst){ dst << left << "<" << right;}
 };
 
 class biggeroperator : public Operator{
@@ -102,7 +102,7 @@ public:
 	bequaloperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-        void translate(std::ostream &dst){ dst << left << "==" << right;}
+
 };
 class equalequaloperator : public Operator{
 public:
@@ -110,6 +110,7 @@ public:
 	equalequaloperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
+	virtual void translate(std::ostream &dst){ dst << left << "==" << right;}
 };
 class notequaloperator : public Operator{
 public:
@@ -131,7 +132,7 @@ public:
 	logicalandoperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-        void translate(std::ostream &dst){ dst << left << " and " << right;}
+        virtual void translate(std::ostream &dst){ dst << left << " and " << right;}
 };
 class logicaloroperator : public Operator{
 public:
@@ -139,7 +140,7 @@ public:
 	logicaloroperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-        void translate(std::ostream &dst){ dst << left << " or " << right;}
+        virtual void translate(std::ostream &dst){ dst << left << " or " << right;}
 };
 class xoroperator : public Operator{
 public:
@@ -154,7 +155,7 @@ public:
 	oroperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-  void translate(std::ostream &dst){ dst << left << "*" << right;}
+  virtual void translate(std::ostream &dst){ dst << left << "*" << right;}
 };
 /*class conditionaloperator : public Operator{
 public:
@@ -164,6 +165,5 @@ public:
 	Statementptr get_stat2(){return right;}
 	Statementptr get_stat3(){return subs[2];}
 };*/
-
 
 #endif

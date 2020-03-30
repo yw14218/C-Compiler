@@ -13,6 +13,7 @@ class Statement{
 public:
 	virtual ~Statement(){};
 	virtual void translate(std::ostream &dst)const =0;
+	virtual void treeprint(std::ostream &dst)const =0;
 };
 
 

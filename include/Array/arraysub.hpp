@@ -10,6 +10,12 @@ public:
 	Statementptr get_id(){return left;};
 	Statementptr get_index(){return right;};
 	virtual void translate(std::ostream &dst) const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Arraysub>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;

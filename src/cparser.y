@@ -45,7 +45,7 @@
 
 %%
 
-ROOT : TRANSLATION_UNIT { g_root = new global($1); }
+ROOT : TRANSLATION_UNIT { g_root = new root($1) ; }
      ;
 
 PRIMARY_EXPRESSION: T_IDENTIFIER {$$ = new identifier(*$1); delete $1;}
@@ -384,11 +384,11 @@ FUNCTION_DEFINITION: DECLARATION_SPECIFIERS DECLARATOR COMPOUND_STATEMENT{$$ = n
 //PREPROCESSING DIRECTIVES NOT INCLUDED
 
 %%
-const Statement *g_root; 
+Statementptr g_root; 
 
-const Statement *parseAST()
+Statementptr parseAST()
 {
-  g_root=0;
+  g_root= 0;
   yyparse();
   return g_root;
 }

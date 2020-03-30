@@ -12,6 +12,13 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Enumerator>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		if(right != NULL)
+			dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;
@@ -25,6 +32,11 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Enumspecifier>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;

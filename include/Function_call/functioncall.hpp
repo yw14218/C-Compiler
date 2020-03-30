@@ -12,6 +12,12 @@ public:
 	Statementptr get_argument(){return right;}
 	//virtual void translate(std::ostream& dst){dst << left << "(" ;right -> translate(std::cout);dst << ")";}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Functioncall>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;
@@ -27,6 +33,13 @@ public:
 	Statementptr get_mid(){return mid;}
 	//virtual void translate(std::ostream& dst){dst << left << "(" ;right -> translate(std::cout);dst << ")";}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Function definition>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"  ";mid->treeprint(dst);dst<<'\n';
+		dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr mid;

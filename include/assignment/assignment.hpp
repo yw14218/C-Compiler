@@ -12,6 +12,12 @@ public:
 	Statementptr get_stat2(){return right;}
 	//virtual void translate(std::ostream &dst){ dst << left->translate(dst) << "=" << right->translate(dst);}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Equal assignment>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;
@@ -24,6 +30,12 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Times assignment>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;
@@ -36,6 +48,12 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Divide assignment>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;
@@ -48,6 +66,12 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Percentage assignment>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;
@@ -60,6 +84,12 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Plusequal assignment>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;
@@ -72,6 +102,12 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Minusequal assignment>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;
@@ -84,6 +120,12 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<lshiftequal assignment>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;
@@ -95,6 +137,12 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Rshiftequal assignment>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;
@@ -106,6 +154,12 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Andequal assignment>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;
@@ -117,6 +171,12 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Xor assignment>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;
@@ -128,6 +188,12 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Orequal assignment>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;

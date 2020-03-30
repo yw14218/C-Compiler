@@ -1844,7 +1844,7 @@ yyreduce:
     {
         case 2:
 #line 48 "src/cparser.y" /* yacc.c:1646  */
-    { g_root = new global((yyvsp[0].stateslist)); }
+    { g_root = new root((yyvsp[0].stateslist)) ; }
 #line 1849 "src/cparser.tab.cpp" /* yacc.c:1646  */
     break;
 
@@ -3315,11 +3315,11 @@ yyreturn:
 }
 #line 386 "src/cparser.y" /* yacc.c:1906  */
 
-const Statement *g_root; 
+Statementptr g_root; 
 
-const Statement *parseAST()
+Statementptr parseAST()
 {
-  g_root=0;
+  g_root= 0;
   yyparse();
   return g_root;
 }

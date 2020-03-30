@@ -9,6 +9,9 @@ public:
 	structkey(){};
 	virtual ~structkey(){};
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<structkey> "<<"struct";
+	};
 };
 
 class structspec : public Statement {
@@ -20,6 +23,14 @@ public:
 	Statementptr get_p2(){return mid;}
 	Statementptr get_p3(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<or operator>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"  ";mid->treeprint(dst);dst<<'\n';
+		if(right != NULL)
+			dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr mid;
@@ -34,6 +45,13 @@ public:
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<struct declarator>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		if(right != NULL)
+			dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;
@@ -47,6 +65,13 @@ public:
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<struct colon declarator>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		if(right != NULL)
+			dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;

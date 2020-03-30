@@ -21,9 +21,19 @@ public:
 			dst << at(content-1);
 		}
 	}*/
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<list>"<<" ["<<'\n';
+		for(int i=0;i<statementlistptr->size();i++)
+		{
+			dst<<"  ";
+			(statementlistptr->at(i))->treeprint(dst);
+			dst<<'\n';
+		}
+		dst<<"]"<<'\n';
+	};
 
-private:
-  Statementlistptr statementlistptr;
+protected:
+  	Statementlistptr statementlistptr;
 };
 
 

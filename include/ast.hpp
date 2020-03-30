@@ -26,6 +26,7 @@
 #include "Statements/labeledstatement.hpp"
 #include "Statements/whiledoforstatement.hpp"
 #include "Struct/struct.hpp"
+#include "root.hpp"
 extern const Statement *parseAST();
 
 #endif

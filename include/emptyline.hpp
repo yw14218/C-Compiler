@@ -8,6 +8,7 @@ public:
 	emptyline(){};
 	virtual ~emptyline(){};
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {}
 };
 
 

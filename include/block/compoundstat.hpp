@@ -13,6 +13,20 @@ public:
 	Statementlistptr get_stat1(){return left;}
 	Statementlistptr get_stat2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Compound assignment>"<<" ["<<'\n';
+		for(int i=0;i<left->size(),i++;)
+		{
+			dst<<'\n'<<"  ";
+			(left->at(i))->treeprint(dst);
+		}
+		for(int i=0;i<right->size(),i++;)
+		{
+			dst<<'\n'<<"  ";
+			(right->at(i))->treeprint(dst);
+		}
+		dst<<'\n'<<"]";
+	};
 private:
 	Statementlistptr left;
 	Statementlistptr right;
@@ -25,7 +39,15 @@ public:
 	global(Statementlistptr p1){left = p1;};
 	Statementlistptr get_stat1(){return left;}
 	virtual void translate(std::ostream &dst)const override{}
-
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<global>"<<" ["<<'\n';
+		for(int i=0;i<left->size(),i++;)
+		{
+			dst<<'\n'<<"  ";
+			(left->at(i))->treeprint(dst);
+		}
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementlistptr left;
 };

@@ -13,6 +13,14 @@ public:
 	Statementptr get_if(){return mid;};
 	Statementptr get_else(){return right;};
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<ifelse statement>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"  ";mid->treeprint(dst);dst<<'\n';
+		if(right != NULL)
+			dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr mid;
@@ -26,6 +34,13 @@ public:
 	Statementptr get_condition(){return left;};
 	Statementptr get_stat(){return right;};
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"switch statement>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
+
 private:
 	Statementptr left;
 	Statementptr right;

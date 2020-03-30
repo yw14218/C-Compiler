@@ -9,6 +9,9 @@ public:
 	jumpstatement(){};
 	virtual ~jumpstatement(){};
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<jump statement> "<<"jump";
+	};
 };
 
 class breakstatement : public Statement {
@@ -16,6 +19,9 @@ public:
 	breakstatement(){};
 	virtual ~breakstatement(){};
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<break statement> "<<"break";
+	};
 };
 
 class returnstatement : public Statement {
@@ -25,6 +31,11 @@ public:
 	Statementptr get_stat(){return left;};
 	virtual ~returnstatement(){};
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<break statement> "<<"break";
+		if(left != NULL)
+			dst<<"  ";left->treeprint(dst);dst<<'\n';
+	};
 private:
 	Statementptr left;
 };
@@ -33,5 +44,8 @@ public:
 	continuestatement(){};
 	virtual ~continuestatement(){};
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<continue statement> "<<"continue";
+	};
 };
 #endif

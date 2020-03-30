@@ -13,6 +13,22 @@ public:
 	Statementptr get_p1(){return left;}
 	Statementlistptr get_p2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Declaration"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		if(NULL != mid)
+			dst<<"  ";mid->treeprint(dst);dst<<'\n';
+		if(NULL != right)
+		{
+			for(int i=0;i<right->size();i++)
+			{
+				dst<<"  ";
+				(right->at(i))->treeprint(dst);
+				dst<<'\n';
+			}
+		}		
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementlistptr right;
@@ -27,6 +43,13 @@ public:
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Storageclassdeclaration>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		if(right != NULL)
+			dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;
@@ -40,6 +63,13 @@ public:
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<typespecdeclaration>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		if(right != NULL)
+		dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;
@@ -53,6 +83,13 @@ public:
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<typeequaldeclaration assignment>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		if(right != NULL)
+		dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;
@@ -66,6 +103,13 @@ public:
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<initdeclarator>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		if(right != NULL)
+			dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 	Statementptr right;
@@ -77,6 +121,11 @@ public:
 	virtual ~pointerdeclarator(){};
 	Statementptr get_p1(){return left;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Pointerdeclarator>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 };
@@ -88,6 +137,12 @@ public:
 	virtual ~arraydeclarator(){};
 	Statementptr get_p1(){return left;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Arraydeclarator>"<<" ["<<'\n';
+		if(left != NULL)
+			dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 };
@@ -99,6 +154,12 @@ public:
 	virtual ~functiondeclarator(){};
 	Statementptr get_p1(){return left;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<Functiondeclarator>"<<" ["<<'\n';
+		if(left != NULL)
+			dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 };
@@ -109,6 +170,11 @@ public:
 	virtual ~initializer(){};
 	Statementptr get_p1(){return left;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<initializer>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 private:
 	Statementptr left;
 };

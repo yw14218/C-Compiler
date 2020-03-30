@@ -9,6 +9,7 @@ public:
 	integer(int id_in){id = id_in;}
 	int getid(){return id;}
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {dst<<"<integer> "<<id;}
 protected:
 	int id;
 };

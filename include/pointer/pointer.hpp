@@ -9,6 +9,9 @@ public:
 	pointer(){};
 	virtual ~pointer(){};
 	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<pointer>"<<"*";
+	};
 };
 
 

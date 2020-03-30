@@ -10,7 +10,13 @@ public:
 	virtual ~labeledstatement(){};
 	Statementptr get_label(){return left;};
 	Statementptr get_stat(){return right;};
-  virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<labeled statement>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 protected:
 	Statementptr left;
 	Statementptr right;
@@ -24,6 +30,12 @@ public:
 	Statementptr get_label(){return left;};
 	Statementptr get_stat(){return right;};;
   virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<caselabelstatement>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"  ";right->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 protected:
 	Statementptr left;
 	Statementptr right;
@@ -35,6 +47,11 @@ public:
 	virtual ~defaultlabeledstatement(){};
 	Statementptr get_stat(){return left;};
   virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst)const override {
+		dst<<"<defaultlabeled statement>"<<" ["<<'\n';
+		dst<<"  ";left->treeprint(dst);dst<<'\n';
+		dst<<"]"<<'\n';
+	};
 protected:
 	Statementptr left;
 };

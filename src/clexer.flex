@@ -7,15 +7,15 @@ extern "C" int fileno(FILE *stream);
 #include "cparser.tab.hpp"
 %}
 
-DIGITS [0-9]
-NONDIGITS [_A-Za-z]
-HEXADIGITS [0-9A-Fa-z]
-OCTADIGITS [0-7]
+DIGIT [0-9]
+NONDIGIT [_A-Za-z]
+HEXADIGIT [0-9A-Fa-z]
+OCTADIGIT [0-7]
 UNSIGNEDSUFFIX[uU]
 LONGSUFFIX[Ll]
 INTSUFFIX {UNSIGNEDSUFFIX}{LONGSUFFIX}?|{UNSIGNEDSUFFIX}?{LONGSUFFIX}
 FLOATSUFFIX [flFL]
-EXPONENTPART [Ee][+-]?{DIGITS}+
+EXPONENTPART [Ee][+-]?{DIGIT}+
 
 %%
 
@@ -52,34 +52,34 @@ if {return T_IF;}
 static {return T_STATIC;}
 while {return T_WHILE;}
 
-[NONDIGIT][DIGIT|NONDIGIT]* {return T_IDENTIFIER;}
+{NONDIGIT}({DIGIT}|{NONDIGIT})* {return T_IDENTIFIER;}
 
-[DIGIT]+"."[EXPONENTPART]?[FLOATSUFFIX] {yylval.number = std::stod(yytext);
+{DIGIT}+"."{EXPONENTPART}?{FLOATSUFFIX} {yylval.number = std::stod(yytext);
 	return T_FLOAT;}
-[DIGIT]*"."[DIGIT]+[EXPONENTPART]?[FLOATSUFFIX] {yylval.number = std::stod(yytext);
+{DIGIT}*"."{DIGIT}+{EXPONENTPART}?{FLOATSUFFIX} {yylval.number = std::stod(yytext);
 	return T_FLOAT;}
-[DIGIT]+[EXPONENTPART][FLOATSUFFIX] {yylval.number = std::stod(yytext);
+{DIGIT}+{EXPONENTPART}{FLOATSUFFIX} {yylval.number = std::stod(yytext);
 	return T_FLOAT;}
 
-[DIGIT]+"."[EXPONENTPART]? {yylval.number = std::stod(yytext);
+{DIGIT}+"."{EXPONENTPART}? {yylval.number = std::stod(yytext);
 	return T_DOUBLE;}
-[DIGIT]*"."[DIGIT]+[EXPONENTPART]? {yylval.number = std::stod(yytext);
+{DIGIT}*"."{DIGIT}+{EXPONENTPART}? {yylval.number = std::stod(yytext);
 	return T_DOUBLE;}
-[DIGIT]+[EXPONENTPART] {yylval.number = std::stod(yytext);
+{DIGIT}+{EXPONENTPART} {yylval.number = std::stod(yytext);
 	return T_DOUBLE;}
 
-[DIGIT]+[INTSUFFIX]? {yylval.number = std::stoi(yytext, nullptr, 10);
+{DIGIT}+{INTSUFFIX}? {yylval.number = std::stoi(yytext, nullptr, 10);
 	return T_INT;}
-[0][OCTADIGIT]+[INTSUFFIX]? {yylval.number = std::stoi(yytext, nullptr, 8);
+0{OCTADIGIT}+{INTSUFFIX}? {yylval.number = std::stoi(yytext, nullptr, 8);
 	return T_INT;}
-[0][x|X][HEXADIGIT]+[INTSUFFIX]? {yylval.number = std::stoi(yytext, nullptr, 16);
+0[xX]{HEXADIGIT}+{INTSUFFIX}? {yylval.number = std::stoi(yytext, nullptr, 16);
 	return T_INT;}
 
-['][^'\\]+['] {std::string charseq = yytext;
+L?'(\\.|[^\\'])+' {std::string charseq = yytext;
 	yylval.number = charseq[1];
 	return T_CHAR;}
 
-["][^"\\]*["] {yylval.string = new std::string(yytext, 1, strlen(yytext) - 2);
+L?\"([^\\\"]|\\.)*\" {yylval.string = new std::string(yytext, 1, strlen(yytext) - 2);
 	return T_STRING;}
 
 
@@ -139,9 +139,9 @@ while {return T_WHILE;}
 [-][>]		{ return T_POINT_TO;}
 "^"		{ return T_BITWISE_XOR;}
 
-[ \t\r\n]+		{;}
+[ \t\r\n\f]+		{;}
 
-.               { fprintf(stderr, "Invalid token\n"); exit(1); }
+.               { fprintf(stderr, "Invalid tokens\n"); exit(1); }
 %%
 
 void yyerror (char const *s)

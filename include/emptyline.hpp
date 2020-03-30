@@ -7,6 +7,7 @@ class emptyline : public Statement {
 public:
 	emptyline(){};
 	virtual ~emptyline(){};
+	virtual void translate(std::ostream &dst)const override{}
 };
 
 

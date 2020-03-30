@@ -2,28 +2,41 @@
 #define LABELEDSTATEMENT_HPP
 
 #include "Statement.hpp" 
+#include "Statementlist.hpp"
 
 class labeledstatement: public Statement{
 public:
-	labeledstatement(Statementptr p1, Statementptr p2){subs[0] = p1; subs[1] = p2;};
+	labeledstatement(Statementptr p1, Statementptr p2){left = p1; right = p2;};
 	virtual ~labeledstatement(){};
-	Statementptr get_label(){return subs[0];};
-	Statementptr get_stat(){return subs[1];};
+	Statementptr get_label(){return left;};
+	Statementptr get_stat(){return right;};
+  virtual void translate(std::ostream &dst)const override{}
+protected:
+	Statementptr left;
+	Statementptr right;
+
 };
 
 class caselabeledstatement : public Statement{
 public:
-	caselabeledstatement(Statementptr p1, Statementptr p2){subs[0] = p1; subs[1] = p2;};
+	caselabeledstatement(Statementptr p1, Statementptr p2){left = p1; right = p2;};
 	virtual ~caselabeledstatement(){};
-	Statementptr get_label(){return subs[0];};
-	Statementptr get_stat(){return subs[1];};;
+	Statementptr get_label(){return left;};
+	Statementptr get_stat(){return right;};;
+  virtual void translate(std::ostream &dst)const override{}
+protected:
+	Statementptr left;
+	Statementptr right;
 };
 
 class defaultlabeledstatement : public Statement{
 public:
-	defaultlabeledstatement(Statementptr p1){subs[0] = p1;};
+	defaultlabeledstatement(Statementptr p1){left = p1;};
 	virtual ~defaultlabeledstatement(){};
-	Statementptr get_stat(){return subs[0];};
+	Statementptr get_stat(){return left;};
+  virtual void translate(std::ostream &dst)const override{}
+protected:
+	Statementptr left;
 };
 
 

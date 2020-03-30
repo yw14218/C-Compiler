@@ -2,23 +2,33 @@
 #define IFELSESTATEMENT_HPP
 
 #include "Statement.hpp"
+#include "Statementlist.hpp"
 
 class ifelsestatement: public Statement{
 public:
-	ifelsestatement(Statementptr p1, Statementptr p2, Statementptr p3){subs[0] = p1;subs[1] = p2;subs[2] = p3;};
-	ifelsestatement(Statementptr p1, Statementptr p2){subs[0] = p1;subs[1] = p2;};
+	ifelsestatement(Statementptr p1, Statementptr p2, Statementptr p3){left = p1;mid = p2;right = p3;};
+	ifelsestatement(Statementptr p1, Statementptr p2){left = p1;mid = p2;};
 	virtual ~ifelsestatement(){};
-	Statementptr get_condition(){return subs[0];};
-	Statementptr get_if(){return subs[1];};
-	Statementptr get_else(){return subs[2];};
+	Statementptr get_condition(){return left;};
+	Statementptr get_if(){return mid;};
+	Statementptr get_else(){return right;};
+	virtual void translate(std::ostream &dst)const override{}
+private:
+	Statementptr left;
+	Statementptr mid;
+	Statementptr right;
 };
 
 class switchstatement: public Statement {
 public:
-	switchstatement(Statementptr p1, Statementptr p2){subs[0] = p1;subs[1] = p2;};
+	switchstatement(Statementptr p1, Statementptr p2){left = p1;right = p2;};
 	virtual ~switchstatement(){};
-	Statementptr get_condition(){return subs[0];};
-	Statementptr get_stat(){return subs[1];};
+	Statementptr get_condition(){return left;};
+	Statementptr get_stat(){return right;};
+	virtual void translate(std::ostream &dst)const override{}
+private:
+	Statementptr left;
+	Statementptr right;
 };
 
 #endif

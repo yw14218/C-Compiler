@@ -8,7 +8,7 @@ public:
 	virtual ~stringliteral(){};
 	stringliteral(std::string id_in){id = id_in;}
 	std::string getid(){return id;}
-        void translate(std::ostream &dst){ dst << id;}
+	virtual void translate(std::ostream &dst)const override{}
 protected:
 	std::string id;
 };

@@ -2,13 +2,14 @@
 #define UNARY_HPP
 
 #include"Statement.hpp"
+#include"Statementlist.hpp"
 
 class unaryplusplus : public Statement{
 public:
 	virtual ~unaryplusplus(){};
 	unaryplusplus(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr target;
 };
@@ -19,7 +20,7 @@ public:
 	virtual ~unaryminusminus(){};
 	unaryminusminus(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr target;
 };
@@ -29,7 +30,7 @@ public:
 	virtual ~plusplusunary(){};
 	plusplusunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr target;
 };
@@ -39,7 +40,7 @@ public:
 	virtual ~minusminusunary(){};
 	minusminusunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr target;
 };
@@ -49,7 +50,7 @@ public:
 	virtual ~plusunary(){};
 	plusunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr target;
 };
@@ -59,7 +60,7 @@ public:
 	virtual ~minusunary(){};
 	minusunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr target;
 };
@@ -69,7 +70,7 @@ public:
 	virtual ~bitwiseandunary(){};
 	bitwiseandunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr target;
 };
@@ -79,7 +80,7 @@ public:
 	virtual ~timesunary(){};
 	timesunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr target;
 };
@@ -89,7 +90,7 @@ public:
 	virtual ~invertunary(){};
 	invertunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr target;
 };
@@ -99,7 +100,7 @@ public:
 	virtual ~exclamunary(){};
 	exclamunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr target;
 };
@@ -109,7 +110,7 @@ public:
 	virtual ~sizeofunary(){};
 	sizeofunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr target;
 };
@@ -119,7 +120,7 @@ public:
 	virtual ~sizeofnameunary(){};
 	sizeofnameunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr target;
 };

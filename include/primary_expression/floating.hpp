@@ -8,7 +8,7 @@ public:
 	virtual ~floating(){};
 	floating(float id_in){id = id_in;}
 	float getid(){return id;}
-        void translate(std::ostream &dst){ dst << id;}
+	virtual void translate(std::ostream &dst)const override{}
 protected:
 	float id;
 };

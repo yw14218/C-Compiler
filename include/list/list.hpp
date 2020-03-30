@@ -6,10 +6,11 @@
 
 class list : public Statement {
 public:
-	list(std::vector<Statementptr> p1){statementlistptr = p1;};
+	list(Statementlistptr p1){statementlistptr = p1;};
 	virtual ~list(){};
-	Statementlist get_list(){return statementlist;}
-	virtual virtual void translate(std::ostream &dst)const override{
+	Statementlistptr get_list(){return statementlistptr;}
+	virtual void translate(std::ostream &dst)const override{}
+/*	virtual virtual void translate(std::ostream &dst)const override{
 		int content = statementlistptr -> size();
 		if(content == 0){return;}
 		if(content == 1){dst << statementlistptr ->at(0);}
@@ -19,7 +20,7 @@ public:
 			}
 			dst << at(content-1);
 		}
-	}
+	}*/
 
 private:
   Statementlistptr statementlistptr;

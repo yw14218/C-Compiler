@@ -8,7 +8,7 @@ public:
 	virtual ~character(){};
 	character(char id_in){id = id_in;}
 	char getid(){return id;}
-        void translate(std::ostream &dst){ dst << id;}
+	virtual void translate(std::ostream &dst)const override{}
 protected:
 	char id;
 };

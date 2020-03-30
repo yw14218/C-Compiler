@@ -12,7 +12,7 @@ int main(int argc ,char *argv[])
         std::cout<<"if __name__ == \"__main__\":"<<std::endl;
         std::cout<<"    import sys"<<std::endl;
         std::cout<<"    ret=main()"<<std::endl;
-        std::cout<<"    sys.exit(ret)"<<std::endl;}
+        std::cout<<"    sys.exit(ret)"<<std::endl;
     }
 
     return 0;

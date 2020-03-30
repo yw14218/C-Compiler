@@ -2,16 +2,19 @@
 #define ASSIGNMENT_HPP
 
 #include"Statement.hpp"
+#include"Statementlist.hpp"
+
 class equalassignment : public Statement{
 public:
 	virtual ~equalassignment(){};
 	equalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual void translate(std::ostream &dst){ dst << left << "=" << right;}
+	//virtual void translate(std::ostream &dst){ dst << left->translate(dst) << "=" << right->translate(dst);}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr left;
-	StatementPtr right;
+	Statementptr right;
 };
 
 class timesequalassignment : public Statement{
@@ -20,10 +23,10 @@ public:
 	timesequalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr left;
-	StatementPtr right;
+	Statementptr right;
 };
 
 class divideequalassignment : public Statement{
@@ -32,10 +35,10 @@ public:
 	divideequalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr left;
-	StatementPtr right;
+	Statementptr right;
 };
 
 class percentageequalassignment : public Statement{
@@ -44,10 +47,10 @@ public:
 	percentageequalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr left;
-	StatementPtr right;
+	Statementptr right;
 };
 
 class plusequalassignment : public Statement{
@@ -56,10 +59,10 @@ public:
 	plusequalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr left;
-	StatementPtr right;
+	Statementptr right;
 };
 
 class minusequalassignment : public Statement{
@@ -68,10 +71,10 @@ public:
 	minusequalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr left;
-	StatementPtr right;
+	Statementptr right;
 };
 
 class lshiftequalassignment : public Statement{
@@ -80,10 +83,10 @@ public:
 	lshiftequalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr left;
-	StatementPtr right;
+	Statementptr right;
 };
 class rshiftequalassignment : public Statement{
 public:
@@ -91,10 +94,10 @@ public:
 	rshiftequalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr left;
-	StatementPtr right;
+	Statementptr right;
 };
 class andequalassignment : public Statement{
 public:
@@ -102,10 +105,10 @@ public:
 	andequalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr left;
-	StatementPtr right;
+	Statementptr right;
 };
 class xorequalassignment : public Statement{
 public:
@@ -113,10 +116,10 @@ public:
 	xorequalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr left;
-	StatementPtr right;
+	Statementptr right;
 };
 class orequalassignment : public Statement{
 public:
@@ -124,9 +127,9 @@ public:
 	orequalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{}
 private:
 	Statementptr left;
-	StatementPtr right;
+	Statementptr right;
 };
 #endif

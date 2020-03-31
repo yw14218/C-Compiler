@@ -7,20 +7,19 @@
 class list : public Statement {
 public:
 	list(Statementlistptr p1){statementlistptr = p1;};
-	virtual ~list(){};
+	virtual ~list(){delete statementlistptr;}
 	Statementlistptr get_list(){return statementlistptr;}
-	virtual void translate(std::ostream &dst)const override{}
-/*	virtual virtual void translate(std::ostream &dst)const override{
+  virtual void translate(std::ostream &dst)const override{
 		int content = statementlistptr -> size();
 		if(content == 0){return;}
 		if(content == 1){dst << statementlistptr ->at(0);}
 		else{
 			for(int i =0; i<content-1;i++){
-         dst << at(i) << ",";
+         dst << statementlistptr ->at(i) << ",";
 			}
-			dst << at(content-1);
+			dst << statementlistptr ->at(content-1);
 		}
-	}*/
+	}
 	virtual void treeprint(std::ostream &dst)const override {
 		dst<<"<list>"<<" ["<<'\n';
 		for(int i=0;i<statementlistptr->size();i++)

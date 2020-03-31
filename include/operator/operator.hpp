@@ -12,8 +12,12 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
   //virtual void translate(std::ostream &dst){ dst << left << "*" << right;}
-  	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
+  	virtual void translate(std::ostream &dst)const override{
+		left ->translate(dst);
+		dst << "*";
+		right ->translate(dst);
+		}
+	  virtual void treeprint(std::ostream &dst)const override {
 		dst<<"<times operator>"<<" ["<<'\n';
 		dst<<"  ";left->treeprint(dst);dst<<'\n';
 		dst<<"  ";right->treeprint(dst);dst<<'\n';
@@ -31,9 +35,13 @@ public:
 	divideoperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-  //virtual void translate(std::ostream &dst){ dst << left << "/" << right;}  	
+  //virtual void translate(std::ostream &dst){ dst << left << "/" << right;}
 
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{
+		left ->translate(dst);
+		dst << "/";
+		right ->translate(dst);
+	}
 	virtual void treeprint(std::ostream &dst)const override {
 		dst<<"<divide operator>"<<" ["<<'\n';
 		dst<<"  ";left->treeprint(dst);dst<<'\n';
@@ -51,7 +59,11 @@ public:
 	percentageoperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-  	virtual void translate(std::ostream &dst)const override{}
+  	virtual void translate(std::ostream &dst)const override{
+			left ->translate(dst);
+			dst << "%";
+			right ->translate(dst);
+		}
 	virtual void treeprint(std::ostream &dst)const override {
 		dst<<"<percentage operator>"<<" ["<<'\n';
 		dst<<"  ";left->treeprint(dst);dst<<'\n';
@@ -70,7 +82,11 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
   //virtual void translate(std::ostream &dst){ dst << left << "+" << right;}
-  	virtual void translate(std::ostream &dst)const override{}
+  	virtual void translate(std::ostream &dst)const override{
+			left ->translate(dst);
+			dst << "+";
+			right ->translate(dst);
+		}
 	virtual void treeprint(std::ostream &dst)const override {
 		dst<<"<plus operator>"<<" ["<<'\n';
 		dst<<"  ";left->treeprint(dst);dst<<'\n';
@@ -89,7 +105,11 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
    //     virtual void translate(std::ostream &dst){ dst << left << "-" << right;}
-  	virtual void translate(std::ostream &dst)const override{}
+  	virtual void translate(std::ostream &dst)const override{
+			left ->translate(dst);
+			dst << "-";
+			right ->translate(dst);
+		}
 	virtual void treeprint(std::ostream &dst)const override {
 		dst<<"<minus operator>"<<" ["<<'\n';
 		dst<<"  ";left->treeprint(dst);dst<<'\n';
@@ -106,8 +126,12 @@ public:
 	lshiftoperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	//virtual void translate(std::ostream &dst)const override{}  	
-	virtual void translate(std::ostream &dst)const override{}
+	//virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{
+		left ->translate(dst);
+		dst << "<<";
+		right ->translate(dst);
+	}
 	virtual void treeprint(std::ostream &dst)const override {
 		dst<<"<lshift operator>"<<" ["<<'\n';
 		dst<<"  ";left->treeprint(dst);dst<<'\n';
@@ -125,7 +149,11 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 	//virtual void translate(std::ostream &dst)const override{}
-  	virtual void translate(std::ostream &dst)const override{}
+  	virtual void translate(std::ostream &dst)const override{
+			left ->translate(dst);
+			dst << ">>";
+			right ->translate(dst);
+		}
 	virtual void treeprint(std::ostream &dst)const override {
 		dst<<"<rshift operator>"<<" ["<<'\n';
 		dst<<"  ";left->treeprint(dst);dst<<'\n';
@@ -142,8 +170,11 @@ public:
 	smalleroperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-       // virtual void translate(std::ostream &dst){ dst << left << "<" << right;}
-  	virtual void translate(std::ostream &dst)const override{}
+  	virtual void translate(std::ostream &dst)const override{
+			left ->translate(dst);
+			dst << "<";
+			right ->translate(dst);
+		}
 	virtual void treeprint(std::ostream &dst)const override {
 		dst<<"<smaller operator>"<<" ["<<'\n';
 		dst<<"  ";left->treeprint(dst);dst<<'\n';
@@ -161,8 +192,11 @@ public:
 	biggeroperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	//virtual virtual void translate(std::ostream &dst)const override{}
-  	virtual void translate(std::ostream &dst)const override{}
+  	virtual void translate(std::ostream &dst)const override{
+			left ->translate(dst);
+			dst << ">";
+			right ->translate(dst);
+		}
 	virtual void treeprint(std::ostream &dst)const override {
 		dst<<"<bigger operator>"<<" ["<<'\n';
 		dst<<"  ";left->treeprint(dst);dst<<'\n';
@@ -180,8 +214,11 @@ public:
 	sequaloperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	//virtual void translate(std::ostream &dst)const override{}
-  	virtual void translate(std::ostream &dst)const override{}
+  	virtual void translate(std::ostream &dst)const override{
+			left ->translate(dst);
+			dst << "<=";
+			right ->translate(dst);
+		}
 	virtual void treeprint(std::ostream &dst)const override {
 		dst<<"<smallerequal operator>"<<" ["<<'\n';
 		dst<<"  ";left->treeprint(dst);dst<<'\n';
@@ -199,7 +236,6 @@ public:
 	bequaloperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	//virtual virtual void translate(std::ostream &dst)const override{}
   	virtual void translate(std::ostream &dst)const override{}
 	virtual void treeprint(std::ostream &dst)const override {
 		dst<<"<biggerequal operator>"<<" ["<<'\n';
@@ -218,8 +254,11 @@ public:
 	equalequaloperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	//virtual void translate(std::ostream &dst){ dst << left << "==" << right;}
-  	virtual void translate(std::ostream &dst)const override{}
+  	virtual void translate(std::ostream &dst)const override{
+			left ->translate(dst);
+			dst << "==";
+			right ->translate(dst);
+		}
 	virtual void treeprint(std::ostream &dst)const override {
 		dst<<"<equalequal operator>"<<" ["<<'\n';
 		dst<<"  ";left->treeprint(dst);dst<<'\n';
@@ -236,8 +275,11 @@ public:
 	notequaloperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	//virtual virtual void translate(std::ostream &dst)const override{}
-  	virtual void translate(std::ostream &dst)const override{}
+  	virtual void translate(std::ostream &dst)const override{
+			left ->translate(dst);
+			dst << "!=";
+			right ->translate(dst);
+		}
 	virtual void treeprint(std::ostream &dst)const override {
 		dst<<"<notequal operator>"<<" ["<<'\n';
 		dst<<"  ";left->treeprint(dst);dst<<'\n';
@@ -272,8 +314,11 @@ public:
 	logicalandoperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-      //  virtual void translate(std::ostream &dst){ dst << left << " and " << right;}
-  	virtual void translate(std::ostream &dst)const override{}
+  	virtual void translate(std::ostream &dst)const override{
+			left ->translate(dst);
+			dst << " and ";
+			right ->translate(dst);
+		}
 	virtual void treeprint(std::ostream &dst)const override {
 		dst<<"<logicaland operator>"<<" ["<<'\n';
 		dst<<"  ";left->treeprint(dst);dst<<'\n';
@@ -290,8 +335,11 @@ public:
 	logicaloroperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-      //  virtual void translate(std::ostream &dst){ dst << left << " or " << right;}
-  	virtual void translate(std::ostream &dst)const override{}
+  	virtual void translate(std::ostream &dst)const override{
+			left ->translate(dst);
+			dst << " or ";
+			right ->translate(dst);
+		}
 	virtual void treeprint(std::ostream &dst)const override {
 		dst<<"<logicalor operator>"<<" ["<<'\n';
 		dst<<"  ";left->treeprint(dst);dst<<'\n';
@@ -326,7 +374,6 @@ public:
 	oroperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-  //virtual void translate(std::ostream &dst){ dst << left << "*" << right;}
   	virtual void translate(std::ostream &dst)const override{}
 	virtual void treeprint(std::ostream &dst)const override {
 		dst<<"<or operator>"<<" ["<<'\n';

@@ -48,20 +48,21 @@
 ROOT : TRANSLATION_UNIT { g_root = new root($1) ; }
      ;
 
-PRIMARY_EXPRESSION: T_IDENTIFIER {$$ = new identifier(*$1); delete $1;}
-		|T_FLOAT{$$ = new floating($1);}
+PRIMARY_EXPRESSION: T_IDENTIFIER {$$ = new identifier(*$1);}
+		|T_FLOAT{$$ = new doubleing($1);}
+		|T_DOUBLE{$$ = new floating($1);}
 		|T_INT{$$ = new integer($1);}
 		|T_CHAR {$$ = new character($1);}
-		|T_STRING {$$ = new stringliteral(*$1); delete $1;}
+		|T_STRING {$$ = new stringliteral(*$1);}
 		|T_L_ROUND_BRACKET EXPRESSION T_R_ROUND_BRACKET { $$ = $2;}
 		; 
 
 POSTFIX_EXPRESSION: PRIMARY_EXPRESSION{ $$ = $1;}
 		|POSTFIX_EXPRESSION T_L_SQUARE_BRACKET EXPRESSION T_R_SQUARE_BRACKET{$$ = new arraysub($1, $3);}
-		|POSTFIX_EXPRESSION T_DOT T_IDENTIFIER {$$ = new structor($1, new identifier(*$3)); delete $3;}
+		|POSTFIX_EXPRESSION T_DOT T_IDENTIFIER {$$ = new structor($1, new identifier(*$3)); }
 		|POSTFIX_EXPRESSION T_L_ROUND_BRACKET ARGUMENT_EXPRESSION_LIST T_R_ROUND_BRACKET{$$ = new functioncall($1, new expressionlist($3));} 
-		|POSTFIX_EXPRESSION T_L_ROUND_BRACKET T_R_ROUND_BRACKET{;} 
-		|POSTFIX_EXPRESSION T_POINT_TO T_IDENTIFIER {$$ = new pointerSymbol{$1, new identifier(*$3)}; delete $3;}
+		|POSTFIX_EXPRESSION T_L_ROUND_BRACKET T_R_ROUND_BRACKET{$$ = new functioncall($1);} 
+		|POSTFIX_EXPRESSION T_POINT_TO T_IDENTIFIER {$$ = new pointerSymbol{$1, new identifier(*$3)};}
 		|POSTFIX_EXPRESSION T_PLUS_PLUS {$$ = new unaryplusplus($1);}
 		|POSTFIX_EXPRESSION T_MINUS_MINUS{$$ = new unaryminusminus($1);}
 		;
@@ -154,7 +155,7 @@ ASSIGNMENT_EXPRESSION: CONDITIONAL_EXPRESSION {$$ = $1;}
 		;
 
 EXPRESSION: ASSIGNMENT_EXPRESSION {$$ = $1;}
-		|EXPRESSION T_COMMA ASSIGNMENT_EXPRESSION
+		| EXPRESSION T_COMMA ASSIGNMENT_EXPRESSION
 		;
 
 CONSTANT_EXPRESSION: CONDITIONAL_EXPRESSION {$$ = $1;}
@@ -199,12 +200,12 @@ TYPE_SPECIFIER: T_VOID {$$ = new voidkey();}
 		| T_UNSIGNED {$$ = new unsignedkey();}
 		| STRUCT_OR_UNION_SPECIFIER {$$ = $1;}
 		| ENUM_SPECIFIER {$$ = $1;}
-		| TYPEDEF_NAME {$$ = $1;}
+		//| T_IDENTIFIER {$$ = $1;}
 		;
 
-STRUCT_OR_UNION_SPECIFIER: STRUCT_OR_UNION T_IDENTIFIER {$$ = new structspec($1, new identifier(*$2)); delete $2;}
+STRUCT_OR_UNION_SPECIFIER: STRUCT_OR_UNION T_IDENTIFIER {$$ = new structspec($1, new identifier(*$2));}
 		| STRUCT_OR_UNION T_L_CURLY_BRACKET STRUCT_DECLARATION_LIST T_R_CURLY_BRACKET {$$ = new structspec($1, new declarationlist($3)); }
-		| STRUCT_OR_UNION T_IDENTIFIER T_L_CURLY_BRACKET STRUCT_DECLARATION_LIST T_R_CURLY_BRACKET {$$ = new structspec($1, new identifier(*$2), new declarationlist($4)); delete $2;}
+		| STRUCT_OR_UNION T_IDENTIFIER T_L_CURLY_BRACKET STRUCT_DECLARATION_LIST T_R_CURLY_BRACKET {$$ = new structspec($1, new identifier(*$2), new declarationlist($4));}
 		;
 
 STRUCT_OR_UNION: T_STRUCT {$$ = new structkey();}
@@ -232,16 +233,16 @@ STRUCT_DECLARATOR: DECLARATOR {$$ = new structdeclarator($1);}
 		| DECLARATOR T_COLON CONSTANT_EXPRESSION {$$ = new structcolondeclarator($1, $3);}
  		;
 
-ENUM_SPECIFIER: T_ENUM T_IDENTIFIER T_L_CURLY_BRACKET ENUMERATOR_LIST T_R_CURLY_BRACKET {$$ = new enumspecifier(new identifier(*$2), new enumeratorlist($4)); delete $2;}
+ENUM_SPECIFIER: T_ENUM T_IDENTIFIER T_L_CURLY_BRACKET ENUMERATOR_LIST T_R_CURLY_BRACKET {$$ = new enumspecifier(new identifier(*$2), new enumeratorlist($4));}
 		| T_ENUM T_L_CURLY_BRACKET ENUMERATOR_LIST T_R_CURLY_BRACKET {$$ = new enumspecifier(new enumeratorlist($3));}
-		| T_ENUM T_IDENTIFIER {$$ = new enumspecifier(new identifier(*$2)); delete $2;}
+		| T_ENUM T_IDENTIFIER {$$ = new enumspecifier(new identifier(*$2));}
 		;
 
 ENUMERATOR_LIST: ENUMERATOR{ $$ = listgen($1);}
 		| ENUMERATOR_LIST T_COMMA ENUMERATOR { $$ = listcombine($1, $3);}
 		;
 
-ENUMERATOR: T_IDENTIFIER { $$ = new enumerator(new identifier(*$1)); delete $1;}
+ENUMERATOR: T_IDENTIFIER { $$ = new enumerator(new identifier(*$1));}
 		| T_IDENTIFIER T_EQUAL CONSTANT_EXPRESSION {$$ = new enumerator(new identifier(*$1), $3);}
 		;
 
@@ -249,17 +250,17 @@ TYPE_QUALIFIER: T_VOLATILE {;}
 		| T_CONST{;}
 		;
 
-DECLARATOR: DIRECT_DECLARATOR {;}
+DECLARATOR: DIRECT_DECLARATOR {$$ = $1;}
 		| POINTER DIRECT_DECLARATOR {$$ = new pointerdeclarator($2);}
 		;
 
-DIRECT_DECLARATOR: T_IDENTIFIER {$$ = new identifier(*$1); delete $1;}
+DIRECT_DECLARATOR: T_IDENTIFIER {$$ = new identifier(*$1);}
 		| T_L_ROUND_BRACKET DECLARATOR T_R_ROUND_BRACKET {$$ = $2;}
-		| DIRECT_DECLARATOR T_L_SQUARE_BRACKET T_R_SQUARE_BRACKET {$$ = new arraydeclarator();}
-		| DIRECT_DECLARATOR T_L_SQUARE_BRACKET CONSTANT_EXPRESSION T_R_SQUARE_BRACKET {$$ = new arraydeclarator($3);}
-		| DIRECT_DECLARATOR T_L_ROUND_BRACKET PARAMETER_TYPE_LIST T_R_ROUND_BRACKET {$$ = new functiondeclarator(new parameterlist($3));}
-		| DIRECT_DECLARATOR T_L_ROUND_BRACKET T_R_ROUND_BRACKET {$$ = new functiondeclarator();}
-		| DIRECT_DECLARATOR T_L_ROUND_BRACKET IDENTIFIER_LIST T_R_ROUND_BRACKET {$$ = new  functiondeclarator(new identifierlist($3));}
+		| DIRECT_DECLARATOR T_L_SQUARE_BRACKET T_R_SQUARE_BRACKET {$$ = new arraydeclarator($1);}
+		| DIRECT_DECLARATOR T_L_SQUARE_BRACKET CONSTANT_EXPRESSION T_R_SQUARE_BRACKET {$$ = new arraydeclarator($1,$3);}
+		| DIRECT_DECLARATOR T_L_ROUND_BRACKET PARAMETER_TYPE_LIST T_R_ROUND_BRACKET {$$ = new functiondeclarator($1, new parameterlist($3));}
+		| DIRECT_DECLARATOR T_L_ROUND_BRACKET T_R_ROUND_BRACKET {$$ = new functiondeclarator($1);}
+		| DIRECT_DECLARATOR T_L_ROUND_BRACKET IDENTIFIER_LIST T_R_ROUND_BRACKET {$$ = new  functiondeclarator($1, new identifierlist($3));}
 		;
 
 POINTER: T_TIMES {$$ = new pointer();}
@@ -284,8 +285,8 @@ PARAMETER_DECLARATION: DECLARATION_SPECIFIERS DECLARATOR {$$ = new declaration($
 		| DECLARATION_SPECIFIERS ABSTRACT_DECLARATOR {$$ = new declaration($1, $2);}
 		;
 
-IDENTIFIER_LIST : T_IDENTIFIER {$$ = listgen(new identifier(*$1)); delete $1;}
-		| IDENTIFIER_LIST T_COMMA T_IDENTIFIER {$$ = listcombine($1, new identifier(*$3)); delete $3;}
+IDENTIFIER_LIST : T_IDENTIFIER {$$ = listgen(new identifier(*$1));}
+		| IDENTIFIER_LIST T_COMMA T_IDENTIFIER {$$ = listcombine($1, new identifier(*$3)); }
 		;
 
 TYPE_NAME: SPECIFIER_QUALIFIER_LIST {}
@@ -329,12 +330,12 @@ STATEMENT: LABELED_STATEMENT {$$ = $1;}
 		| JUMP_STATEMENT {$$ = $1;}
 		;
 
-LABELED_STATEMENT: T_IDENTIFIER T_COLON STATEMENT {$$ = new labeledstatement(new identifier(*$1), $3); delete $1;}
+LABELED_STATEMENT: T_IDENTIFIER T_COLON STATEMENT {$$ = new labeledstatement(new identifier(*$1), $3);}
 		| T_CASE CONSTANT_EXPRESSION T_COLON STATEMENT {$$ = new caselabeledstatement($2, $4);}	
 		| T_DEFAULT T_COLON STATEMENT {$$ = new defaultlabeledstatement($3);}
 		;
 
-COMPOUND_STATEMENT: T_L_CURLY_BRACKET DECLARATION_LIST STATEMENT_LIST  T_R_CURLY_BRACKET {$$ = new compoundstatement($2, $3);}
+COMPOUND_STATEMENT: T_L_CURLY_BRACKET DECLARATION_LIST STATEMENT_LIST T_R_CURLY_BRACKET {$$ = new compoundstatement($2, $3);}
 		| T_L_CURLY_BRACKET STATEMENT_LIST  T_R_CURLY_BRACKET {$$ = new compoundstatement($2); }
 		| T_L_CURLY_BRACKET DECLARATION_LIST T_R_CURLY_BRACKET {$$ = new compoundstatement($2);}
 		| T_L_CURLY_BRACKET T_R_CURLY_BRACKET {$$ = new compoundstatement();}
@@ -353,7 +354,7 @@ EXPRESSION_STATEMENT: T_SEMICOLON {$$ = new emptyline();}
 		;
 
 SELECTION_STATEMENT: T_IF T_L_ROUND_BRACKET EXPRESSION T_R_ROUND_BRACKET STATEMENT {$$ = new ifelsestatement($3, $5);}
-		| T_IF T_L_ROUND_BRACKET EXPRESSION T_R_ROUND_BRACKET STATEMENT T_ELSE STATEMENT {$$ = new ifelsestatement($3, $5, $7);}
+		   | T_IF T_L_ROUND_BRACKET EXPRESSION T_R_ROUND_BRACKET STATEMENT T_ELSE STATEMENT {$$ = new ifelsestatement($3, $5, $7);}
 		| T_SWITCH T_L_ROUND_BRACKET EXPRESSION T_R_ROUND_BRACKET STATEMENT {$$ = new switchstatement($3, $5);}
 		;
 
@@ -375,7 +376,7 @@ TRANSLATION_UNIT: EXTERNAL_DECLARATION {$$ = listgen($1);}
 		;
 
 EXTERNAL_DECLARATION: FUNCTION_DEFINITION {$$ = $1;}
-		| DECLARATION {$$ = $1;}
+		| DECLARATION {$$ = $1;} //global declaration
 		;
 
 FUNCTION_DEFINITION: DECLARATION_SPECIFIERS DECLARATOR COMPOUND_STATEMENT{$$ = new functiondefinition($1, $2, $3);}

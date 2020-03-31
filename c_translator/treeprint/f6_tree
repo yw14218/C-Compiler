@@ -1,0 +1,35 @@
+Root start [
+  <Function definition> [
+    <Typespecdeclaration> [
+      <key> int
+    ]
+    <Function declarator> [
+      <identifier> main
+    ]
+    <Compound assignment> [
+      <Declaration> [
+        <Typespecdeclaration> [
+          <key> int
+        ]
+        <initdeclarator> [
+          <identifier> x
+        ]
+      ]
+      <Equal assignment> [
+        <identifier> x
+        <integer> 5
+      ]
+      <Equal assignment> [
+        <identifier> x
+        <Times operator> [
+          <identifier> x
+          <identifier> x
+        ]
+      ]
+      <return statement> [ 
+        <identifier> x
+      ]
+    ]
+  ]
+]
+

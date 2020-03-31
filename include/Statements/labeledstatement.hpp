@@ -11,11 +11,11 @@ public:
 	Statementptr get_label(){return left;};
 	Statementptr get_stat(){return right;};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<labeled statement>"<<" ["<<'\n';
-		dst<<"  ";left->treeprint(dst);dst<<'\n';
-		dst<<"  ";right->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"Labeled Statement> ["<<'\n';
+		left->treeprint(dst,indent+"  ");
+		right->treeprint(dst,indent+"  ");
+		dst<<indent<<"]"<<'\n';
 	};
 protected:
 	Statementptr left;
@@ -30,11 +30,11 @@ public:
 	Statementptr get_label(){return left;};
 	Statementptr get_stat(){return right;};;
   virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<caselabelstatement>"<<" ["<<'\n';
-		dst<<"  ";left->treeprint(dst);dst<<'\n';
-		dst<<"  ";right->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"CaseLabeled Statement> ["<<'\n';
+		left->treeprint(dst,indent+"  ");
+		right->treeprint(dst,indent+"  ");
+		dst<<indent<<"]"<<'\n';
 	};
 protected:
 	Statementptr left;
@@ -47,10 +47,10 @@ public:
 	virtual ~defaultlabeledstatement(){};
 	Statementptr get_stat(){return left;};
   virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<defaultlabeled statement>"<<" ["<<'\n';
-		dst<<"  ";left->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"Default Statement> ["<<'\n';
+		left->treeprint(dst,indent+"  ");
+		dst<<indent<<"]"<<'\n';
 	};
 protected:
 	Statementptr left;

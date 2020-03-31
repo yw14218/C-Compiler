@@ -10,10 +10,10 @@ public:
 	unaryplusplus(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<Unaryplusplus>"<<" ["<<'\n';
-		dst<<"  ";target->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<Unaryplusplus>"<<" ["<<'\n';
+		target->treeprint(dst,indent+"  ");
+		dst<<indent<<"]"<<'\n';
 	};
 private:
 	Statementptr target;
@@ -26,10 +26,10 @@ public:
 	unaryminusminus(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<Unaryminusminus>"<<" ["<<'\n';
-		dst<<"  ";target->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<Unaryminusminus>"<<" ["<<'\n';
+		target->treeprint(dst,indent+"  ");
+		dst<<indent<<"]"<<'\n';
 	};
 private:
 	Statementptr target;
@@ -41,10 +41,10 @@ public:
 	plusplusunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<plusplusunary>"<<" ["<<'\n';
-		dst<<"  ";target->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<Plusplusunary>"<<" ["<<'\n';
+		target->treeprint(dst,indent+"  ");
+		dst<<indent<<"]"<<'\n';
 	};
 private:
 	Statementptr target;
@@ -56,10 +56,10 @@ public:
 	minusminusunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<minusminusunary>"<<" ["<<'\n';
-		dst<<"  ";target->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<Minusminusunary>"<<" ["<<'\n';
+		target->treeprint(dst,indent+"  ");
+		dst<<indent<<"]"<<'\n';
 	};
 private:
 	Statementptr target;
@@ -71,10 +71,10 @@ public:
 	plusunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<plusunary>"<<" ["<<'\n';
-		dst<<"  ";target->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<plusunary>"<<" ["<<'\n';
+		target->treeprint(dst,indent+"  ");
+		dst<<indent<<"]"<<'\n';
 	};
 private:
 	Statementptr target;
@@ -86,10 +86,10 @@ public:
 	minusunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<minusunary>"<<" ["<<'\n';
-		dst<<"  ";target->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<minusunary>"<<" ["<<'\n';
+		target->treeprint(dst,indent+"  ");
+		dst<<indent<<"]"<<'\n';
 	};
 private:
 	Statementptr target;
@@ -101,10 +101,10 @@ public:
 	bitwiseandunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<bitwiseandunary>"<<" ["<<'\n';
-		dst<<"  ";target->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<bitwiseandunary>"<<" ["<<'\n';
+		target->treeprint(dst,indent+"  ");
+		dst<<indent<<"]"<<'\n';
 	};
 
 private:
@@ -117,10 +117,10 @@ public:
 	timesunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<timesunary>"<<" ["<<'\n';
-		dst<<"  ";target->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<Timesunary>"<<" ["<<'\n';
+		target->treeprint(dst,indent+"  ");
+		dst<<indent<<"]"<<'\n';
 	};
 
 private:
@@ -133,10 +133,10 @@ public:
 	invertunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<invertunary>"<<" ["<<'\n';
-		dst<<"  ";target->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<invertunary>"<<" ["<<'\n';
+		target->treeprint(dst,indent+"  ");
+		dst<<indent<<"]"<<'\n';
 	};
 private:
 	Statementptr target;
@@ -148,9 +148,9 @@ public:
 	exclamunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<"<!unary>"<<" ["<<'\n';
-		dst<<"  ";target->treeprint(dst);dst<<'\n';
+		target->treeprint(dst,indent+"  ");
 		dst<<"]"<<'\n';
 	};
 private:
@@ -163,10 +163,10 @@ public:
 	sizeofunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<sizeofunary>"<<" ["<<'\n';
-		dst<<"  ";target->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"sizeofunary>"<<" ["<<'\n';
+		target->treeprint(dst,indent+"  ");
+		dst<<indent<<"]"<<'\n';
 	};
 private:
 	Statementptr target;
@@ -178,10 +178,10 @@ public:
 	sizeofnameunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<sizeofnameunary>"<<" ["<<'\n';
-		dst<<"  ";target->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<sizeofnameunary>"<<" ["<<'\n';
+		target->treeprint(dst,indent+"  ");
+		dst<<indent<<"]"<<'\n';
 	};
 private:
 	Statementptr target;

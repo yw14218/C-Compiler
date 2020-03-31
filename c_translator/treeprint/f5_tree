@@ -1,0 +1,25 @@
+Root start [
+  <Function definition> [
+    <Typespecdeclaration> [
+      <key> int
+    ]
+    <Function declarator> [
+      <identifier> main
+    ]
+    <Compound assignment> [
+      <Declaration> [
+        <Typespecdeclaration> [
+          <key> int
+        ]
+        <initdeclarator> [
+          <identifier> z
+        ]
+      ]
+      <Equal assignment> [
+        <identifier> z
+        <integer> 7
+      ]
+    ]
+  ]
+]
+

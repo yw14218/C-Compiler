@@ -1,0 +1,37 @@
+Root start [
+  <Function definition> [
+    <Typespecdeclaration> [
+      <key> int
+    ]
+    <Function declarator> [
+      <identifier> main
+    ]
+    <Compound assignment> [
+      <return statement> [ 
+        <Plus operator> [
+          <Plus operator> [
+            <Plus operator> [
+              <Times operator> [
+                <integer> 1
+                <integer> 2
+              ]
+              <Times operator> [
+                <integer> 3
+                <integer> 4
+              ]
+            ]
+            <Times operator> [
+              <integer> 5
+              <integer> 6
+            ]
+          ]
+          <Times operator> [
+            <integer> 7
+            <integer> 8
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+

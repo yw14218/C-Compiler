@@ -13,19 +13,23 @@ public:
 	Statementlistptr get_stat1(){return left;}
 	Statementlistptr get_stat2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<Compound assignment>"<<" ["<<'\n';
-		for(int i=0;i<left->size(),i++;)
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<Compound assignment> ["<<'\n';
+		if(left != NULL)
 		{
-			dst<<'\n'<<"  ";
-			(left->at(i))->treeprint(dst);
-		}
-		for(int i=0;i<right->size(),i++;)
+		for(int i=0;i<left->size();i++)
 		{
-			dst<<'\n'<<"  ";
-			(right->at(i))->treeprint(dst);
+			(left->at(i))->treeprint(dst, indent+"  ");
 		}
-		dst<<'\n'<<"]";
+		}	
+		if(right != NULL)
+		{
+		for(int i=0;i<right->size();i++)
+		{
+			(right->at(i))->treeprint(dst, indent+"  ");
+		}
+		}
+      		dst << indent << "]"<<'\n';
 	};
 private:
 	Statementlistptr left;
@@ -39,14 +43,14 @@ public:
 	global(Statementlistptr p1){left = p1;};
 	Statementlistptr get_stat1(){return left;}
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<global>"<<" ["<<'\n';
-		for(int i=0;i<left->size(),i++;)
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<global> ["<<'\n';
+		for(int i=0;i<left->size();i++)
 		{
-			dst<<'\n'<<"  ";
-			(left->at(i))->treeprint(dst);
+			(left->at(i))->treeprint(dst, indent+"  ");
+			dst<<'\n';
 		}
-		dst<<"]"<<'\n';
+		dst<<indent<<"]"<<'\n';
 	};
 private:
 	Statementlistptr left;

@@ -12,11 +12,11 @@ public:
 	Statementptr get_condition(){return left;};
 	Statementptr get_stats(){return right;};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<while statement>"<<" ["<<'\n';
-		dst<<"  ";left->treeprint(dst);dst<<'\n';
-		dst<<"  ";right->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"While Statement> ["<<'\n';
+		left->treeprint(dst,indent+"  ");
+		right->treeprint(dst,indent+"  ");
+		dst<<indent<<"]"<<'\n';
 	};
         //void translate(){ std::cout << "while (" << subs[0] << "):" << std::endl;
 	//		  std::cout << "    " << subs[1] << std::endl;
@@ -33,11 +33,11 @@ public:
 	Statementptr get_stats(){return left;};
 	Statementptr get_condition(){return right;};	
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<dostatement>"<<" ["<<'\n';
-		dst<<"  ";left->treeprint(dst);dst<<'\n';
-		dst<<"  ";right->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<Do Statement> ["<<'\n';
+		left->treeprint(dst,indent+"  ");
+		right->treeprint(dst,indent+"  ");
+		dst<<indent<<"]"<<'\n';
 	};
 private:
 	Statementptr left;
@@ -55,15 +55,15 @@ public:
 	Statementptr get_stat3(){return right;};
 	Statementptr get_stat4(){return rightright;};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<for statement>"<<" ["<<'\n';
-		dst<<"  ";leftleft->treeprint(dst);dst<<'\n';
-		dst<<"  ";left->treeprint(dst);dst<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<for statement> ["<<'\n';
+		leftleft->treeprint(dst, indent+"  ");
+		left->treeprint(dst, indent+"  ");
 		if(right != NULL)
-			dst<<"  ";right->treeprint(dst);dst<<'\n';
+			{right->treeprint(dst, indent+"  ");}
 		if(rightright != NULL)
-			dst<<"  ";rightright->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+			{rightright->treeprint(dst, indent+"  ");}
+		dst<<indent<<"]"<<'\n';
 	};
 private:
 	Statementptr leftleft;

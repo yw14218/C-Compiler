@@ -1,0 +1,31 @@
+Root start [
+  <Function definition> [
+    <Typespecdeclaration> [
+      <key> int
+    ]
+    <Function declarator> [
+      <identifier> f
+    ]
+    <Compound assignment> [
+      <return statement> [ 
+        <integer> 10
+      ]
+    ]
+  ]
+  <Function definition> [
+    <Typespecdeclaration> [
+      <key> int
+    ]
+    <Function declarator> [
+      <identifier> main
+    ]
+    <Compound assignment> [
+      <return statement> [ 
+        <Functioncall> [
+          <identifier> f
+        ]
+      ]
+    ]
+  ]
+]
+

@@ -1,0 +1,19 @@
+Root start [
+  <Function definition> [
+    <Typespecdeclaration> [
+      <key> int
+    ]
+    <Function declarator> [
+      <identifier> main
+    ]
+    <Compound assignment> [
+      <return statement> [ 
+        <Plus operator> [
+          <integer> 5
+          <integer> 6
+        ]
+      ]
+    ]
+  ]
+]
+

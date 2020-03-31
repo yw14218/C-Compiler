@@ -1084,7 +1084,7 @@ YY_RULE_SETUP
 case 33:
 YY_RULE_SETUP
 #line 55 "src/clexer.flex"
-{return T_IDENTIFIER;}
+{ yylval.string = new std::string(yytext); return T_IDENTIFIER;}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP

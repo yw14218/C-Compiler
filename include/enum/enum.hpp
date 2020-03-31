@@ -12,12 +12,12 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<Enumerator>"<<" ["<<'\n';
-		dst<<"  ";left->treeprint(dst);dst<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<Enumerator> ["<<'\n';
+		left->treeprint(dst, indent+"  ");
 		if(right != NULL)
-			dst<<"  ";right->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+			{right->treeprint(dst, indent+"  ");}
+		dst<<indent<<"]"<<'\n';
 	};
 private:
 	Statementptr left;
@@ -32,10 +32,12 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<Enumspecifier>"<<" ["<<'\n';
-		dst<<"  ";left->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<Enumspecifier> ["<<'\n';
+		left->treeprint(dst, indent+"  ");
+		if(right != NULL)
+			{right->treeprint(dst, indent+"  ");}
+		dst<<indent<<"]"<<'\n';
 	};
 private:
 	Statementptr left;

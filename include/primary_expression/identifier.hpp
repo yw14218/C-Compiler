@@ -6,10 +6,10 @@
 class identifier : public Statement{
 public:
 	virtual ~identifier(){};
-	identifier(std::string id_in){id = id_in;}
+	identifier(std::string &id_in){id = id_in;}
 	std::string getid(){return id;}
-	virtual void translate(std::ostream &dst)const override{dst << id;}
-	virtual void treeprint(std::ostream &dst)const override {dst<<"<identifier> "<<id;}
+	virtual void translate(std::ostream &dst)const override{}
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {dst<<indent<<"<identifier> "<<id<<'\n';}
 protected:
 	std::string id;
 };

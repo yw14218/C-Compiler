@@ -9,8 +9,8 @@ public:
 	jumpstatement(){};
 	virtual ~jumpstatement(){};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<jump statement> "<<"jump";
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<jump statement> "<<"jump"<<'\n';
 	};
 };
 
@@ -19,8 +19,8 @@ public:
 	breakstatement(){};
 	virtual ~breakstatement(){};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<break statement> "<<"break";
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<break statement> "<<"break"<<'\n';
 	};
 };
 
@@ -31,10 +31,11 @@ public:
 	Statementptr get_stat(){return left;};
 	virtual ~returnstatement(){};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<break statement> "<<"break";
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<return statement> [ "<<'\n';
 		if(left != NULL)
-			dst<<"  ";left->treeprint(dst);dst<<'\n';
+			{left->treeprint(dst, indent+"  ");}
+		dst<<indent<<"]"<<'\n';
 	};
 private:
 	Statementptr left;
@@ -44,8 +45,8 @@ public:
 	continuestatement(){};
 	virtual ~continuestatement(){};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<continue statement> "<<"continue";
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<Continue statement> continue"<<'\n';
 	};
 };
 #endif

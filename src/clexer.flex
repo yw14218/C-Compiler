@@ -52,7 +52,7 @@ if {return T_IF;}
 static {return T_STATIC;}
 while {return T_WHILE;}
 
-{NONDIGIT}({DIGIT}|{NONDIGIT})* {return T_IDENTIFIER;}
+{NONDIGIT}({DIGIT}|{NONDIGIT})* { yylval.string = new std::string(yytext); return T_IDENTIFIER;}
 
 {DIGIT}+"."{EXPONENTPART}?{FLOATSUFFIX} {yylval.number = std::stod(yytext);
 	return T_FLOAT;}
@@ -85,58 +85,58 @@ L?\"([^\\\"]|\\.)*\" {yylval.string = new std::string(yytext, 1, strlen(yytext) 
 
 
 
-[+]             { return T_PLUS; }
-[+][+]		{ return T_PLUS_PLUS; }
-[+][=]            { return T_PLUS_EQUAL; }
-[-]             { return T_MINUS; }
-[-][-]		{ return T_MINUS_MINUS; }
-[-][=]            { return T_MINUS_EQUAL; }
-[*]             { return T_TIMES; }
-[*][=]            { return T_TIMES_EQUAL; }
-[/]             { return T_DIVIDE; }
-[/][=]            { return T_DIVIDE_EQUAL; }
-[%]		{ return T_PERCENTAGE;}
-[=]		{ return T_EQUAL; }
-[=][=]		{ return T_BOOL_EQUAL; }
-[!][=]		{ return T_NOT_EQUAL; }
-[~]		{ return T_TILDE;}
-[!]		{ return T_EXCLAMATION;}
-[%][=]		{ return T_PERCENTAGE_EQUAL;}
-"^"[=]		{ return T_XOR_EQUAL;}
-[|][=]		{ return T_OR_EQUAL;}
-[&][=]		{ return T_AND_EQUAL;}
-[<][<][=]		{ return T_LSHIFT_EQUAL;}
-[>][>][=]		{ return T_RSHIFT_EQUAL;}
+"+"             { return T_PLUS; }
+"++"		{ return T_PLUS_PLUS; }
+"+="            { return T_PLUS_EQUAL; }
+"-"            { return T_MINUS; }
+"--"		{ return T_MINUS_MINUS; }
+"-="            { return T_MINUS_EQUAL; }
+"*"            { return T_TIMES; }
+"*="            { return T_TIMES_EQUAL; }
+"/"            { return T_DIVIDE; }
+"/="            { return T_DIVIDE_EQUAL; }
+"%"		{ return T_PERCENTAGE;}
+"="		{ return T_EQUAL; }
+"=="		{ return T_BOOL_EQUAL; }
+"!="		{ return T_NOT_EQUAL; }
+"~"		{ return T_TILDE;}
+"!"		{ return T_EXCLAMATION;}
+"%="		{ return T_PERCENTAGE_EQUAL;}
+"^="		{ return T_XOR_EQUAL;}
+"|="		{ return T_OR_EQUAL;}
+"&="		{ return T_AND_EQUAL;}
+"<<="		{ return T_LSHIFT_EQUAL;}
+">>="		{ return T_RSHIFT_EQUAL;}
 
-[#]		{ return T_HASH;}
-[#][#]		{ return T_HASH_HASH;}
-[:]		{ return T_COLON;}
-[;]		{ return T_SEMICOLON;}
+"#"		{ return T_HASH;}
+"##"		{ return T_HASH_HASH;}
+":"		{ return T_COLON;}
+";"		{ return T_SEMICOLON;}
 
-[|]		{ return T_BITWISE_OR; }	
-[|][|]		{ return T_LOGICAL_OR; }	
-[&]		{ return T_BITWISE_AND; }
-[&][&]		{ return T_LOGICAL_AND; }
+"|"		{ return T_BITWISE_OR; }	
+"||"		{ return T_LOGICAL_OR; }	
+"&"		{ return T_BITWISE_AND; }
+"&&"		{ return T_LOGICAL_AND; }
 
-[(]             { return T_L_ROUND_BRACKET; }
-[)]             { return T_R_ROUND_BRACKET; }
+"("             { return T_L_ROUND_BRACKET; }
+")"             { return T_R_ROUND_BRACKET; }
 "["             { return T_L_SQUARE_BRACKET; }
 "]"             { return T_R_SQUARE_BRACKET; }
-[{]             { return T_L_CURLY_BRACKET; }
-[}]             { return T_R_CURLY_BRACKET; }
+"{"             { return T_L_CURLY_BRACKET; }
+"}"             { return T_R_CURLY_BRACKET; }
 
-[.]		{ return T_DOT;}
-[,]		{ return T_COMMA;}
-[?]		{ return T_QUESTION;}                          
+"."		{ return T_DOT;}
+","		{ return T_COMMA;}
+"?"		{ return T_QUESTION;}                          
 
-[<]		{ return T_SMALLER; }
-[<][<]		{ return T_SMALLER_SMALLER; }
-[<][=]		{ return T_SMALLER_EQUAL;};
-[>]		{ return T_BIGGER; }
-[>][>]		{ return T_BIGGER_BIGGER; }
-[>][=]		{ return T_BIGGER_EQUAL;}
+"<"		{ return T_SMALLER; }
+"<<"		{ return T_SMALLER_SMALLER; }
+"<="		{ return T_SMALLER_EQUAL;};
+">"		{ return T_BIGGER; }
+">>"		{ return T_BIGGER_BIGGER; }
+">="		{ return T_BIGGER_EQUAL;}
 
-[-][>]		{ return T_POINT_TO;}
+"->"		{ return T_POINT_TO;}
 "^"		{ return T_BITWISE_XOR;}
 
 [ \t\r\n\f]+		{;}

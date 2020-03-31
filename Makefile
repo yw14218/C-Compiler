@@ -15,6 +15,7 @@ bin/c_compiler : src/c_compiler.o src/cparser.tab.o src/clexer.yy.o src/cparser.
 
 clean :
 	rm src/*.o
-	rm bin/*
 	rm src/*.tab.cpp
+	rm src/*.tab.hpp
 	rm src/*.yy.cpp
+	rm bin/*

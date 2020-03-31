@@ -9,8 +9,8 @@ public:
 	typedefkey(){};
 	virtual ~typedefkey(){};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<key> "<<"typedef";
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<key> "<<"typedef"<<'\n';
 	};
 };
 
@@ -19,8 +19,8 @@ public:
 	statickey(){};
 	virtual ~statickey(){};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<key> "<<"static";
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<key> "<<"static"<<'\n';
 	};
 };
 
@@ -29,8 +29,8 @@ public:
 	autokey(){};
 	virtual ~autokey(){};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<key> "<<"auto";
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<key> "<<"auto"<<'\n';
 	};
 };
 
@@ -39,8 +39,8 @@ public:
 	registerkey(){};
 	virtual ~registerkey(){};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<key> "<<"register";
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<key> "<<"register"<<'\n';
 	};
 };
 
@@ -49,8 +49,8 @@ public:
 	voidkey(){};
 	virtual ~voidkey(){};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<key> "<<"void";
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<key> "<<"void"<<'\n';
 	};
 };
 
@@ -59,8 +59,8 @@ public:
 	charkey(){};
 	virtual ~charkey(){};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<key> "<<"char";
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<key> "<<"char"<<'\n';
 	};
 };
 
@@ -69,8 +69,8 @@ public:
 	shortkey(){};
 	virtual ~shortkey(){};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<key> "<<"short";
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<key> "<<"short"<<'\n';
 	};
 };
 
@@ -79,8 +79,8 @@ public:
 	intkey(){};
 	virtual ~intkey(){};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<key> "<<"int";
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<key> "<<"int"<<'\n';
 	};
 };
 
@@ -89,8 +89,8 @@ public:
 	longkey(){};
 	virtual ~longkey(){};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<key> "<<"long";
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<key> "<<"long"<<'\n';
 	};
 
 };
@@ -100,8 +100,8 @@ public:
 	floatkey(){};
 	virtual ~floatkey(){};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<key> "<<"float";
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<key> "<<"float"<<'\n';
 	};
 };
 
@@ -110,8 +110,8 @@ public:
 	doublekey(){};
 	virtual ~doublekey(){};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<key> "<<"double";
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<key> "<<"double"<<'\n';
 	};
 };
 
@@ -120,8 +120,8 @@ public:
 	signedkey(){};
 	virtual ~signedkey(){};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<key> "<<"signed";
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<key> "<<"signed"<<'\n';
 	};
 };
 
@@ -130,8 +130,8 @@ public:
 	unsignedkey(){};
 	virtual ~unsignedkey(){};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<key> "<<"unsigned";
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<key> "<<"unsigned"<<'\n';
 	};
 };
 

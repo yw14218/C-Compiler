@@ -1,0 +1,123 @@
+Root start [
+  <Function definition> [
+    <Typespecdeclaration> [
+      <key> int
+    ]
+    <Function declarator> [
+      <identifier> function
+      <list> [
+        <Declaration> [
+          <Typespecdeclaration> [
+            <key> int
+          ]
+          <identifier> a
+        ]
+        <Declaration> [
+          <Typespecdeclaration> [
+            <key> int
+          ]
+          <identifier> b
+        ]
+      ]
+    ]
+    <Compound assignment> [
+      <ifelse statement> [
+        <Smaller operator> [
+          <identifier> a
+          <identifier> b
+        ]
+        <Compound assignment> [
+          <Equal assignment> [
+            <identifier> a
+            <Minus operator> [
+              <identifier> a
+              <integer> 1
+            ]
+          ]
+          <ifelse statement> [
+            <Smaller operator> [
+              <identifier> b
+              <identifier> a
+            ]
+            <Compound assignment> [
+              <Equal assignment> [
+                <identifier> b
+                <Plus operator> [
+                  <identifier> b
+                  <integer> 3
+                ]
+              ]
+              <ifelse statement> [
+                <Equalequal operator> [
+                  <identifier> a
+                  <identifier> b
+                ]
+                <Compound assignment> [
+                  <return statement> [ 
+                    <Times operator> [
+                      <identifier> a
+                      <identifier> b
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+          <return statement> [ 
+            <identifier> b
+          ]
+        ]
+      ]
+      <return statement> [ 
+        <integer> 13
+      ]
+    ]
+  ]
+  <Function definition> [
+    <Typespecdeclaration> [
+      <key> int
+    ]
+    <Function declarator> [
+      <identifier> main
+    ]
+    <Compound assignment> [
+      <return statement> [ 
+        <Plus operator> [
+          <Plus operator> [
+            <Plus operator> [
+              <Functioncall> [
+                <identifier> function
+                <list> [
+                  <integer> 0
+                  <integer> 0
+                ]
+              ]
+              <Functioncall> [
+                <identifier> function
+                <list> [
+                  <integer> 1
+                  <integer> 2
+                ]
+              ]
+            ]
+            <Functioncall> [
+              <identifier> function
+              <list> [
+                <integer> 4
+                <integer> 3
+              ]
+            ]
+          ]
+          <Functioncall> [
+            <identifier> function
+            <list> [
+              <integer> 6
+              <integer> 7
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+

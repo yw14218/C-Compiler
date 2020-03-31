@@ -9,8 +9,8 @@ public:
 	structkey(){};
 	virtual ~structkey(){};
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<structkey> "<<"struct";
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<structkey> "<<"struct"<<'\n';
 	};
 };
 
@@ -23,13 +23,13 @@ public:
 	Statementptr get_p2(){return mid;}
 	Statementptr get_p3(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<or operator>"<<" ["<<'\n';
-		dst<<"  ";left->treeprint(dst);dst<<'\n';
-		dst<<"  ";mid->treeprint(dst);dst<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"structspec> ["<<'\n';
+		left->treeprint(dst, indent+"  ");
+		mid->treeprint(dst, indent+"  ");
 		if(right != NULL)
-			dst<<"  ";right->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+			{right->treeprint(dst, indent+"  ");}
+		dst<<indent<<"]"<<'\n';
 	};
 private:
 	Statementptr left;
@@ -45,12 +45,12 @@ public:
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<struct declarator>"<<" ["<<'\n';
-		dst<<"  ";left->treeprint(dst);dst<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<Struct declarator> ["<<'\n';
+		left->treeprint(dst, indent+"  ");
 		if(right != NULL)
-			dst<<"  ";right->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+			{right->treeprint(dst, indent+"  ");}
+		dst<<indent<<"]"<<'\n';
 	};
 private:
 	Statementptr left;
@@ -65,12 +65,12 @@ public:
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return right;}
 	virtual void translate(std::ostream &dst)const override{}
-	virtual void treeprint(std::ostream &dst)const override {
-		dst<<"<struct colon declarator>"<<" ["<<'\n';
-		dst<<"  ";left->treeprint(dst);dst<<'\n';
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<Struct colon declarator> ["<<'\n';
+		left->treeprint(dst, indent+"  ");
 		if(right != NULL)
-			dst<<"  ";right->treeprint(dst);dst<<'\n';
-		dst<<"]"<<'\n';
+			{right->treeprint(dst, indent+"  ");}
+		dst<<indent<<"]"<<'\n';
 	};
 private:
 	Statementptr left;

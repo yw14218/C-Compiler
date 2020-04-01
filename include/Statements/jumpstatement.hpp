@@ -30,7 +30,10 @@ public:
 	returnstatement(Statementptr p1){left = p1;};
 	Statementptr get_stat(){return left;};
 	virtual ~returnstatement(){};
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{
+		dst << "return ";
+		if(left!=NULL){left -> translate(dst);}	
+	}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<return statement> [ "<<'\n';
 		if(left != NULL)

@@ -4,9 +4,10 @@ extern FILE *yyin;
 int main(int argc ,char *argv[]){
 	std::cout<< "START " << std::endl;	
 	yyin = freopen (argv[2],"r",stdin);
-    	Statementptr ast=parseAST();
-   	std::cout<< "Parse finished " << std::endl;
+    Statementptr ast=parseAST();
+   	//std::cout<< "Parse finished " << std::endl;
 	std::string indent = "";
+    freopen (argv[4], "w",stdout);
     if(argv[1] == "--translate"){
         ast -> translate(std::cout);
         std::cout << std::endl;
@@ -21,6 +22,6 @@ int main(int argc ,char *argv[]){
     std::cout << std::endl;
 	}
  
-	std::cout<<"finished"<<std::endl;
+	//std::cout<<"finished"<<std::endl;
     return 0;
 }

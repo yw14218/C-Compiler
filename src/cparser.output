@@ -12,20 +12,20 @@ Terminals unused in grammar
    T_HASH_HASH
 
 
-语法中的规则无效
+Rules useless in grammar
 
   210 TYPEDEF_NAME: T_IDENTIFIER
 
 
-状态 115 conflicts: 5 reduce/reduce
-状态 116 conflicts: 5 reduce/reduce
-状态 121 conflicts: 5 reduce/reduce
-状态 128 conflicts: 5 reduce/reduce
-状态 133 conflicts: 1 reduce/reduce
-状态 357 conflicts: 1 shift/reduce
+State 115 conflicts: 5 reduce/reduce
+State 116 conflicts: 5 reduce/reduce
+State 121 conflicts: 5 reduce/reduce
+State 128 conflicts: 5 reduce/reduce
+State 133 conflicts: 1 reduce/reduce
+State 357 conflicts: 1 shift/reduce
 
 
-语法
+Grammar
 
     0 $accept: ROOT $end
 
@@ -395,138 +395,140 @@ T_UNION (340) 110
 Nonterminals, with rules where they appear
 
 $accept (86)
-    左： 0
+    on left: 0
 ROOT (87)
-    左： 1, 右： 0
+    on left: 1, on right: 0
 PRIMARY_EXPRESSION (88)
-    左： 2 3 4 5 6 7 8, 右： 9
+    on left: 2 3 4 5 6 7 8, on right: 9
 POSTFIX_EXPRESSION (89)
-    左： 9 10 11 12 13 14 15 16, 右： 10 11 12 13 14 15 16 19
+    on left: 9 10 11 12 13 14 15 16, on right: 10 11 12 13 14 15 16
+    19
 ARGUMENT_EXPRESSION_LIST (90)
-    左： 17 18, 右： 12 18
+    on left: 17 18, on right: 12 18
 UNARY_EXPRESSION (91)
-    左： 19 20 21 22 23 24 25 26 27 28 29, 右： 20 21 28 30 63
-    64 65 66 67 68 69 70 71 72 73
+    on left: 19 20 21 22 23 24 25 26 27 28 29, on right: 20 21 28 30
+    63 64 65 66 67 68 69 70 71 72 73
 CAST_EXPRESSION (92)
-    左： 30 31, 右： 22 23 24 25 26 27 31 32 33 34 35
+    on left: 30 31, on right: 22 23 24 25 26 27 31 32 33 34 35
 MULTIPLICATIVE_EXPRESSION (93)
-    左： 32 33 34 35, 右： 33 34 35 36 37 38
+    on left: 32 33 34 35, on right: 33 34 35 36 37 38
 ADDITIVE_EXPRESSION (94)
-    左： 36 37 38, 右： 37 38 39 40 41
+    on left: 36 37 38, on right: 37 38 39 40 41
 SHIFT_EXPRESSION (95)
-    左： 39 40 41, 右： 40 41 42 43 44 45 46
+    on left: 39 40 41, on right: 40 41 42 43 44 45 46
 RELATIONAL_EXPRESSION (96)
-    左： 42 43 44 45 46, 右： 43 44 45 46 47 48 49
+    on left: 42 43 44 45 46, on right: 43 44 45 46 47 48 49
 EQUALITY_EXPRESSION (97)
-    左： 47 48 49, 右： 48 49 50 51
+    on left: 47 48 49, on right: 48 49 50 51
 AND_EXPRESSION (98)
-    左： 50 51, 右： 51 52 53
+    on left: 50 51, on right: 51 52 53
 EXCLUSIVE_OR_EXPRESSION (99)
-    左： 52 53, 右： 53 54 55
+    on left: 52 53, on right: 53 54 55
 INCLUSIVE_OR_EXPRESSION (100)
-    左： 54 55, 右： 55 56 57
+    on left: 54 55, on right: 55 56 57
 LOGICAL_AND_EXPRESSION (101)
-    左： 56 57, 右： 57 58 59
+    on left: 56 57, on right: 57 58 59
 LOGICAL_OR_EXPRESSION (102)
-    左： 58 59, 右： 59 60 61
+    on left: 58 59, on right: 59 60 61
 CONDITIONAL_EXPRESSION (103)
-    左： 60 61, 右： 61 62 76
+    on left: 60 61, on right: 61 62 76
 ASSIGNMENT_EXPRESSION (104)
-    左： 62 63 64 65 66 67 68 69 70 71 72 73, 右： 17 18 63 64
-    65 66 67 68 69 70 71 72 73 74 75 169
+    on left: 62 63 64 65 66 67 68 69 70 71 72 73, on right: 17 18 63
+    64 65 66 67 68 69 70 71 72 73 74 75 169
 EXPRESSION (105)
-    左： 74 75, 右： 8 10 61 75 192 193 194 195 196 197 198 199
-    200 203
+    on left: 74 75, on right: 8 10 61 75 192 193 194 195 196 197 198
+    199 200 203
 CONSTANT_EXPRESSION (106)
-    左： 76, 右： 121 122 129 137 161 162 181
+    on left: 76, on right: 121 122 129 137 161 162 181
 STORAGE_CLASS_SPECIFIER (107)
-    左： 77 78 79 80 81, 右： 84 85
+    on left: 77 78 79 80 81, on right: 84 85
 DECLARATION (108)
-    左： 82 83, 右： 187 188 208
+    on left: 82 83, on right: 187 188 208
 DECLARATION_SPECIFIERS (109)
-    左： 84 85 86 87 88 89, 右： 82 83 85 87 89 150 151 152 209
+    on left: 84 85 86 87 88 89, on right: 82 83 85 87 89 150 151 152
+    209
 INIT_DECLARATOR_LIST (110)
-    左： 90 91, 右： 83 91
+    on left: 90 91, on right: 83 91
 INIT_DECLARATOR (111)
-    左： 92 93 94, 右： 90 91
+    on left: 92 93 94, on right: 90 91
 TYPE_SPECIFIER (112)
-    左： 95 96 97 98 99 100 101 102 103 104 105, 右： 86 87 114
-    115
+    on left: 95 96 97 98 99 100 101 102 103 104 105, on right: 86 87
+    114 115
 STRUCT_OR_UNION_SPECIFIER (113)
-    左： 106 107 108, 右： 104
+    on left: 106 107 108, on right: 104
 STRUCT_OR_UNION (114)
-    左： 109 110, 右： 106 107 108
+    on left: 109 110, on right: 106 107 108
 STRUCT_DECLARATION_LIST (115)
-    左： 111 112, 右： 107 108 112
+    on left: 111 112, on right: 107 108 112
 STRUCT_DECLARATION (116)
-    左： 113, 右： 111 112
+    on left: 113, on right: 111 112
 SPECIFIER_QUALIFIER_LIST (117)
-    左： 114 115 116 117, 右： 113 114 116 155 156
+    on left: 114 115 116 117, on right: 113 114 116 155 156
 STRUCT_DECLARATOR_LIST (118)
-    左： 118 119, 右： 113 119
+    on left: 118 119, on right: 113 119
 STRUCT_DECLARATOR (119)
-    左： 120 121 122, 右： 118 119
+    on left: 120 121 122, on right: 118 119
 ENUM_SPECIFIER (120)
-    左： 123 124 125, 右： 105
+    on left: 123 124 125, on right: 105
 ENUMERATOR_LIST (121)
-    左： 126 127, 右： 123 124 127
+    on left: 126 127, on right: 123 124 127
 ENUMERATOR (122)
-    左： 128 129, 右： 126 127
+    on left: 128 129, on right: 126 127
 TYPE_QUALIFIER (123)
-    左： 130 131, 右： 88 89 116 117 145 146
+    on left: 130 131, on right: 88 89 116 117 145 146
 DECLARATOR (124)
-    左： 132 133, 右： 92 93 94 120 122 135 150 209
+    on left: 132 133, on right: 92 93 94 120 122 135 150 209
 DIRECT_DECLARATOR (125)
-    左： 134 135 136 137 138 139 140, 右： 132 133 136 137 138
-    139 140
+    on left: 134 135 136 137 138 139 140, on right: 132 133 136 137
+    138 139 140
 POINTER (126)
-    左： 141 142 143 144, 右： 133 142 144 157 159
+    on left: 141 142 143 144, on right: 133 142 144 157 159
 TYPE_QUALIFIER_LIST (127)
-    左： 145 146, 右： 143 144 146
+    on left: 145 146, on right: 143 144 146
 PARAMETER_TYPE_LIST (128)
-    左： 147, 右： 138 165 166
+    on left: 147, on right: 138 165 166
 PARAMETER_LIST (129)
-    左： 148 149, 右： 147 149
+    on left: 148 149, on right: 147 149
 PARAMETER_DECLARATION (130)
-    左： 150 151 152, 右： 148 149
+    on left: 150 151 152, on right: 148 149
 IDENTIFIER_LIST (131)
-    左： 153 154, 右： 140 154
+    on left: 153 154, on right: 140 154
 TYPE_NAME (132)
-    左： 155 156, 右： 29 31
+    on left: 155 156, on right: 29 31
 ABSTRACT_DECLARATOR (133)
-    左： 157 158 159, 右： 152 156 160
+    on left: 157 158 159, on right: 152 156 160
 DIRECT_ABSTRACT_DECLARATOR (134)
-    左： 160 161 162 163 164 165 166 167 168, 右： 158 159 161
-    164 165 167
+    on left: 160 161 162 163 164 165 166 167 168, on right: 158 159
+    161 164 165 167
 INITIALIZER (135)
-    左： 169 170 171, 右： 93 172 173
+    on left: 169 170 171, on right: 93 172 173
 INITIALIZER_LIST (136)
-    左： 172 173, 右： 94 170 171 173
+    on left: 172 173, on right: 94 170 171 173
 STATEMENT (137)
-    左： 174 175 176 177 178 179, 右： 180 181 182 189 190 193
-    194 195 196 197 198 199 200
+    on left: 174 175 176 177 178 179, on right: 180 181 182 189 190
+    193 194 195 196 197 198 199 200
 LABELED_STATEMENT (138)
-    左： 180 181 182, 右： 174
+    on left: 180 181 182, on right: 174
 COMPOUND_STATEMENT (139)
-    左： 183 184 185 186, 右： 175 209
+    on left: 183 184 185 186, on right: 175 209
 DECLARATION_LIST (140)
-    左： 187 188, 右： 183 185 188
+    on left: 187 188, on right: 183 185 188
 STATEMENT_LIST (141)
-    左： 189 190, 右： 183 184 190
+    on left: 189 190, on right: 183 184 190
 EXPRESSION_STATEMENT (142)
-    左： 191 192, 右： 176
+    on left: 191 192, on right: 176
 SELECTION_STATEMENT (143)
-    左： 193 194 195, 右： 177
+    on left: 193 194 195, on right: 177
 ITERATION_STATEMENT (144)
-    左： 196 197 198 199 200, 右： 178
+    on left: 196 197 198 199 200, on right: 178
 JUMP_STATEMENT (145)
-    左： 201 202 203 204, 右： 179
+    on left: 201 202 203 204, on right: 179
 TRANSLATION_UNIT (146)
-    左： 205 206, 右： 1 206
+    on left: 205 206, on right: 1 206
 EXTERNAL_DECLARATION (147)
-    左： 207 208, 右： 205 206
+    on left: 207 208, on right: 205 206
 FUNCTION_DEFINITION (148)
-    左： 209, 右： 207
+    on left: 209, on right: 207
 
 
 State 0
@@ -553,18 +555,18 @@ State 0
     T_CONST     shift, and go to state 18
     T_UNION     shift, and go to state 19
 
-    ROOT                       转到状态 20
-    STORAGE_CLASS_SPECIFIER    转到状态 21
-    DECLARATION                转到状态 22
-    DECLARATION_SPECIFIERS     转到状态 23
-    TYPE_SPECIFIER             转到状态 24
-    STRUCT_OR_UNION_SPECIFIER  转到状态 25
-    STRUCT_OR_UNION            转到状态 26
-    ENUM_SPECIFIER             转到状态 27
-    TYPE_QUALIFIER             转到状态 28
-    TRANSLATION_UNIT           转到状态 29
-    EXTERNAL_DECLARATION       转到状态 30
-    FUNCTION_DEFINITION        转到状态 31
+    ROOT                       go to state 20
+    STORAGE_CLASS_SPECIFIER    go to state 21
+    DECLARATION                go to state 22
+    DECLARATION_SPECIFIERS     go to state 23
+    TYPE_SPECIFIER             go to state 24
+    STRUCT_OR_UNION_SPECIFIER  go to state 25
+    STRUCT_OR_UNION            go to state 26
+    ENUM_SPECIFIER             go to state 27
+    TYPE_QUALIFIER             go to state 28
+    TRANSLATION_UNIT           go to state 29
+    EXTERNAL_DECLARATION       go to state 30
+    FUNCTION_DEFINITION        go to state 31
 
 
 State 1
@@ -737,13 +739,13 @@ State 21
 
     $default  reduce using rule 84 (DECLARATION_SPECIFIERS)
 
-    STORAGE_CLASS_SPECIFIER    转到状态 21
-    DECLARATION_SPECIFIERS     转到状态 35
-    TYPE_SPECIFIER             转到状态 24
-    STRUCT_OR_UNION_SPECIFIER  转到状态 25
-    STRUCT_OR_UNION            转到状态 26
-    ENUM_SPECIFIER             转到状态 27
-    TYPE_QUALIFIER             转到状态 28
+    STORAGE_CLASS_SPECIFIER    go to state 21
+    DECLARATION_SPECIFIERS     go to state 35
+    TYPE_SPECIFIER             go to state 24
+    STRUCT_OR_UNION_SPECIFIER  go to state 25
+    STRUCT_OR_UNION            go to state 26
+    ENUM_SPECIFIER             go to state 27
+    TYPE_QUALIFIER             go to state 28
 
 
 State 22
@@ -764,11 +766,11 @@ State 23
     T_SEMICOLON        shift, and go to state 38
     T_L_ROUND_BRACKET  shift, and go to state 39
 
-    INIT_DECLARATOR_LIST  转到状态 40
-    INIT_DECLARATOR       转到状态 41
-    DECLARATOR            转到状态 42
-    DIRECT_DECLARATOR     转到状态 43
-    POINTER               转到状态 44
+    INIT_DECLARATOR_LIST  go to state 40
+    INIT_DECLARATOR       go to state 41
+    DECLARATOR            go to state 42
+    DIRECT_DECLARATOR     go to state 43
+    POINTER               go to state 44
 
 
 State 24
@@ -798,13 +800,13 @@ State 24
 
     $default  reduce using rule 86 (DECLARATION_SPECIFIERS)
 
-    STORAGE_CLASS_SPECIFIER    转到状态 21
-    DECLARATION_SPECIFIERS     转到状态 45
-    TYPE_SPECIFIER             转到状态 24
-    STRUCT_OR_UNION_SPECIFIER  转到状态 25
-    STRUCT_OR_UNION            转到状态 26
-    ENUM_SPECIFIER             转到状态 27
-    TYPE_QUALIFIER             转到状态 28
+    STORAGE_CLASS_SPECIFIER    go to state 21
+    DECLARATION_SPECIFIERS     go to state 45
+    TYPE_SPECIFIER             go to state 24
+    STRUCT_OR_UNION_SPECIFIER  go to state 25
+    STRUCT_OR_UNION            go to state 26
+    ENUM_SPECIFIER             go to state 27
+    TYPE_QUALIFIER             go to state 28
 
 
 State 25
@@ -858,13 +860,13 @@ State 28
 
     $default  reduce using rule 88 (DECLARATION_SPECIFIERS)
 
-    STORAGE_CLASS_SPECIFIER    转到状态 21
-    DECLARATION_SPECIFIERS     转到状态 48
-    TYPE_SPECIFIER             转到状态 24
-    STRUCT_OR_UNION_SPECIFIER  转到状态 25
-    STRUCT_OR_UNION            转到状态 26
-    ENUM_SPECIFIER             转到状态 27
-    TYPE_QUALIFIER             转到状态 28
+    STORAGE_CLASS_SPECIFIER    go to state 21
+    DECLARATION_SPECIFIERS     go to state 48
+    TYPE_SPECIFIER             go to state 24
+    STRUCT_OR_UNION_SPECIFIER  go to state 25
+    STRUCT_OR_UNION            go to state 26
+    ENUM_SPECIFIER             go to state 27
+    TYPE_QUALIFIER             go to state 28
 
 
 State 29
@@ -894,16 +896,16 @@ State 29
 
     $default  reduce using rule 1 (ROOT)
 
-    STORAGE_CLASS_SPECIFIER    转到状态 21
-    DECLARATION                转到状态 22
-    DECLARATION_SPECIFIERS     转到状态 23
-    TYPE_SPECIFIER             转到状态 24
-    STRUCT_OR_UNION_SPECIFIER  转到状态 25
-    STRUCT_OR_UNION            转到状态 26
-    ENUM_SPECIFIER             转到状态 27
-    TYPE_QUALIFIER             转到状态 28
-    EXTERNAL_DECLARATION       转到状态 49
-    FUNCTION_DEFINITION        转到状态 31
+    STORAGE_CLASS_SPECIFIER    go to state 21
+    DECLARATION                go to state 22
+    DECLARATION_SPECIFIERS     go to state 23
+    TYPE_SPECIFIER             go to state 24
+    STRUCT_OR_UNION_SPECIFIER  go to state 25
+    STRUCT_OR_UNION            go to state 26
+    ENUM_SPECIFIER             go to state 27
+    TYPE_QUALIFIER             go to state 28
+    EXTERNAL_DECLARATION       go to state 49
+    FUNCTION_DEFINITION        go to state 31
 
 
 State 30
@@ -936,15 +938,15 @@ State 33
 
     T_IDENTIFIER  shift, and go to state 51
 
-    ENUMERATOR_LIST  转到状态 52
-    ENUMERATOR       转到状态 53
+    ENUMERATOR_LIST  go to state 52
+    ENUMERATOR       go to state 53
 
 
 State 34
 
     0 $accept: ROOT $end .
 
-    $default  接受
+    $default  accept
 
 
 State 35
@@ -974,9 +976,9 @@ State 37
 
     $default  reduce using rule 141 (POINTER)
 
-    TYPE_QUALIFIER       转到状态 54
-    POINTER              转到状态 55
-    TYPE_QUALIFIER_LIST  转到状态 56
+    TYPE_QUALIFIER       go to state 54
+    POINTER              go to state 55
+    TYPE_QUALIFIER_LIST  go to state 56
 
 
 State 38
@@ -994,9 +996,9 @@ State 39
     T_TIMES            shift, and go to state 37
     T_L_ROUND_BRACKET  shift, and go to state 39
 
-    DECLARATOR         转到状态 57
-    DIRECT_DECLARATOR  转到状态 43
-    POINTER            转到状态 44
+    DECLARATOR         go to state 57
+    DIRECT_DECLARATOR  go to state 43
+    POINTER            go to state 44
 
 
 State 40
@@ -1027,7 +1029,7 @@ State 42
 
     $default  reduce using rule 92 (INIT_DECLARATOR)
 
-    COMPOUND_STATEMENT  转到状态 62
+    COMPOUND_STATEMENT  go to state 62
 
 
 State 43
@@ -1052,7 +1054,7 @@ State 44
     T_IDENTIFIER       shift, and go to state 36
     T_L_ROUND_BRACKET  shift, and go to state 39
 
-    DIRECT_DECLARATOR  转到状态 65
+    DIRECT_DECLARATOR  go to state 65
 
 
 State 45
@@ -1091,14 +1093,14 @@ State 47
     T_CONST     shift, and go to state 18
     T_UNION     shift, and go to state 19
 
-    TYPE_SPECIFIER             转到状态 67
-    STRUCT_OR_UNION_SPECIFIER  转到状态 25
-    STRUCT_OR_UNION            转到状态 26
-    STRUCT_DECLARATION_LIST    转到状态 68
-    STRUCT_DECLARATION         转到状态 69
-    SPECIFIER_QUALIFIER_LIST   转到状态 70
-    ENUM_SPECIFIER             转到状态 27
-    TYPE_QUALIFIER             转到状态 71
+    TYPE_SPECIFIER             go to state 67
+    STRUCT_OR_UNION_SPECIFIER  go to state 25
+    STRUCT_OR_UNION            go to state 26
+    STRUCT_DECLARATION_LIST    go to state 68
+    STRUCT_DECLARATION         go to state 69
+    SPECIFIER_QUALIFIER_LIST   go to state 70
+    ENUM_SPECIFIER             go to state 27
+    TYPE_QUALIFIER             go to state 71
 
 
 State 48
@@ -1121,8 +1123,8 @@ State 50
 
     T_IDENTIFIER  shift, and go to state 51
 
-    ENUMERATOR_LIST  转到状态 72
-    ENUMERATOR       转到状态 53
+    ENUMERATOR_LIST  go to state 72
+    ENUMERATOR       go to state 53
 
 
 State 51
@@ -1177,8 +1179,8 @@ State 56
 
     $default  reduce using rule 143 (POINTER)
 
-    TYPE_QUALIFIER  转到状态 76
-    POINTER         转到状态 77
+    TYPE_QUALIFIER  go to state 76
+    POINTER         go to state 77
 
 
 State 57
@@ -1203,10 +1205,10 @@ State 59
     T_TIMES            shift, and go to state 37
     T_L_ROUND_BRACKET  shift, and go to state 39
 
-    INIT_DECLARATOR    转到状态 79
-    DECLARATOR         转到状态 80
-    DIRECT_DECLARATOR  转到状态 43
-    POINTER            转到状态 44
+    INIT_DECLARATOR    go to state 79
+    DECLARATOR         go to state 80
+    DIRECT_DECLARATOR  go to state 43
+    POINTER            go to state 44
 
 
 State 60
@@ -1231,23 +1233,23 @@ State 60
     T_L_ROUND_BRACKET  shift, and go to state 96
     T_L_CURLY_BRACKET  shift, and go to state 97
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 113
-    INITIALIZER                转到状态 114
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 113
+    INITIALIZER                go to state 114
 
 
 State 61
@@ -1303,42 +1305,42 @@ State 61
     T_R_CURLY_BRACKET  shift, and go to state 132
     T_UNION            shift, and go to state 19
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 133
-    EXPRESSION                 转到状态 134
-    STORAGE_CLASS_SPECIFIER    转到状态 21
-    DECLARATION                转到状态 135
-    DECLARATION_SPECIFIERS     转到状态 136
-    TYPE_SPECIFIER             转到状态 24
-    STRUCT_OR_UNION_SPECIFIER  转到状态 25
-    STRUCT_OR_UNION            转到状态 26
-    ENUM_SPECIFIER             转到状态 27
-    TYPE_QUALIFIER             转到状态 28
-    INITIALIZER                转到状态 137
-    INITIALIZER_LIST           转到状态 138
-    STATEMENT                  转到状态 139
-    LABELED_STATEMENT          转到状态 140
-    COMPOUND_STATEMENT         转到状态 141
-    DECLARATION_LIST           转到状态 142
-    STATEMENT_LIST             转到状态 143
-    EXPRESSION_STATEMENT       转到状态 144
-    SELECTION_STATEMENT        转到状态 145
-    ITERATION_STATEMENT        转到状态 146
-    JUMP_STATEMENT             转到状态 147
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 133
+    EXPRESSION                 go to state 134
+    STORAGE_CLASS_SPECIFIER    go to state 21
+    DECLARATION                go to state 135
+    DECLARATION_SPECIFIERS     go to state 136
+    TYPE_SPECIFIER             go to state 24
+    STRUCT_OR_UNION_SPECIFIER  go to state 25
+    STRUCT_OR_UNION            go to state 26
+    ENUM_SPECIFIER             go to state 27
+    TYPE_QUALIFIER             go to state 28
+    INITIALIZER                go to state 137
+    INITIALIZER_LIST           go to state 138
+    STATEMENT                  go to state 139
+    LABELED_STATEMENT          go to state 140
+    COMPOUND_STATEMENT         go to state 141
+    DECLARATION_LIST           go to state 142
+    STATEMENT_LIST             go to state 143
+    EXPRESSION_STATEMENT       go to state 144
+    SELECTION_STATEMENT        go to state 145
+    ITERATION_STATEMENT        go to state 146
+    JUMP_STATEMENT             go to state 147
 
 
 State 62
@@ -1376,17 +1378,17 @@ State 63
     T_R_ROUND_BRACKET  shift, and go to state 149
     T_UNION            shift, and go to state 19
 
-    STORAGE_CLASS_SPECIFIER    转到状态 21
-    DECLARATION_SPECIFIERS     转到状态 150
-    TYPE_SPECIFIER             转到状态 24
-    STRUCT_OR_UNION_SPECIFIER  转到状态 25
-    STRUCT_OR_UNION            转到状态 26
-    ENUM_SPECIFIER             转到状态 27
-    TYPE_QUALIFIER             转到状态 28
-    PARAMETER_TYPE_LIST        转到状态 151
-    PARAMETER_LIST             转到状态 152
-    PARAMETER_DECLARATION      转到状态 153
-    IDENTIFIER_LIST            转到状态 154
+    STORAGE_CLASS_SPECIFIER    go to state 21
+    DECLARATION_SPECIFIERS     go to state 150
+    TYPE_SPECIFIER             go to state 24
+    STRUCT_OR_UNION_SPECIFIER  go to state 25
+    STRUCT_OR_UNION            go to state 26
+    ENUM_SPECIFIER             go to state 27
+    TYPE_QUALIFIER             go to state 28
+    PARAMETER_TYPE_LIST        go to state 151
+    PARAMETER_LIST             go to state 152
+    PARAMETER_DECLARATION      go to state 153
+    IDENTIFIER_LIST            go to state 154
 
 
 State 64
@@ -1412,22 +1414,22 @@ State 64
     T_L_ROUND_BRACKET   shift, and go to state 96
     T_R_SQUARE_BRACKET  shift, and go to state 155
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 157
-    CONSTANT_EXPRESSION        转到状态 158
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 157
+    CONSTANT_EXPRESSION        go to state 158
 
 
 State 65
@@ -1464,14 +1466,14 @@ State 66
     T_CONST     shift, and go to state 18
     T_UNION     shift, and go to state 19
 
-    TYPE_SPECIFIER             转到状态 67
-    STRUCT_OR_UNION_SPECIFIER  转到状态 25
-    STRUCT_OR_UNION            转到状态 26
-    STRUCT_DECLARATION_LIST    转到状态 159
-    STRUCT_DECLARATION         转到状态 69
-    SPECIFIER_QUALIFIER_LIST   转到状态 70
-    ENUM_SPECIFIER             转到状态 27
-    TYPE_QUALIFIER             转到状态 71
+    TYPE_SPECIFIER             go to state 67
+    STRUCT_OR_UNION_SPECIFIER  go to state 25
+    STRUCT_OR_UNION            go to state 26
+    STRUCT_DECLARATION_LIST    go to state 159
+    STRUCT_DECLARATION         go to state 69
+    SPECIFIER_QUALIFIER_LIST   go to state 70
+    ENUM_SPECIFIER             go to state 27
+    TYPE_QUALIFIER             go to state 71
 
 
 State 67
@@ -1496,12 +1498,12 @@ State 67
 
     $default  reduce using rule 115 (SPECIFIER_QUALIFIER_LIST)
 
-    TYPE_SPECIFIER             转到状态 67
-    STRUCT_OR_UNION_SPECIFIER  转到状态 25
-    STRUCT_OR_UNION            转到状态 26
-    SPECIFIER_QUALIFIER_LIST   转到状态 160
-    ENUM_SPECIFIER             转到状态 27
-    TYPE_QUALIFIER             转到状态 71
+    TYPE_SPECIFIER             go to state 67
+    STRUCT_OR_UNION_SPECIFIER  go to state 25
+    STRUCT_OR_UNION            go to state 26
+    SPECIFIER_QUALIFIER_LIST   go to state 160
+    ENUM_SPECIFIER             go to state 27
+    TYPE_QUALIFIER             go to state 71
 
 
 State 68
@@ -1525,13 +1527,13 @@ State 68
     T_R_CURLY_BRACKET  shift, and go to state 161
     T_UNION            shift, and go to state 19
 
-    TYPE_SPECIFIER             转到状态 67
-    STRUCT_OR_UNION_SPECIFIER  转到状态 25
-    STRUCT_OR_UNION            转到状态 26
-    STRUCT_DECLARATION         转到状态 162
-    SPECIFIER_QUALIFIER_LIST   转到状态 70
-    ENUM_SPECIFIER             转到状态 27
-    TYPE_QUALIFIER             转到状态 71
+    TYPE_SPECIFIER             go to state 67
+    STRUCT_OR_UNION_SPECIFIER  go to state 25
+    STRUCT_OR_UNION            go to state 26
+    STRUCT_DECLARATION         go to state 162
+    SPECIFIER_QUALIFIER_LIST   go to state 70
+    ENUM_SPECIFIER             go to state 27
+    TYPE_QUALIFIER             go to state 71
 
 
 State 69
@@ -1550,11 +1552,11 @@ State 70
     T_COLON            shift, and go to state 163
     T_L_ROUND_BRACKET  shift, and go to state 39
 
-    STRUCT_DECLARATOR_LIST  转到状态 164
-    STRUCT_DECLARATOR       转到状态 165
-    DECLARATOR              转到状态 166
-    DIRECT_DECLARATOR       转到状态 43
-    POINTER                 转到状态 44
+    STRUCT_DECLARATOR_LIST  go to state 164
+    STRUCT_DECLARATOR       go to state 165
+    DECLARATOR              go to state 166
+    DIRECT_DECLARATOR       go to state 43
+    POINTER                 go to state 44
 
 
 State 71
@@ -1579,12 +1581,12 @@ State 71
 
     $default  reduce using rule 117 (SPECIFIER_QUALIFIER_LIST)
 
-    TYPE_SPECIFIER             转到状态 67
-    STRUCT_OR_UNION_SPECIFIER  转到状态 25
-    STRUCT_OR_UNION            转到状态 26
-    SPECIFIER_QUALIFIER_LIST   转到状态 167
-    ENUM_SPECIFIER             转到状态 27
-    TYPE_QUALIFIER             转到状态 71
+    TYPE_SPECIFIER             go to state 67
+    STRUCT_OR_UNION_SPECIFIER  go to state 25
+    STRUCT_OR_UNION            go to state 26
+    SPECIFIER_QUALIFIER_LIST   go to state 167
+    ENUM_SPECIFIER             go to state 27
+    TYPE_QUALIFIER             go to state 71
 
 
 State 72
@@ -1617,22 +1619,22 @@ State 73
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 157
-    CONSTANT_EXPRESSION        转到状态 169
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 157
+    CONSTANT_EXPRESSION        go to state 169
 
 
 State 74
@@ -1641,7 +1643,7 @@ State 74
 
     T_IDENTIFIER  shift, and go to state 51
 
-    ENUMERATOR  转到状态 170
+    ENUMERATOR  go to state 170
 
 
 State 75
@@ -1734,9 +1736,9 @@ State 84
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 172
 
-    PRIMARY_EXPRESSION  转到状态 98
-    POSTFIX_EXPRESSION  转到状态 99
-    UNARY_EXPRESSION    转到状态 173
+    PRIMARY_EXPRESSION  go to state 98
+    POSTFIX_EXPRESSION  go to state 99
+    UNARY_EXPRESSION    go to state 173
 
 
 State 85
@@ -1781,10 +1783,10 @@ State 88
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION  转到状态 98
-    POSTFIX_EXPRESSION  转到状态 99
-    UNARY_EXPRESSION    转到状态 156
-    CAST_EXPRESSION     转到状态 174
+    PRIMARY_EXPRESSION  go to state 98
+    POSTFIX_EXPRESSION  go to state 99
+    UNARY_EXPRESSION    go to state 156
+    CAST_EXPRESSION     go to state 174
 
 
 State 89
@@ -1808,9 +1810,9 @@ State 89
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 175
 
-    PRIMARY_EXPRESSION  转到状态 98
-    POSTFIX_EXPRESSION  转到状态 99
-    UNARY_EXPRESSION    转到状态 176
+    PRIMARY_EXPRESSION  go to state 98
+    POSTFIX_EXPRESSION  go to state 99
+    UNARY_EXPRESSION    go to state 176
 
 
 State 90
@@ -1834,10 +1836,10 @@ State 90
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION  转到状态 98
-    POSTFIX_EXPRESSION  转到状态 99
-    UNARY_EXPRESSION    转到状态 156
-    CAST_EXPRESSION     转到状态 177
+    PRIMARY_EXPRESSION  go to state 98
+    POSTFIX_EXPRESSION  go to state 99
+    UNARY_EXPRESSION    go to state 156
+    CAST_EXPRESSION     go to state 177
 
 
 State 91
@@ -1861,9 +1863,9 @@ State 91
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 175
 
-    PRIMARY_EXPRESSION  转到状态 98
-    POSTFIX_EXPRESSION  转到状态 99
-    UNARY_EXPRESSION    转到状态 178
+    PRIMARY_EXPRESSION  go to state 98
+    POSTFIX_EXPRESSION  go to state 99
+    UNARY_EXPRESSION    go to state 178
 
 
 State 92
@@ -1887,10 +1889,10 @@ State 92
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION  转到状态 98
-    POSTFIX_EXPRESSION  转到状态 99
-    UNARY_EXPRESSION    转到状态 156
-    CAST_EXPRESSION     转到状态 179
+    PRIMARY_EXPRESSION  go to state 98
+    POSTFIX_EXPRESSION  go to state 99
+    UNARY_EXPRESSION    go to state 156
+    CAST_EXPRESSION     go to state 179
 
 
 State 93
@@ -1914,10 +1916,10 @@ State 93
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION  转到状态 98
-    POSTFIX_EXPRESSION  转到状态 99
-    UNARY_EXPRESSION    转到状态 156
-    CAST_EXPRESSION     转到状态 180
+    PRIMARY_EXPRESSION  go to state 98
+    POSTFIX_EXPRESSION  go to state 99
+    UNARY_EXPRESSION    go to state 156
+    CAST_EXPRESSION     go to state 180
 
 
 State 94
@@ -1941,10 +1943,10 @@ State 94
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION  转到状态 98
-    POSTFIX_EXPRESSION  转到状态 99
-    UNARY_EXPRESSION    转到状态 156
-    CAST_EXPRESSION     转到状态 181
+    PRIMARY_EXPRESSION  go to state 98
+    POSTFIX_EXPRESSION  go to state 99
+    UNARY_EXPRESSION    go to state 156
+    CAST_EXPRESSION     go to state 181
 
 
 State 95
@@ -1968,10 +1970,10 @@ State 95
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION  转到状态 98
-    POSTFIX_EXPRESSION  转到状态 99
-    UNARY_EXPRESSION    转到状态 156
-    CAST_EXPRESSION     转到状态 182
+    PRIMARY_EXPRESSION  go to state 98
+    POSTFIX_EXPRESSION  go to state 99
+    UNARY_EXPRESSION    go to state 156
+    CAST_EXPRESSION     go to state 182
 
 
 State 96
@@ -2006,30 +2008,30 @@ State 96
     T_L_ROUND_BRACKET  shift, and go to state 96
     T_UNION            shift, and go to state 19
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 184
-    TYPE_SPECIFIER             转到状态 67
-    STRUCT_OR_UNION_SPECIFIER  转到状态 25
-    STRUCT_OR_UNION            转到状态 26
-    SPECIFIER_QUALIFIER_LIST   转到状态 185
-    ENUM_SPECIFIER             转到状态 27
-    TYPE_QUALIFIER             转到状态 71
-    TYPE_NAME                  转到状态 186
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 184
+    TYPE_SPECIFIER             go to state 67
+    STRUCT_OR_UNION_SPECIFIER  go to state 25
+    STRUCT_OR_UNION            go to state 26
+    SPECIFIER_QUALIFIER_LIST   go to state 185
+    ENUM_SPECIFIER             go to state 27
+    TYPE_QUALIFIER             go to state 71
+    TYPE_NAME                  go to state 186
 
 
 State 97
@@ -2055,24 +2057,24 @@ State 97
     T_L_ROUND_BRACKET  shift, and go to state 96
     T_L_CURLY_BRACKET  shift, and go to state 97
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 113
-    INITIALIZER                转到状态 137
-    INITIALIZER_LIST           转到状态 187
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 113
+    INITIALIZER                go to state 137
+    INITIALIZER_LIST           go to state 187
 
 
 State 98
@@ -2390,22 +2392,22 @@ State 119
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 157
-    CONSTANT_EXPRESSION        转到状态 226
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 157
+    CONSTANT_EXPRESSION        go to state 226
 
 
 State 120
@@ -2431,23 +2433,23 @@ State 120
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 228
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 228
 
 
 State 121
@@ -2544,30 +2546,30 @@ State 125
     T_L_ROUND_BRACKET  shift, and go to state 96
     T_L_CURLY_BRACKET  shift, and go to state 232
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 134
-    STATEMENT                  转到状态 233
-    LABELED_STATEMENT          转到状态 140
-    COMPOUND_STATEMENT         转到状态 141
-    EXPRESSION_STATEMENT       转到状态 144
-    SELECTION_STATEMENT        转到状态 145
-    ITERATION_STATEMENT        转到状态 146
-    JUMP_STATEMENT             转到状态 147
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 134
+    STATEMENT                  go to state 233
+    LABELED_STATEMENT          go to state 140
+    COMPOUND_STATEMENT         go to state 141
+    EXPRESSION_STATEMENT       go to state 144
+    SELECTION_STATEMENT        go to state 145
+    ITERATION_STATEMENT        go to state 146
+    JUMP_STATEMENT             go to state 147
 
 
 State 126
@@ -2694,42 +2696,42 @@ State 131
     T_R_CURLY_BRACKET  shift, and go to state 132
     T_UNION            shift, and go to state 19
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 133
-    EXPRESSION                 转到状态 134
-    STORAGE_CLASS_SPECIFIER    转到状态 21
-    DECLARATION                转到状态 135
-    DECLARATION_SPECIFIERS     转到状态 136
-    TYPE_SPECIFIER             转到状态 24
-    STRUCT_OR_UNION_SPECIFIER  转到状态 25
-    STRUCT_OR_UNION            转到状态 26
-    ENUM_SPECIFIER             转到状态 27
-    TYPE_QUALIFIER             转到状态 28
-    INITIALIZER                转到状态 137
-    INITIALIZER_LIST           转到状态 187
-    STATEMENT                  转到状态 139
-    LABELED_STATEMENT          转到状态 140
-    COMPOUND_STATEMENT         转到状态 141
-    DECLARATION_LIST           转到状态 142
-    STATEMENT_LIST             转到状态 143
-    EXPRESSION_STATEMENT       转到状态 144
-    SELECTION_STATEMENT        转到状态 145
-    ITERATION_STATEMENT        转到状态 146
-    JUMP_STATEMENT             转到状态 147
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 133
+    EXPRESSION                 go to state 134
+    STORAGE_CLASS_SPECIFIER    go to state 21
+    DECLARATION                go to state 135
+    DECLARATION_SPECIFIERS     go to state 136
+    TYPE_SPECIFIER             go to state 24
+    STRUCT_OR_UNION_SPECIFIER  go to state 25
+    STRUCT_OR_UNION            go to state 26
+    ENUM_SPECIFIER             go to state 27
+    TYPE_QUALIFIER             go to state 28
+    INITIALIZER                go to state 137
+    INITIALIZER_LIST           go to state 187
+    STATEMENT                  go to state 139
+    LABELED_STATEMENT          go to state 140
+    COMPOUND_STATEMENT         go to state 141
+    DECLARATION_LIST           go to state 142
+    STATEMENT_LIST             go to state 143
+    EXPRESSION_STATEMENT       go to state 144
+    SELECTION_STATEMENT        go to state 145
+    ITERATION_STATEMENT        go to state 146
+    JUMP_STATEMENT             go to state 147
 
 
 State 132
@@ -2776,11 +2778,11 @@ State 136
     T_SEMICOLON        shift, and go to state 38
     T_L_ROUND_BRACKET  shift, and go to state 39
 
-    INIT_DECLARATOR_LIST  转到状态 40
-    INIT_DECLARATOR       转到状态 41
-    DECLARATOR            转到状态 80
-    DIRECT_DECLARATOR     转到状态 43
-    POINTER               转到状态 44
+    INIT_DECLARATOR_LIST  go to state 40
+    INIT_DECLARATOR       go to state 41
+    DECLARATOR            go to state 80
+    DIRECT_DECLARATOR     go to state 43
+    POINTER               go to state 44
 
 
 State 137
@@ -2871,39 +2873,39 @@ State 142
     T_R_CURLY_BRACKET  shift, and go to state 241
     T_UNION            shift, and go to state 19
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 134
-    STORAGE_CLASS_SPECIFIER    转到状态 21
-    DECLARATION                转到状态 242
-    DECLARATION_SPECIFIERS     转到状态 136
-    TYPE_SPECIFIER             转到状态 24
-    STRUCT_OR_UNION_SPECIFIER  转到状态 25
-    STRUCT_OR_UNION            转到状态 26
-    ENUM_SPECIFIER             转到状态 27
-    TYPE_QUALIFIER             转到状态 28
-    STATEMENT                  转到状态 139
-    LABELED_STATEMENT          转到状态 140
-    COMPOUND_STATEMENT         转到状态 141
-    STATEMENT_LIST             转到状态 243
-    EXPRESSION_STATEMENT       转到状态 144
-    SELECTION_STATEMENT        转到状态 145
-    ITERATION_STATEMENT        转到状态 146
-    JUMP_STATEMENT             转到状态 147
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 134
+    STORAGE_CLASS_SPECIFIER    go to state 21
+    DECLARATION                go to state 242
+    DECLARATION_SPECIFIERS     go to state 136
+    TYPE_SPECIFIER             go to state 24
+    STRUCT_OR_UNION_SPECIFIER  go to state 25
+    STRUCT_OR_UNION            go to state 26
+    ENUM_SPECIFIER             go to state 27
+    TYPE_QUALIFIER             go to state 28
+    STATEMENT                  go to state 139
+    LABELED_STATEMENT          go to state 140
+    COMPOUND_STATEMENT         go to state 141
+    STATEMENT_LIST             go to state 243
+    EXPRESSION_STATEMENT       go to state 144
+    SELECTION_STATEMENT        go to state 145
+    ITERATION_STATEMENT        go to state 146
+    JUMP_STATEMENT             go to state 147
 
 
 State 143
@@ -2941,30 +2943,30 @@ State 143
     T_L_CURLY_BRACKET  shift, and go to state 232
     T_R_CURLY_BRACKET  shift, and go to state 244
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 134
-    STATEMENT                  转到状态 245
-    LABELED_STATEMENT          转到状态 140
-    COMPOUND_STATEMENT         转到状态 141
-    EXPRESSION_STATEMENT       转到状态 144
-    SELECTION_STATEMENT        转到状态 145
-    ITERATION_STATEMENT        转到状态 146
-    JUMP_STATEMENT             转到状态 147
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 134
+    STATEMENT                  go to state 245
+    LABELED_STATEMENT          go to state 140
+    COMPOUND_STATEMENT         go to state 141
+    EXPRESSION_STATEMENT       go to state 144
+    SELECTION_STATEMENT        go to state 145
+    ITERATION_STATEMENT        go to state 146
+    JUMP_STATEMENT             go to state 147
 
 
 State 144
@@ -3022,11 +3024,11 @@ State 150
 
     $default  reduce using rule 151 (PARAMETER_DECLARATION)
 
-    DECLARATOR                  转到状态 248
-    DIRECT_DECLARATOR           转到状态 43
-    POINTER                     转到状态 249
-    ABSTRACT_DECLARATOR         转到状态 250
-    DIRECT_ABSTRACT_DECLARATOR  转到状态 251
+    DECLARATOR                  go to state 248
+    DIRECT_DECLARATOR           go to state 43
+    POINTER                     go to state 249
+    ABSTRACT_DECLARATOR         go to state 250
+    DIRECT_ABSTRACT_DECLARATOR  go to state 251
 
 
 State 151
@@ -3111,13 +3113,13 @@ State 159
     T_R_CURLY_BRACKET  shift, and go to state 257
     T_UNION            shift, and go to state 19
 
-    TYPE_SPECIFIER             转到状态 67
-    STRUCT_OR_UNION_SPECIFIER  转到状态 25
-    STRUCT_OR_UNION            转到状态 26
-    STRUCT_DECLARATION         转到状态 162
-    SPECIFIER_QUALIFIER_LIST   转到状态 70
-    ENUM_SPECIFIER             转到状态 27
-    TYPE_QUALIFIER             转到状态 71
+    TYPE_SPECIFIER             go to state 67
+    STRUCT_OR_UNION_SPECIFIER  go to state 25
+    STRUCT_OR_UNION            go to state 26
+    STRUCT_DECLARATION         go to state 162
+    SPECIFIER_QUALIFIER_LIST   go to state 70
+    ENUM_SPECIFIER             go to state 27
+    TYPE_QUALIFIER             go to state 71
 
 
 State 160
@@ -3162,22 +3164,22 @@ State 163
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 157
-    CONSTANT_EXPRESSION        转到状态 258
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 157
+    CONSTANT_EXPRESSION        go to state 258
 
 
 State 164
@@ -3256,24 +3258,24 @@ State 171
     T_L_ROUND_BRACKET  shift, and go to state 96
     T_L_CURLY_BRACKET  shift, and go to state 97
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 113
-    INITIALIZER                转到状态 137
-    INITIALIZER_LIST           转到状态 138
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 113
+    INITIALIZER                go to state 137
+    INITIALIZER_LIST           go to state 138
 
 
 State 172
@@ -3308,30 +3310,30 @@ State 172
     T_L_ROUND_BRACKET  shift, and go to state 96
     T_UNION            shift, and go to state 19
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 184
-    TYPE_SPECIFIER             转到状态 67
-    STRUCT_OR_UNION_SPECIFIER  转到状态 25
-    STRUCT_OR_UNION            转到状态 26
-    SPECIFIER_QUALIFIER_LIST   转到状态 185
-    ENUM_SPECIFIER             转到状态 27
-    TYPE_QUALIFIER             转到状态 71
-    TYPE_NAME                  转到状态 262
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 184
+    TYPE_SPECIFIER             go to state 67
+    STRUCT_OR_UNION_SPECIFIER  go to state 25
+    STRUCT_OR_UNION            go to state 26
+    SPECIFIER_QUALIFIER_LIST   go to state 185
+    ENUM_SPECIFIER             go to state 27
+    TYPE_QUALIFIER             go to state 71
+    TYPE_NAME                  go to state 262
 
 
 State 173
@@ -3369,23 +3371,23 @@ State 175
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 184
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 184
 
 
 State 176
@@ -3464,9 +3466,9 @@ State 185
 
     $default  reduce using rule 155 (TYPE_NAME)
 
-    POINTER                     转到状态 265
-    ABSTRACT_DECLARATOR         转到状态 266
-    DIRECT_ABSTRACT_DECLARATOR  转到状态 251
+    POINTER                     go to state 265
+    ABSTRACT_DECLARATOR         go to state 266
+    DIRECT_ABSTRACT_DECLARATOR  go to state 251
 
 
 State 186
@@ -3523,23 +3525,23 @@ State 190
     T_L_ROUND_BRACKET  shift, and go to state 96
     T_R_ROUND_BRACKET  shift, and go to state 270
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    ARGUMENT_EXPRESSION_LIST   转到状态 271
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 272
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    ARGUMENT_EXPRESSION_LIST   go to state 271
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 272
 
 
 State 191
@@ -3563,23 +3565,23 @@ State 191
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 273
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 273
 
 
 State 192
@@ -3617,22 +3619,22 @@ State 194
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 276
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 276
 
 
 State 195
@@ -3656,22 +3658,22 @@ State 195
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 277
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 277
 
 
 State 196
@@ -3695,22 +3697,22 @@ State 196
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 278
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 278
 
 
 State 197
@@ -3734,22 +3736,22 @@ State 197
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 279
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 279
 
 
 State 198
@@ -3773,22 +3775,22 @@ State 198
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 280
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 280
 
 
 State 199
@@ -3812,22 +3814,22 @@ State 199
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 281
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 281
 
 
 State 200
@@ -3851,22 +3853,22 @@ State 200
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 282
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 282
 
 
 State 201
@@ -3890,22 +3892,22 @@ State 201
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 283
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 283
 
 
 State 202
@@ -3929,22 +3931,22 @@ State 202
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 284
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 284
 
 
 State 203
@@ -3968,22 +3970,22 @@ State 203
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 285
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 285
 
 
 State 204
@@ -4007,22 +4009,22 @@ State 204
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 286
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 286
 
 
 State 205
@@ -4046,10 +4048,10 @@ State 205
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION  转到状态 98
-    POSTFIX_EXPRESSION  转到状态 99
-    UNARY_EXPRESSION    转到状态 156
-    CAST_EXPRESSION     转到状态 287
+    PRIMARY_EXPRESSION  go to state 98
+    POSTFIX_EXPRESSION  go to state 99
+    UNARY_EXPRESSION    go to state 156
+    CAST_EXPRESSION     go to state 287
 
 
 State 206
@@ -4073,10 +4075,10 @@ State 206
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION  转到状态 98
-    POSTFIX_EXPRESSION  转到状态 99
-    UNARY_EXPRESSION    转到状态 156
-    CAST_EXPRESSION     转到状态 288
+    PRIMARY_EXPRESSION  go to state 98
+    POSTFIX_EXPRESSION  go to state 99
+    UNARY_EXPRESSION    go to state 156
+    CAST_EXPRESSION     go to state 288
 
 
 State 207
@@ -4100,10 +4102,10 @@ State 207
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION  转到状态 98
-    POSTFIX_EXPRESSION  转到状态 99
-    UNARY_EXPRESSION    转到状态 156
-    CAST_EXPRESSION     转到状态 289
+    PRIMARY_EXPRESSION  go to state 98
+    POSTFIX_EXPRESSION  go to state 99
+    UNARY_EXPRESSION    go to state 156
+    CAST_EXPRESSION     go to state 289
 
 
 State 208
@@ -4127,11 +4129,11 @@ State 208
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 290
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 290
 
 
 State 209
@@ -4155,11 +4157,11 @@ State 209
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 291
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 291
 
 
 State 210
@@ -4183,12 +4185,12 @@ State 210
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 292
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 292
 
 
 State 211
@@ -4212,12 +4214,12 @@ State 211
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 293
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 293
 
 
 State 212
@@ -4241,13 +4243,13 @@ State 212
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 294
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 294
 
 
 State 213
@@ -4271,13 +4273,13 @@ State 213
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 295
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 295
 
 
 State 214
@@ -4301,13 +4303,13 @@ State 214
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 296
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 296
 
 
 State 215
@@ -4331,13 +4333,13 @@ State 215
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 297
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 297
 
 
 State 216
@@ -4361,14 +4363,14 @@ State 216
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 298
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 298
 
 
 State 217
@@ -4392,14 +4394,14 @@ State 217
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 299
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 299
 
 
 State 218
@@ -4423,15 +4425,15 @@ State 218
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 300
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 300
 
 
 State 219
@@ -4455,16 +4457,16 @@ State 219
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 301
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 301
 
 
 State 220
@@ -4488,17 +4490,17 @@ State 220
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 302
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 302
 
 
 State 221
@@ -4522,18 +4524,18 @@ State 221
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 303
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 303
 
 
 State 222
@@ -4557,19 +4559,19 @@ State 222
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 304
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 304
 
 
 State 223
@@ -4593,23 +4595,23 @@ State 223
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 305
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 305
 
 
 State 224
@@ -4640,23 +4642,23 @@ State 225
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 306
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 306
 
 
 State 226
@@ -4712,23 +4714,23 @@ State 230
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 309
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 309
 
 
 State 231
@@ -4764,30 +4766,30 @@ State 231
     T_L_ROUND_BRACKET  shift, and go to state 96
     T_L_CURLY_BRACKET  shift, and go to state 232
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 134
-    STATEMENT                  转到状态 310
-    LABELED_STATEMENT          转到状态 140
-    COMPOUND_STATEMENT         转到状态 141
-    EXPRESSION_STATEMENT       转到状态 144
-    SELECTION_STATEMENT        转到状态 145
-    ITERATION_STATEMENT        转到状态 146
-    JUMP_STATEMENT             转到状态 147
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 134
+    STATEMENT                  go to state 310
+    LABELED_STATEMENT          go to state 140
+    COMPOUND_STATEMENT         go to state 141
+    EXPRESSION_STATEMENT       go to state 144
+    SELECTION_STATEMENT        go to state 145
+    ITERATION_STATEMENT        go to state 146
+    JUMP_STATEMENT             go to state 147
 
 
 State 232
@@ -4842,40 +4844,40 @@ State 232
     T_R_CURLY_BRACKET  shift, and go to state 132
     T_UNION            shift, and go to state 19
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 134
-    STORAGE_CLASS_SPECIFIER    转到状态 21
-    DECLARATION                转到状态 135
-    DECLARATION_SPECIFIERS     转到状态 136
-    TYPE_SPECIFIER             转到状态 24
-    STRUCT_OR_UNION_SPECIFIER  转到状态 25
-    STRUCT_OR_UNION            转到状态 26
-    ENUM_SPECIFIER             转到状态 27
-    TYPE_QUALIFIER             转到状态 28
-    STATEMENT                  转到状态 139
-    LABELED_STATEMENT          转到状态 140
-    COMPOUND_STATEMENT         转到状态 141
-    DECLARATION_LIST           转到状态 142
-    STATEMENT_LIST             转到状态 143
-    EXPRESSION_STATEMENT       转到状态 144
-    SELECTION_STATEMENT        转到状态 145
-    ITERATION_STATEMENT        转到状态 146
-    JUMP_STATEMENT             转到状态 147
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 134
+    STORAGE_CLASS_SPECIFIER    go to state 21
+    DECLARATION                go to state 135
+    DECLARATION_SPECIFIERS     go to state 136
+    TYPE_SPECIFIER             go to state 24
+    STRUCT_OR_UNION_SPECIFIER  go to state 25
+    STRUCT_OR_UNION            go to state 26
+    ENUM_SPECIFIER             go to state 27
+    TYPE_QUALIFIER             go to state 28
+    STATEMENT                  go to state 139
+    LABELED_STATEMENT          go to state 140
+    COMPOUND_STATEMENT         go to state 141
+    DECLARATION_LIST           go to state 142
+    STATEMENT_LIST             go to state 143
+    EXPRESSION_STATEMENT       go to state 144
+    SELECTION_STATEMENT        go to state 145
+    ITERATION_STATEMENT        go to state 146
+    JUMP_STATEMENT             go to state 147
 
 
 State 233
@@ -4907,23 +4909,23 @@ State 234
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 312
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 312
 
 
 State 235
@@ -4947,23 +4949,23 @@ State 235
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 313
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 313
 
 
 State 236
@@ -4999,30 +5001,30 @@ State 236
     T_L_ROUND_BRACKET  shift, and go to state 96
     T_L_CURLY_BRACKET  shift, and go to state 232
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 134
-    STATEMENT                  转到状态 314
-    LABELED_STATEMENT          转到状态 140
-    COMPOUND_STATEMENT         转到状态 141
-    EXPRESSION_STATEMENT       转到状态 144
-    SELECTION_STATEMENT        转到状态 145
-    ITERATION_STATEMENT        转到状态 146
-    JUMP_STATEMENT             转到状态 147
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 134
+    STATEMENT                  go to state 314
+    LABELED_STATEMENT          go to state 140
+    COMPOUND_STATEMENT         go to state 141
+    EXPRESSION_STATEMENT       go to state 144
+    SELECTION_STATEMENT        go to state 145
+    ITERATION_STATEMENT        go to state 146
+    JUMP_STATEMENT             go to state 147
 
 
 State 237
@@ -5053,22 +5055,22 @@ State 238
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 315
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 315
 
 
 State 239
@@ -5093,23 +5095,23 @@ State 239
     T_L_ROUND_BRACKET  shift, and go to state 96
     T_L_CURLY_BRACKET  shift, and go to state 97
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 113
-    INITIALIZER                转到状态 316
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 113
+    INITIALIZER                go to state 316
 
 
 State 240
@@ -5168,30 +5170,30 @@ State 243
     T_L_CURLY_BRACKET  shift, and go to state 232
     T_R_CURLY_BRACKET  shift, and go to state 317
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 134
-    STATEMENT                  转到状态 245
-    LABELED_STATEMENT          转到状态 140
-    COMPOUND_STATEMENT         转到状态 141
-    EXPRESSION_STATEMENT       转到状态 144
-    SELECTION_STATEMENT        转到状态 145
-    ITERATION_STATEMENT        转到状态 146
-    JUMP_STATEMENT             转到状态 147
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 134
+    STATEMENT                  go to state 245
+    LABELED_STATEMENT          go to state 140
+    COMPOUND_STATEMENT         go to state 141
+    EXPRESSION_STATEMENT       go to state 144
+    SELECTION_STATEMENT        go to state 145
+    ITERATION_STATEMENT        go to state 146
+    JUMP_STATEMENT             go to state 147
 
 
 State 244
@@ -5240,21 +5242,21 @@ State 246
     T_L_SQUARE_BRACKET  shift, and go to state 247
     T_UNION             shift, and go to state 19
 
-    STORAGE_CLASS_SPECIFIER     转到状态 21
-    DECLARATION_SPECIFIERS      转到状态 150
-    TYPE_SPECIFIER              转到状态 24
-    STRUCT_OR_UNION_SPECIFIER   转到状态 25
-    STRUCT_OR_UNION             转到状态 26
-    ENUM_SPECIFIER              转到状态 27
-    TYPE_QUALIFIER              转到状态 28
-    DECLARATOR                  转到状态 57
-    DIRECT_DECLARATOR           转到状态 43
-    POINTER                     转到状态 249
-    PARAMETER_TYPE_LIST         转到状态 319
-    PARAMETER_LIST              转到状态 152
-    PARAMETER_DECLARATION       转到状态 153
-    ABSTRACT_DECLARATOR         转到状态 320
-    DIRECT_ABSTRACT_DECLARATOR  转到状态 251
+    STORAGE_CLASS_SPECIFIER     go to state 21
+    DECLARATION_SPECIFIERS      go to state 150
+    TYPE_SPECIFIER              go to state 24
+    STRUCT_OR_UNION_SPECIFIER   go to state 25
+    STRUCT_OR_UNION             go to state 26
+    ENUM_SPECIFIER              go to state 27
+    TYPE_QUALIFIER              go to state 28
+    DECLARATOR                  go to state 57
+    DIRECT_DECLARATOR           go to state 43
+    POINTER                     go to state 249
+    PARAMETER_TYPE_LIST         go to state 319
+    PARAMETER_LIST              go to state 152
+    PARAMETER_DECLARATION       go to state 153
+    ABSTRACT_DECLARATOR         go to state 320
+    DIRECT_ABSTRACT_DECLARATOR  go to state 251
 
 
 State 247
@@ -5280,22 +5282,22 @@ State 247
     T_L_ROUND_BRACKET   shift, and go to state 96
     T_R_SQUARE_BRACKET  shift, and go to state 321
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 157
-    CONSTANT_EXPRESSION        转到状态 322
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 157
+    CONSTANT_EXPRESSION        go to state 322
 
 
 State 248
@@ -5317,8 +5319,8 @@ State 249
 
     $default  reduce using rule 157 (ABSTRACT_DECLARATOR)
 
-    DIRECT_DECLARATOR           转到状态 65
-    DIRECT_ABSTRACT_DECLARATOR  转到状态 323
+    DIRECT_DECLARATOR           go to state 65
+    DIRECT_ABSTRACT_DECLARATOR  go to state 323
 
 
 State 250
@@ -5373,14 +5375,14 @@ State 253
     T_CONST     shift, and go to state 18
     T_UNION     shift, and go to state 19
 
-    STORAGE_CLASS_SPECIFIER    转到状态 21
-    DECLARATION_SPECIFIERS     转到状态 150
-    TYPE_SPECIFIER             转到状态 24
-    STRUCT_OR_UNION_SPECIFIER  转到状态 25
-    STRUCT_OR_UNION            转到状态 26
-    ENUM_SPECIFIER             转到状态 27
-    TYPE_QUALIFIER             转到状态 28
-    PARAMETER_DECLARATION      转到状态 326
+    STORAGE_CLASS_SPECIFIER    go to state 21
+    DECLARATION_SPECIFIERS     go to state 150
+    TYPE_SPECIFIER             go to state 24
+    STRUCT_OR_UNION_SPECIFIER  go to state 25
+    STRUCT_OR_UNION            go to state 26
+    ENUM_SPECIFIER             go to state 27
+    TYPE_QUALIFIER             go to state 28
+    PARAMETER_DECLARATION      go to state 326
 
 
 State 254
@@ -5434,10 +5436,10 @@ State 260
     T_COLON            shift, and go to state 163
     T_L_ROUND_BRACKET  shift, and go to state 39
 
-    STRUCT_DECLARATOR  转到状态 328
-    DECLARATOR         转到状态 166
-    DIRECT_DECLARATOR  转到状态 43
-    POINTER            转到状态 44
+    STRUCT_DECLARATOR  go to state 328
+    DECLARATOR         go to state 166
+    DIRECT_DECLARATOR  go to state 43
+    POINTER            go to state 44
 
 
 State 261
@@ -5461,22 +5463,22 @@ State 261
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 157
-    CONSTANT_EXPRESSION        转到状态 329
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 157
+    CONSTANT_EXPRESSION        go to state 329
 
 
 State 262
@@ -5523,19 +5525,19 @@ State 264
     T_L_SQUARE_BRACKET  shift, and go to state 247
     T_UNION             shift, and go to state 19
 
-    STORAGE_CLASS_SPECIFIER     转到状态 21
-    DECLARATION_SPECIFIERS      转到状态 150
-    TYPE_SPECIFIER              转到状态 24
-    STRUCT_OR_UNION_SPECIFIER   转到状态 25
-    STRUCT_OR_UNION             转到状态 26
-    ENUM_SPECIFIER              转到状态 27
-    TYPE_QUALIFIER              转到状态 28
-    POINTER                     转到状态 265
-    PARAMETER_TYPE_LIST         转到状态 319
-    PARAMETER_LIST              转到状态 152
-    PARAMETER_DECLARATION       转到状态 153
-    ABSTRACT_DECLARATOR         转到状态 320
-    DIRECT_ABSTRACT_DECLARATOR  转到状态 251
+    STORAGE_CLASS_SPECIFIER     go to state 21
+    DECLARATION_SPECIFIERS      go to state 150
+    TYPE_SPECIFIER              go to state 24
+    STRUCT_OR_UNION_SPECIFIER   go to state 25
+    STRUCT_OR_UNION             go to state 26
+    ENUM_SPECIFIER              go to state 27
+    TYPE_QUALIFIER              go to state 28
+    POINTER                     go to state 265
+    PARAMETER_TYPE_LIST         go to state 319
+    PARAMETER_LIST              go to state 152
+    PARAMETER_DECLARATION       go to state 153
+    ABSTRACT_DECLARATOR         go to state 320
+    DIRECT_ABSTRACT_DECLARATOR  go to state 251
 
 
 State 265
@@ -5548,7 +5550,7 @@ State 265
 
     $default  reduce using rule 157 (ABSTRACT_DECLARATOR)
 
-    DIRECT_ABSTRACT_DECLARATOR  转到状态 323
+    DIRECT_ABSTRACT_DECLARATOR  go to state 323
 
 
 State 266
@@ -5579,10 +5581,10 @@ State 267
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION  转到状态 98
-    POSTFIX_EXPRESSION  转到状态 99
-    UNARY_EXPRESSION    转到状态 156
-    CAST_EXPRESSION     转到状态 331
+    PRIMARY_EXPRESSION  go to state 98
+    POSTFIX_EXPRESSION  go to state 99
+    UNARY_EXPRESSION    go to state 156
+    CAST_EXPRESSION     go to state 331
 
 
 State 268
@@ -5609,23 +5611,23 @@ State 268
     T_L_CURLY_BRACKET  shift, and go to state 97
     T_R_CURLY_BRACKET  shift, and go to state 332
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 113
-    INITIALIZER                转到状态 316
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 113
+    INITIALIZER                go to state 316
 
 
 State 269
@@ -6014,30 +6016,30 @@ State 307
     T_L_ROUND_BRACKET  shift, and go to state 96
     T_L_CURLY_BRACKET  shift, and go to state 232
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 134
-    STATEMENT                  转到状态 338
-    LABELED_STATEMENT          转到状态 140
-    COMPOUND_STATEMENT         转到状态 141
-    EXPRESSION_STATEMENT       转到状态 144
-    SELECTION_STATEMENT        转到状态 145
-    ITERATION_STATEMENT        转到状态 146
-    JUMP_STATEMENT             转到状态 147
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 134
+    STATEMENT                  go to state 338
+    LABELED_STATEMENT          go to state 140
+    COMPOUND_STATEMENT         go to state 141
+    EXPRESSION_STATEMENT       go to state 144
+    SELECTION_STATEMENT        go to state 145
+    ITERATION_STATEMENT        go to state 146
+    JUMP_STATEMENT             go to state 147
 
 
 State 308
@@ -6195,16 +6197,16 @@ State 324
     T_R_ROUND_BRACKET  shift, and go to state 347
     T_UNION            shift, and go to state 19
 
-    STORAGE_CLASS_SPECIFIER    转到状态 21
-    DECLARATION_SPECIFIERS     转到状态 150
-    TYPE_SPECIFIER             转到状态 24
-    STRUCT_OR_UNION_SPECIFIER  转到状态 25
-    STRUCT_OR_UNION            转到状态 26
-    ENUM_SPECIFIER             转到状态 27
-    TYPE_QUALIFIER             转到状态 28
-    PARAMETER_TYPE_LIST        转到状态 348
-    PARAMETER_LIST             转到状态 152
-    PARAMETER_DECLARATION      转到状态 153
+    STORAGE_CLASS_SPECIFIER    go to state 21
+    DECLARATION_SPECIFIERS     go to state 150
+    TYPE_SPECIFIER             go to state 24
+    STRUCT_OR_UNION_SPECIFIER  go to state 25
+    STRUCT_OR_UNION            go to state 26
+    ENUM_SPECIFIER             go to state 27
+    TYPE_QUALIFIER             go to state 28
+    PARAMETER_TYPE_LIST        go to state 348
+    PARAMETER_LIST             go to state 152
+    PARAMETER_DECLARATION      go to state 153
 
 
 State 325
@@ -6230,22 +6232,22 @@ State 325
     T_L_ROUND_BRACKET   shift, and go to state 96
     T_R_SQUARE_BRACKET  shift, and go to state 349
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 157
-    CONSTANT_EXPRESSION        转到状态 350
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 157
+    CONSTANT_EXPRESSION        go to state 350
 
 
 State 326
@@ -6318,22 +6320,22 @@ State 333
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 351
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 351
 
 
 State 334
@@ -6371,21 +6373,21 @@ State 336
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 156
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 352
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 156
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 352
 
 
 State 337
@@ -6421,30 +6423,30 @@ State 337
     T_L_ROUND_BRACKET  shift, and go to state 96
     T_L_CURLY_BRACKET  shift, and go to state 232
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 134
-    STATEMENT                  转到状态 353
-    LABELED_STATEMENT          转到状态 140
-    COMPOUND_STATEMENT         转到状态 141
-    EXPRESSION_STATEMENT       转到状态 144
-    SELECTION_STATEMENT        转到状态 145
-    ITERATION_STATEMENT        转到状态 146
-    JUMP_STATEMENT             转到状态 147
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 134
+    STATEMENT                  go to state 353
+    LABELED_STATEMENT          go to state 140
+    COMPOUND_STATEMENT         go to state 141
+    EXPRESSION_STATEMENT       go to state 144
+    SELECTION_STATEMENT        go to state 145
+    ITERATION_STATEMENT        go to state 146
+    JUMP_STATEMENT             go to state 147
 
 
 State 338
@@ -6476,23 +6478,23 @@ State 339
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 354
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 354
 
 
 State 340
@@ -6528,30 +6530,30 @@ State 340
     T_L_ROUND_BRACKET  shift, and go to state 96
     T_L_CURLY_BRACKET  shift, and go to state 232
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 134
-    STATEMENT                  转到状态 355
-    LABELED_STATEMENT          转到状态 140
-    COMPOUND_STATEMENT         转到状态 141
-    EXPRESSION_STATEMENT       转到状态 144
-    SELECTION_STATEMENT        转到状态 145
-    ITERATION_STATEMENT        转到状态 146
-    JUMP_STATEMENT             转到状态 147
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 134
+    STATEMENT                  go to state 355
+    LABELED_STATEMENT          go to state 140
+    COMPOUND_STATEMENT         go to state 141
+    EXPRESSION_STATEMENT       go to state 144
+    SELECTION_STATEMENT        go to state 145
+    ITERATION_STATEMENT        go to state 146
+    JUMP_STATEMENT             go to state 147
 
 
 State 341
@@ -6575,23 +6577,23 @@ State 341
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 356
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 356
 
 
 State 342
@@ -6628,30 +6630,30 @@ State 342
     T_L_ROUND_BRACKET  shift, and go to state 96
     T_L_CURLY_BRACKET  shift, and go to state 232
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 134
-    STATEMENT                  转到状态 357
-    LABELED_STATEMENT          转到状态 140
-    COMPOUND_STATEMENT         转到状态 141
-    EXPRESSION_STATEMENT       转到状态 144
-    SELECTION_STATEMENT        转到状态 145
-    ITERATION_STATEMENT        转到状态 146
-    JUMP_STATEMENT             转到状态 147
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 134
+    STATEMENT                  go to state 357
+    LABELED_STATEMENT          go to state 140
+    COMPOUND_STATEMENT         go to state 141
+    EXPRESSION_STATEMENT       go to state 144
+    SELECTION_STATEMENT        go to state 145
+    ITERATION_STATEMENT        go to state 146
+    JUMP_STATEMENT             go to state 147
 
 
 State 343
@@ -6687,30 +6689,30 @@ State 343
     T_L_ROUND_BRACKET  shift, and go to state 96
     T_L_CURLY_BRACKET  shift, and go to state 232
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 134
-    STATEMENT                  转到状态 358
-    LABELED_STATEMENT          转到状态 140
-    COMPOUND_STATEMENT         转到状态 141
-    EXPRESSION_STATEMENT       转到状态 144
-    SELECTION_STATEMENT        转到状态 145
-    ITERATION_STATEMENT        转到状态 146
-    JUMP_STATEMENT             转到状态 147
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 134
+    STATEMENT                  go to state 358
+    LABELED_STATEMENT          go to state 140
+    COMPOUND_STATEMENT         go to state 141
+    EXPRESSION_STATEMENT       go to state 144
+    SELECTION_STATEMENT        go to state 145
+    ITERATION_STATEMENT        go to state 146
+    JUMP_STATEMENT             go to state 147
 
 
 State 344
@@ -6863,23 +6865,23 @@ State 361
     T_BITWISE_AND      shift, and go to state 95
     T_L_ROUND_BRACKET  shift, and go to state 96
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 365
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 365
 
 
 State 362
@@ -6915,30 +6917,30 @@ State 362
     T_L_ROUND_BRACKET  shift, and go to state 96
     T_L_CURLY_BRACKET  shift, and go to state 232
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 134
-    STATEMENT                  转到状态 366
-    LABELED_STATEMENT          转到状态 140
-    COMPOUND_STATEMENT         转到状态 141
-    EXPRESSION_STATEMENT       转到状态 144
-    SELECTION_STATEMENT        转到状态 145
-    ITERATION_STATEMENT        转到状态 146
-    JUMP_STATEMENT             转到状态 147
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 134
+    STATEMENT                  go to state 366
+    LABELED_STATEMENT          go to state 140
+    COMPOUND_STATEMENT         go to state 141
+    EXPRESSION_STATEMENT       go to state 144
+    SELECTION_STATEMENT        go to state 145
+    ITERATION_STATEMENT        go to state 146
+    JUMP_STATEMENT             go to state 147
 
 
 State 363
@@ -6981,30 +6983,30 @@ State 364
     T_L_ROUND_BRACKET  shift, and go to state 96
     T_L_CURLY_BRACKET  shift, and go to state 232
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 134
-    STATEMENT                  转到状态 368
-    LABELED_STATEMENT          转到状态 140
-    COMPOUND_STATEMENT         转到状态 141
-    EXPRESSION_STATEMENT       转到状态 144
-    SELECTION_STATEMENT        转到状态 145
-    ITERATION_STATEMENT        转到状态 146
-    JUMP_STATEMENT             转到状态 147
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 134
+    STATEMENT                  go to state 368
+    LABELED_STATEMENT          go to state 140
+    COMPOUND_STATEMENT         go to state 141
+    EXPRESSION_STATEMENT       go to state 144
+    SELECTION_STATEMENT        go to state 145
+    ITERATION_STATEMENT        go to state 146
+    JUMP_STATEMENT             go to state 147
 
 
 State 365
@@ -7070,30 +7072,30 @@ State 369
     T_L_ROUND_BRACKET  shift, and go to state 96
     T_L_CURLY_BRACKET  shift, and go to state 232
 
-    PRIMARY_EXPRESSION         转到状态 98
-    POSTFIX_EXPRESSION         转到状态 99
-    UNARY_EXPRESSION           转到状态 100
-    CAST_EXPRESSION            转到状态 101
-    MULTIPLICATIVE_EXPRESSION  转到状态 102
-    ADDITIVE_EXPRESSION        转到状态 103
-    SHIFT_EXPRESSION           转到状态 104
-    RELATIONAL_EXPRESSION      转到状态 105
-    EQUALITY_EXPRESSION        转到状态 106
-    AND_EXPRESSION             转到状态 107
-    EXCLUSIVE_OR_EXPRESSION    转到状态 108
-    INCLUSIVE_OR_EXPRESSION    转到状态 109
-    LOGICAL_AND_EXPRESSION     转到状态 110
-    LOGICAL_OR_EXPRESSION      转到状态 111
-    CONDITIONAL_EXPRESSION     转到状态 112
-    ASSIGNMENT_EXPRESSION      转到状态 183
-    EXPRESSION                 转到状态 134
-    STATEMENT                  转到状态 370
-    LABELED_STATEMENT          转到状态 140
-    COMPOUND_STATEMENT         转到状态 141
-    EXPRESSION_STATEMENT       转到状态 144
-    SELECTION_STATEMENT        转到状态 145
-    ITERATION_STATEMENT        转到状态 146
-    JUMP_STATEMENT             转到状态 147
+    PRIMARY_EXPRESSION         go to state 98
+    POSTFIX_EXPRESSION         go to state 99
+    UNARY_EXPRESSION           go to state 100
+    CAST_EXPRESSION            go to state 101
+    MULTIPLICATIVE_EXPRESSION  go to state 102
+    ADDITIVE_EXPRESSION        go to state 103
+    SHIFT_EXPRESSION           go to state 104
+    RELATIONAL_EXPRESSION      go to state 105
+    EQUALITY_EXPRESSION        go to state 106
+    AND_EXPRESSION             go to state 107
+    EXCLUSIVE_OR_EXPRESSION    go to state 108
+    INCLUSIVE_OR_EXPRESSION    go to state 109
+    LOGICAL_AND_EXPRESSION     go to state 110
+    LOGICAL_OR_EXPRESSION      go to state 111
+    CONDITIONAL_EXPRESSION     go to state 112
+    ASSIGNMENT_EXPRESSION      go to state 183
+    EXPRESSION                 go to state 134
+    STATEMENT                  go to state 370
+    LABELED_STATEMENT          go to state 140
+    COMPOUND_STATEMENT         go to state 141
+    EXPRESSION_STATEMENT       go to state 144
+    SELECTION_STATEMENT        go to state 145
+    ITERATION_STATEMENT        go to state 146
+    JUMP_STATEMENT             go to state 147
 
 
 State 370

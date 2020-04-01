@@ -155,7 +155,14 @@ public:
 	functiondeclarator(Statementptr p1, Statementptr p2){left = p1; right = p2;};
 	virtual ~functiondeclarator(){};
 	Statementptr get_p1(){return left;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst)const override{
+		left -> translate(dst);		
+		dst << "(";
+		if(right!=NULL){right -> translate(dst);}
+		dst << "):";
+		
+			
+	}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Function declarator> ["<<'\n';
 		left->treeprint(dst, indent+"  ");

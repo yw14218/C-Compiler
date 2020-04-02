@@ -8,8 +8,9 @@ int main(int argc ,char *argv[]){
    	//std::cout<< "Parse finished " << std::endl;
 	std::string indent = "";
     freopen (argv[4], "w",stdout);
-    if(argv[1] == "--translate"){
-        ast -> translate(std::cout);
+    if(std::string(argv[1]) == "--translate"){
+        
+        ast -> translate(std::cout,indent);
         std::cout << std::endl;
         std::cout<<"if __name__ == \"__main__\":"<<std::endl;
         std::cout<<"    import sys"<<std::endl;

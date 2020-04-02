@@ -12,7 +12,10 @@ public:
 	declaration(Statementptr p1,Statementlistptr p2){left = p1; right = p2;};
 	Statementptr get_p1(){return left;}
 	Statementlistptr get_p2(){return right;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{
+		dst << indent;
+		mid -> translate(dst,"");
+		}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Declaration> ["<<'\n';
 		left->treeprint(dst, indent+"  ");
@@ -40,7 +43,7 @@ public:
 	virtual ~storageclassdeclaration(){};
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return right;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Storageclassdeclaration> ["<<'\n';
 		left->treeprint(dst, indent+"  ");
@@ -60,7 +63,7 @@ public:
 	virtual ~typespecdeclaration(){};
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return right;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Typespecdeclaration> ["<<'\n';
 		left->treeprint(dst, indent+"  ");
@@ -80,7 +83,7 @@ public:
 	virtual ~typequaldeclaration(){};
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return right;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Typeequaldeclaration> ["<<'\n';
 		left->treeprint(dst, indent+"  ");
@@ -100,7 +103,17 @@ public:
 	virtual ~initdeclarator(){};
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return right;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{
+		if(right == NULL){
+			left -> translate(dst,"");
+			dst << "=0";
+		}
+		else{
+			left -> translate(dst,"");
+			dst << "=";
+			right -> translate(dst,"");
+		}	
+	}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<initdeclarator> ["<<'\n';
 		left->treeprint(dst, indent+"  ");
@@ -118,7 +131,7 @@ public:
 	pointerdeclarator(Statementptr p1){left = p1;};
 	virtual ~pointerdeclarator(){};
 	Statementptr get_p1(){return left;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Pointerdeclarator> ["<<'\n';
 		left->treeprint(dst, indent+"  ");
@@ -135,7 +148,7 @@ public:
 	arraydeclarator(Statementptr p1, Statementptr p2){left = p1; right = p2;};
 	virtual ~arraydeclarator(){};
 	Statementptr get_p1(){return left;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Arraydeclarator> ["<<'\n';
 		left->treeprint(dst, indent+"  ");		
@@ -155,10 +168,10 @@ public:
 	functiondeclarator(Statementptr p1, Statementptr p2){left = p1; right = p2;};
 	virtual ~functiondeclarator(){};
 	Statementptr get_p1(){return left;}
-	virtual void translate(std::ostream &dst)const override{
-		left -> translate(dst);		
+	virtual void translate(std::ostream &dst, std::string indent)const override{
+		left -> translate(dst,indent);		
 		dst << "(";
-		if(right!=NULL){right -> translate(dst);}
+		if(right!=NULL){right -> translate(dst,indent);}
 		dst << "):";
 		
 			
@@ -180,7 +193,7 @@ public:
 	initializer(Statementptr p1){left = p1;};
 	virtual ~initializer(){};
 	Statementptr get_p1(){return left;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Initializer> ["<<'\n';
 		if(left != NULL)

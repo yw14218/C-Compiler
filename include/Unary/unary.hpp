@@ -9,7 +9,7 @@ public:
 	virtual ~unaryplusplus(){};
 	unaryplusplus(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Unaryplusplus>"<<" ["<<'\n';
 		target->treeprint(dst,indent+"  ");
@@ -25,7 +25,7 @@ public:
 	virtual ~unaryminusminus(){};
 	unaryminusminus(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Unaryminusminus>"<<" ["<<'\n';
 		target->treeprint(dst,indent+"  ");
@@ -40,7 +40,7 @@ public:
 	virtual ~plusplusunary(){};
 	plusplusunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Plusplusunary>"<<" ["<<'\n';
 		target->treeprint(dst,indent+"  ");
@@ -55,7 +55,7 @@ public:
 	virtual ~minusminusunary(){};
 	minusminusunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Minusminusunary>"<<" ["<<'\n';
 		target->treeprint(dst,indent+"  ");
@@ -70,7 +70,7 @@ public:
 	virtual ~plusunary(){};
 	plusunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<plusunary>"<<" ["<<'\n';
 		target->treeprint(dst,indent+"  ");
@@ -85,7 +85,7 @@ public:
 	virtual ~minusunary(){};
 	minusunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<minusunary>"<<" ["<<'\n';
 		target->treeprint(dst,indent+"  ");
@@ -100,7 +100,7 @@ public:
 	virtual ~bitwiseandunary(){};
 	bitwiseandunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<bitwiseandunary>"<<" ["<<'\n';
 		target->treeprint(dst,indent+"  ");
@@ -116,7 +116,7 @@ public:
 	virtual ~timesunary(){};
 	timesunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Timesunary>"<<" ["<<'\n';
 		target->treeprint(dst,indent+"  ");
@@ -132,7 +132,7 @@ public:
 	virtual ~invertunary(){};
 	invertunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<invertunary>"<<" ["<<'\n';
 		target->treeprint(dst,indent+"  ");
@@ -147,7 +147,7 @@ public:
 	virtual ~exclamunary(){};
 	exclamunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<"<!unary>"<<" ["<<'\n';
 		target->treeprint(dst,indent+"  ");
@@ -162,7 +162,7 @@ public:
 	virtual ~sizeofunary(){};
 	sizeofunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"sizeofunary>"<<" ["<<'\n';
 		target->treeprint(dst,indent+"  ");
@@ -177,7 +177,7 @@ public:
 	virtual ~sizeofnameunary(){};
 	sizeofnameunary(Statementptr unaryin){target =unaryin;}
 	Statementptr get_unary(){return target;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<sizeofnameunary>"<<" ["<<'\n';
 		target->treeprint(dst,indent+"  ");

@@ -11,14 +11,15 @@ public:
 	functioncall(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_id(){return left;}
 	Statementptr get_argument(){return right;}
-	virtual void translate(std::ostream &dst)const override{
-	   if(right!=NULL){			
-		left -> translate(dst);
+	virtual void translate(std::ostream &dst, std::string indent)const override{
+	   if(right!=NULL){	
+		dst << indent;		
+		left -> translate(dst,"");
 		dst << "(";
-		right -> translate(dst);
+		right -> translate(dst,"");
 		dst << ")";
            }
-           else{left -> translate(dst); dst << "()";}
+           else{dst << indent; left -> translate(dst,indent); dst << "()";}
 	}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Functioncall> ["<<'\n';
@@ -41,11 +42,11 @@ public:
 	Statementptr get_argument(){return right;}
 	Statementptr get_mid(){return mid;}
 
-	virtual void translate(std::ostream &dst)const override{
+	virtual void translate(std::ostream &dst, std::string indent)const override{
 		dst << "def ";
-		mid -> translate(dst);
+		mid -> translate(dst,"");
 		dst << std::endl;
-		right -> translate(dst);
+		right ->translate(dst,indent+"    ");
 
 
 	}

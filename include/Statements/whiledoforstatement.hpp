@@ -11,16 +11,19 @@ public:
 	virtual ~whilestatement(){};
 	Statementptr get_condition(){return left;};
 	Statementptr get_stats(){return right;};
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{
+		dst << indent;
+		dst << "while (";
+		left -> translate(dst,indent);
+		dst << "):";
+		right -> translate(dst,indent+"    ");	
+	}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"While Statement> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
-	};
-        //void translate(){ std::cout << "while (" << subs[0] << "):" << std::endl;
-	//		  std::cout << "    " << subs[1] << std::endl;
-//	}	
+	};	
 private:
 	Statementptr left;
 	Statementptr right;
@@ -32,7 +35,7 @@ public:
 	virtual ~dostatement(){};
 	Statementptr get_stats(){return left;};
 	Statementptr get_condition(){return right;};	
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Do Statement> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
@@ -54,7 +57,7 @@ public:
 	Statementptr get_stat2(){return left;};
 	Statementptr get_stat3(){return right;};
 	Statementptr get_stat4(){return rightright;};
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<for statement> ["<<'\n';
 		leftleft->treeprint(dst, indent+"  ");

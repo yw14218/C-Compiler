@@ -12,7 +12,18 @@ public:
 	Statementptr get_condition(){return left;};
 	Statementptr get_if(){return mid;};
 	Statementptr get_else(){return right;};
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{
+		dst << indent;
+		dst << "if (";
+		left -> translate(dst,indent);
+		dst << "):" << std::endl;
+		mid -> translate(dst, indent+"    ");
+		if(right != NULL){
+			dst << std::endl << "else:" << std::endl;
+			right -> translate(dst, indent+"    ");		
+		}
+			
+	}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<ifelse statement> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
@@ -33,7 +44,7 @@ public:
 	virtual ~switchstatement(){};
 	Statementptr get_condition(){return left;};
 	Statementptr get_stat(){return right;};
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"Switch Statement> ["<<'\n';
 		left->treeprint(dst,indent+"  ");

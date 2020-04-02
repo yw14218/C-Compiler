@@ -8,7 +8,7 @@ class pointer : public Statement {
 public:
 	pointer(){};
 	virtual ~pointer(){};
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<< "<pointer>"<<" *"<<'\n';
 	};

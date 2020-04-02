@@ -12,13 +12,13 @@ public:
 	virtual ~compoundstatement(){};
 	Statementlistptr get_stat1(){return left;}
 	Statementlistptr get_stat2(){return right;}
-	virtual void translate(std::ostream &dst)const override{
+	virtual void translate(std::ostream &dst, std::string indent)const override{
 		if(left != NULL)
 		{
 		for(int i=0;i<left->size();i++)
 		{
-			dst << "\t";
-			(left->at(i))->translate(dst);
+			dst << indent;
+			(left->at(i))->translate(dst,"");
 			dst << std::endl;
 		}
 		}	
@@ -26,8 +26,8 @@ public:
 		{
 		for(int i=0;i<right->size();i++)
 		{
-			dst << "\t";
-			(right->at(i))->translate(dst);
+			dst << indent;
+			(right->at(i))->translate(dst,"");
 			dst << std::endl;
 		}
 		}	
@@ -61,7 +61,7 @@ public:
 	virtual ~global(){};
 	global(Statementlistptr p1){left = p1;};
 	Statementlistptr get_stat1(){return left;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<global> ["<<'\n';
 		for(int i=0;i<left->size();i++)

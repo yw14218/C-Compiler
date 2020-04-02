@@ -10,7 +10,7 @@ public:
 	structor(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return right;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<structor> ["<<'\n';
 		left->treeprint(dst, indent+"  ");
@@ -29,7 +29,7 @@ public:
 	pointerSymbol(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_p1(){return left;};
 	Statementptr get_p2(){return right;};
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<pointersymbol> ["<<'\n';
 		left->treeprint(dst, indent+"  ");

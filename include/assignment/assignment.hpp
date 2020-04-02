@@ -10,8 +10,13 @@ public:
 	equalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	//virtual void translate(std::ostream &dst){ dst << left->translate(dst) << "=" << right->translate(dst);}
-	virtual void translate(std::ostream &dst)const override{}
+
+	virtual void translate(std::ostream &dst, std::string indent)const override{
+		dst << indent;		
+		left->translate(dst,""); 
+		dst << "=";
+		right->translate(dst,"");
+	}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Equal assignment> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
@@ -29,7 +34,7 @@ public:
 	timesequalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Times assignment> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
@@ -47,7 +52,7 @@ public:
 	divideequalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Divide assignment> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
@@ -65,7 +70,7 @@ public:
 	percentageequalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Percentage assignment> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
@@ -83,7 +88,7 @@ public:
 	plusequalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Plusequal assignment> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
@@ -101,7 +106,7 @@ public:
 	minusequalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Minusequal assignment> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
@@ -119,7 +124,7 @@ public:
 	lshiftequalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Leftshiftequal assignment> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
@@ -136,7 +141,7 @@ public:
 	rshiftequalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Rightshiftequal assignment> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
@@ -153,7 +158,7 @@ public:
 	andequalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Andequal assignment> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
@@ -170,7 +175,7 @@ public:
 	xorequalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Xorequal assignment> ["<<'\n';
 		dst<<indent;left->treeprint(dst,indent+"  ");
@@ -187,7 +192,7 @@ public:
 	orequalassignment(Statementptr p1, Statementptr p2){left = p1 ; right = p2;};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual void translate(std::ostream &dst)const override{}
+	virtual void translate(std::ostream &dst, std::string indent)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Orequal assignment> ["<<'\n';
 		left->treeprint(dst,indent+"  ");

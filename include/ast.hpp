@@ -28,6 +28,8 @@
 #include "Struct/struct.hpp"
 #include "root.hpp"
 #include "primary_expression/doubleing.hpp"
+#include "Context.hpp"
+
 extern const Statement *parseAST();
 
 #endif

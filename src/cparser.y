@@ -376,10 +376,11 @@ TRANSLATION_UNIT: EXTERNAL_DECLARATION {$$ = listgen($1);}
 		;
 
 EXTERNAL_DECLARATION: FUNCTION_DEFINITION {$$ = $1;}
-		| DECLARATION {$$ = $1;} //global declaration
+		| DECLARATION {$$ = $$ = new globaldeclaration($1);}
 		;
 
 FUNCTION_DEFINITION: DECLARATION_SPECIFIERS DECLARATOR COMPOUND_STATEMENT{$$ = new functiondefinition($1, $2, $3);}
+		| DECLARATOR COMPOUND_STATEMENT{$$ = new functiondefinition($1, $2);}
 		;
 
 //PREPROCESSING DIRECTIVES NOT INCLUDED

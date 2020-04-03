@@ -11,10 +11,10 @@ public:
 	timesoperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-  	virtual void translate(std::ostream &dst, std::string indent)const override{
-		left -> translate(dst,indent);
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{
+		left -> translate(dst," ",addglobal,globalvariables);
 		dst << "*";
-		right -> translate(dst,indent);
+		right -> translate(dst," ",addglobal,globalvariables);
 	}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Times operator> ["<<'\n';
@@ -22,6 +22,7 @@ public:
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -35,13 +36,14 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}	
 
-	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Divide operator> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -53,13 +55,14 @@ public:
 	percentageoperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-  	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Percentage operator> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -71,10 +74,10 @@ public:
 	plusoperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-  	virtual void translate(std::ostream &dst, std::string indent)const override{
-		left -> translate(dst,indent);
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{
+		left -> translate(dst,indent,addglobal,globalvariables);
 		dst << "+";
-		right -> translate(dst,indent);
+		right -> translate(dst,indent,addglobal,globalvariables);
 	}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Plus operator> ["<<'\n';
@@ -82,6 +85,7 @@ public:
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -94,10 +98,10 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 
-  	virtual void translate(std::ostream &dst, std::string indent)const override{
-		left -> translate(dst,indent);
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{
+		left -> translate(dst,indent,addglobal,globalvariables);
 		dst << "-";
-		right -> translate(dst,indent);
+		right -> translate(dst,indent,addglobal,globalvariables);
 	}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Minus operator> ["<<'\n';
@@ -105,6 +109,7 @@ public:
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -116,13 +121,14 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
  	
-	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Leftshift operator> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -134,13 +140,14 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 
-  	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Rightshift operator> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -152,10 +159,10 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 
-  	virtual void translate(std::ostream &dst, std::string indent)const override{
-		left -> translate(dst,indent);
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{
+		left -> translate(dst," ",addglobal,globalvariables);
 		dst << "<";
-		right -> translate(dst,indent);	
+		right -> translate(dst," ",addglobal,globalvariables);	
 	}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Smaller operator> ["<<'\n';
@@ -163,6 +170,7 @@ public:
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -175,13 +183,16 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 
-  	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{		left -> translate(dst," ",addglobal,globalvariables);
+		dst << ">";
+		right -> translate(dst," ",addglobal,globalvariables);}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Bigger operator> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -194,13 +205,14 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 
-  	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Smallerequal operator> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -213,13 +225,14 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 
-  	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Biggerequal operator> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -232,10 +245,10 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 
-  	virtual void translate(std::ostream &dst, std::string indent)const override{
-		left -> translate(dst,indent);
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{
+		left -> translate(dst," ",addglobal,globalvariables);
 		dst << "==";
-		right -> translate(dst,indent);	
+		right -> translate(dst," ",addglobal,globalvariables);	
 	}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Equalequal operator> ["<<'\n';
@@ -243,6 +256,7 @@ public:
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -254,13 +268,14 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 
-  	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Notequal operator> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -272,13 +287,14 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 
-  	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Bitwiseand operator> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -290,10 +306,10 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 
-  	virtual void translate(std::ostream &dst, std::string indent)const override{
-		left -> translate(dst,indent);
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{
+		left -> translate(dst,"",addglobal,globalvariables);
 		dst << " and ";
-		right -> translate(dst,indent);
+		right -> translate(dst,"",addglobal,globalvariables);
 	}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Logicaland operator> ["<<'\n';
@@ -301,6 +317,7 @@ public:
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -311,11 +328,10 @@ public:
 	logicaloroperator(Statementptr p1, Statementptr p2){left = p1 ; right = p2;}
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-
-  	virtual void translate(std::ostream &dst, std::string indent)const override{
-		left -> translate(dst,indent);
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{
+		left -> translate(dst,"",addglobal,globalvariables);
 		dst << " or ";
-		right -> translate(dst,indent);
+		right -> translate(dst,"",addglobal,globalvariables);
 	}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Logicalor operator> ["<<'\n';
@@ -323,6 +339,7 @@ public:
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -334,13 +351,14 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 
-  	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"xor operator> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -352,13 +370,14 @@ public:
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
 
-  	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Bitwiseor operator> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -371,7 +390,7 @@ public:
 	Statementptr get_stat2(){return right;}
 	Statementptr get_stat3(){return mid;}
 
-  	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Conditional operator> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
@@ -379,6 +398,7 @@ public:
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;

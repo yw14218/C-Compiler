@@ -8,10 +8,11 @@ class structkey : public Statement {
 public:
 	structkey(){};
 	virtual ~structkey(){};
-	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<structkey> "<<"struct"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 };
 
 class structspec : public Statement {
@@ -22,7 +23,7 @@ public:
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return mid;}
 	Statementptr get_p3(){return right;}
-	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"structspec> ["<<'\n';
 		left->treeprint(dst, indent+"  ");
@@ -31,6 +32,7 @@ public:
 			{right->treeprint(dst, indent+"  ");}
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr mid;
@@ -44,7 +46,7 @@ public:
 	virtual ~structdeclarator(){};
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return right;}
-	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Struct declarator> ["<<'\n';
 		left->treeprint(dst, indent+"  ");
@@ -52,6 +54,7 @@ public:
 			{right->treeprint(dst, indent+"  ");}
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -64,7 +67,7 @@ public:
 	virtual ~structcolondeclarator(){};
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return right;}
-	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Struct colon declarator> ["<<'\n';
 		left->treeprint(dst, indent+"  ");
@@ -72,6 +75,7 @@ public:
 			{right->treeprint(dst, indent+"  ");}
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;

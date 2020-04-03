@@ -9,15 +9,15 @@ public:
 	list(Statementlistptr p1){statementlistptr = p1;};
 	virtual ~list(){};
 	Statementlistptr get_list(){return statementlistptr;}
-	virtual void translate(std::ostream &dst, std::string indent)const override{
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{
 		int content = statementlistptr -> size();
 		if(content == 0){return;}
-		if(content == 1){dst << indent; statementlistptr -> at(0) -> translate(dst,"");}
+		if(content == 1){dst << indent; statementlistptr -> at(0) -> translate(dst,"",addglobal,globalvariables);}
 		else{
 			for(int i =0; i<content-1;i++){
-         			dst << indent; statementlistptr -> at(i) -> translate(dst,""); dst << ",";
+         			dst << indent; statementlistptr -> at(i) -> translate(dst,"",addglobal,globalvariables); dst << ",";
 			}
-			dst << indent; statementlistptr -> at(content-1) -> translate(dst,"");
+			dst << indent; statementlistptr -> at(content-1) -> translate(dst,"",addglobal,globalvariables);
 		}
 	}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
@@ -27,6 +27,7 @@ public:
 		}
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 
 protected:
   	Statementlistptr statementlistptr;

@@ -11,12 +11,12 @@ public:
 	virtual ~whilestatement(){};
 	Statementptr get_condition(){return left;};
 	Statementptr get_stats(){return right;};
-	virtual void translate(std::ostream &dst, std::string indent)const override{
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{
 		dst << indent;
 		dst << "while (";
-		left -> translate(dst,indent);
-		dst << "):";
-		right -> translate(dst,indent+"    ");	
+		left -> translate(dst,"",addglobal,globalvariables);
+		dst << "):"<<std::endl;
+		right -> translate(dst,indent,addglobal,globalvariables);	
 	}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"While Statement> ["<<'\n';
@@ -24,6 +24,7 @@ public:
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};	
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -35,13 +36,14 @@ public:
 	virtual ~dostatement(){};
 	Statementptr get_stats(){return left;};
 	Statementptr get_condition(){return right;};	
-	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Do Statement> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -57,7 +59,7 @@ public:
 	Statementptr get_stat2(){return left;};
 	Statementptr get_stat3(){return right;};
 	Statementptr get_stat4(){return rightright;};
-	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<for statement> ["<<'\n';
 		leftleft->treeprint(dst, indent+"  ");
@@ -68,6 +70,7 @@ public:
 			{rightright->treeprint(dst, indent+"  ");}
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr leftleft;
 	Statementptr left;

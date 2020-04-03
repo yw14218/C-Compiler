@@ -11,7 +11,7 @@ public:
 	virtual ~enumerator(){};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Enumerator> ["<<'\n';
 		left->treeprint(dst, indent+"  ");
@@ -19,6 +19,7 @@ public:
 			{right->treeprint(dst, indent+"  ");}
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -31,7 +32,7 @@ public:
 	virtual ~enumspecifier(){};
 	Statementptr get_stat1(){return left;}
 	Statementptr get_stat2(){return right;}
-	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Enumspecifier> ["<<'\n';
 		left->treeprint(dst, indent+"  ");
@@ -39,6 +40,7 @@ public:
 			{right->treeprint(dst, indent+"  ");}
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;

@@ -9,8 +9,9 @@ int main(int argc ,char *argv[]){
 	std::string indent = "";
     freopen (argv[4], "w",stdout);
     if(std::string(argv[1]) == "--translate"){
-        
-        ast -> translate(std::cout,indent);
+        std::vector<std::string> globalvar;
+	bool addglobal = false;
+        ast -> translate(std::cout,indent,addglobal,globalvar);
         std::cout << std::endl;
         std::cout<<"if __name__ == \"__main__\":"<<std::endl;
         std::cout<<"    import sys"<<std::endl;
@@ -22,7 +23,11 @@ int main(int argc ,char *argv[]){
 	ast->treeprint(std::cout, indent);
     std::cout << std::endl;
 	}
- 
+ 	if(std::string(argv[1]) == "-S"){
+	std::ostream& out = std::cout;	
+	Context mips(&out);
+	ast -> compile(mips);
+	}
 	//std::cout<<"finished"<<std::endl;
     return 0;
 }

@@ -5,12 +5,12 @@ class root : public Statement{
 public:
 	virtual ~root(){};
 	root(Statementlistptr p1){left = p1;}
-	virtual void translate(std::ostream &dst,std::string indent)const override{
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{
 		if(left != NULL)
 		{
 		for(int i=0;i<left->size();i++)
 		{
-			(left->at(i))->translate(dst,indent);
+			(left->at(i))->translate(dst,indent,addglobal,globalvariables);
 		}
 		}
 	}
@@ -25,9 +25,13 @@ public:
 		}
       		dst << indent << "]"<<'\n';
 	}
+	virtual void compile(Context &input, int p = 2)const override{
+		input.print()<<"compile starts"<<std::endl;
+	}
 
 private:
 	Statementlistptr left;
+	std::vector<std::string> globalvariables;
 };
 
 

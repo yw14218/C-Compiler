@@ -12,15 +12,15 @@ public:
 	Statementptr get_condition(){return left;};
 	Statementptr get_if(){return mid;};
 	Statementptr get_else(){return right;};
-	virtual void translate(std::ostream &dst, std::string indent)const override{
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{
 		dst << indent;
 		dst << "if (";
-		left -> translate(dst,indent);
+		left -> translate(dst,indent,addglobal,globalvariables);
 		dst << "):" << std::endl;
-		mid -> translate(dst, indent+"    ");
+		mid -> translate(dst, indent,addglobal,globalvariables);
 		if(right != NULL){
-			dst << std::endl << "else:" << std::endl;
-			right -> translate(dst, indent+"    ");		
+			dst <<indent<< "else:" << std::endl;
+			right -> translate(dst,indent,addglobal,globalvariables);		
 		}
 			
 	}
@@ -32,6 +32,7 @@ public:
 			{right->treeprint(dst, indent+"  ");}
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr mid;
@@ -44,13 +45,14 @@ public:
 	virtual ~switchstatement(){};
 	Statementptr get_condition(){return left;};
 	Statementptr get_stat(){return right;};
-	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"Switch Statement> ["<<'\n';
 		left->treeprint(dst,indent+"  ");
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 
 private:
 	Statementptr left;

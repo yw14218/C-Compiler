@@ -12,9 +12,18 @@ public:
 	declaration(Statementptr p1,Statementlistptr p2){left = p1; right = p2;};
 	Statementptr get_p1(){return left;}
 	Statementlistptr get_p2(){return right;}
-	virtual void translate(std::ostream &dst, std::string indent)const override{
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{
 		dst << indent;
-		mid -> translate(dst,"");
+		left -> translate(dst,"",addglobal,globalvariables);
+		if(NULL != mid)
+		{mid->translate(dst,"",addglobal,globalvariables);}
+		if(NULL != right)
+		{
+			for(int i=0;i<right->size();i++)
+			{
+				(right->at(i))->translate(dst, "",addglobal,globalvariables);
+			}
+		}
 		}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Declaration> ["<<'\n';
@@ -30,6 +39,7 @@ public:
 		}		
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementlistptr right;
@@ -43,7 +53,7 @@ public:
 	virtual ~storageclassdeclaration(){};
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return right;}
-	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Storageclassdeclaration> ["<<'\n';
 		left->treeprint(dst, indent+"  ");
@@ -51,9 +61,30 @@ public:
 			{right->treeprint(dst, indent+"  ");}
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
+};
+
+class globaldeclaration: public Statement{
+public:
+	globaldeclaration(Statementptr p1){left = p1;}
+	virtual ~globaldeclaration(){};
+	Statementptr get_p1(){return left;}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{
+		addglobal = true;			
+		left->translate(dst,"",addglobal,globalvariables);	
+		std::cout<<std::endl;
+		std::cout<<std::endl;
+	}
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<global declaration> ["<<'\n';		
+		left->treeprint(dst, indent+"  ");	
+	}
+	virtual void compile(Context &input, int p = 2)const override{}
+private:
+	Statementptr left;
 };
 
 class typespecdeclaration : public Statement {
@@ -63,7 +94,7 @@ public:
 	virtual ~typespecdeclaration(){};
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return right;}
-	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Typespecdeclaration> ["<<'\n';
 		left->treeprint(dst, indent+"  ");
@@ -71,6 +102,7 @@ public:
 			{right->treeprint(dst, indent+"  ");}
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -83,7 +115,7 @@ public:
 	virtual ~typequaldeclaration(){};
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return right;}
-	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Typeequaldeclaration> ["<<'\n';
 		left->treeprint(dst, indent+"  ");
@@ -91,6 +123,7 @@ public:
 			{right->treeprint(dst, indent+"  ");}
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -103,15 +136,15 @@ public:
 	virtual ~initdeclarator(){};
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return right;}
-	virtual void translate(std::ostream &dst, std::string indent)const override{
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{
 		if(right == NULL){
-			left -> translate(dst,"");
+			left -> translate(dst,"",addglobal,globalvariables);
 			dst << "=0";
 		}
 		else{
-			left -> translate(dst,"");
+			left -> translate(dst,"", addglobal,globalvariables);
 			dst << "=";
-			right -> translate(dst,"");
+			right -> translate(dst,"",addglobal,globalvariables);
 		}	
 	}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
@@ -121,6 +154,7 @@ public:
 			{right->treeprint(dst, indent+"  ");}
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -131,12 +165,13 @@ public:
 	pointerdeclarator(Statementptr p1){left = p1;};
 	virtual ~pointerdeclarator(){};
 	Statementptr get_p1(){return left;}
-	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Pointerdeclarator> ["<<'\n';
 		left->treeprint(dst, indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 };
@@ -148,7 +183,7 @@ public:
 	arraydeclarator(Statementptr p1, Statementptr p2){left = p1; right = p2;};
 	virtual ~arraydeclarator(){};
 	Statementptr get_p1(){return left;}
-	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Arraydeclarator> ["<<'\n';
 		left->treeprint(dst, indent+"  ");		
@@ -156,6 +191,7 @@ public:
 			{right->treeprint(dst, indent+"  ");}
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -168,10 +204,10 @@ public:
 	functiondeclarator(Statementptr p1, Statementptr p2){left = p1; right = p2;};
 	virtual ~functiondeclarator(){};
 	Statementptr get_p1(){return left;}
-	virtual void translate(std::ostream &dst, std::string indent)const override{
-		left -> translate(dst,indent);		
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{
+		left -> translate(dst,indent,addglobal,globalvariables);		
 		dst << "(";
-		if(right!=NULL){right -> translate(dst,indent);}
+		if(right!=NULL){right -> translate(dst,indent,addglobal,globalvariables);}
 		dst << "):";
 		
 			
@@ -183,6 +219,7 @@ public:
 			{right->treeprint(dst, indent+"  ");}
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -193,13 +230,16 @@ public:
 	initializer(Statementptr p1){left = p1;};
 	virtual ~initializer(){};
 	Statementptr get_p1(){return left;}
-	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{
+		left -> translate(dst,"",addglobal,globalvariables);		
+	}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {
 		dst<<indent<<"<Initializer> ["<<'\n';
 		if(left != NULL)
 			{left->treeprint(dst, indent+"  ");}
 		dst<<indent<<"]"<<'\n';
 	};
+	virtual void compile(Context &input, int p = 2)const override{}
 private:
 	Statementptr left;
 };

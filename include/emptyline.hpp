@@ -7,8 +7,9 @@ class emptyline : public Statement {
 public:
 	emptyline(){};
 	virtual ~emptyline(){};
-	virtual void translate(std::ostream &dst, std::string indent)const override{}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {}
+	virtual void compile(Context &input, int p = 2)const override{}
 };
 
 

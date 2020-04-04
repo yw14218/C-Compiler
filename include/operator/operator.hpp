@@ -23,6 +23,9 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{		double v1 = left->evaluate();
+		double v2 = right->evaluate();
+		return v1*v2;}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -44,6 +47,9 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{		double v1 = left->evaluate();
+		double v2 = right->evaluate();
+		return v1/v2;}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -63,6 +69,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -86,6 +93,9 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{		double v1 = left->evaluate();
+		double v2 = right->evaluate();
+		return v1+v2;}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -110,6 +120,9 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{		double v1 = left->evaluate();
+		double v2 = right->evaluate();
+		return v1-v2;}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -129,6 +142,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -148,6 +162,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -171,6 +186,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -193,6 +209,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -213,6 +230,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -233,6 +251,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -257,6 +276,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -276,6 +296,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -295,6 +316,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -318,6 +340,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -340,6 +363,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -359,6 +383,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -378,6 +403,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -399,6 +425,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;

@@ -13,6 +13,7 @@ public:
 		dst<<indent<<"<key> "<<"typedef"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 };
 
 class statickey : public Statement{
@@ -24,6 +25,7 @@ public:
 		dst<<indent<<"<key> "<<"static"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 };
 
 class autokey : public Statement{
@@ -35,6 +37,7 @@ public:
 		dst<<indent<<"<key> "<<"auto"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 };
 
 class registerkey: public Statement {
@@ -46,6 +49,7 @@ public:
 		dst<<indent<<"<key> "<<"register"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 };
 
 class voidkey: public Statement {
@@ -57,6 +61,7 @@ public:
 		dst<<indent<<"<key> "<<"void"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 };
 
 class charkey: public Statement {
@@ -68,6 +73,7 @@ public:
 		dst<<indent<<"<key> "<<"char"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 };
 
 class shortkey: public Statement {
@@ -79,6 +85,7 @@ public:
 		dst<<indent<<"<key> "<<"short"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 };
 
 class intkey: public Statement {
@@ -90,6 +97,7 @@ public:
 		dst<<indent<<"<key> "<<"int"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 };
 
 class longkey: public Statement {
@@ -101,6 +109,7 @@ public:
 		dst<<indent<<"<key> "<<"long"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 
 };
 
@@ -113,6 +122,7 @@ public:
 		dst<<indent<<"<key> "<<"float"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 };
 
 class doublekey: public Statement {
@@ -124,6 +134,7 @@ public:
 		dst<<indent<<"<key> "<<"double"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 };
 
 class signedkey: public Statement {
@@ -135,6 +146,7 @@ public:
 		dst<<indent<<"<key> "<<"signed"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 };
 
 class unsignedkey: public Statement {
@@ -146,6 +158,7 @@ public:
 		dst<<indent<<"<key> "<<"unsigned"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 };
 
 #endif

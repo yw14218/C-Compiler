@@ -13,6 +13,7 @@ public:
 		dst<<indent<<"<jump statement> "<<"jump"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 };
 
 class breakstatement : public Statement {
@@ -24,6 +25,7 @@ public:
 		dst<<indent<<"<break statement> "<<"break"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 };
 
 class returnstatement : public Statement {
@@ -44,6 +46,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 };
@@ -56,5 +59,6 @@ public:
 		dst<<indent<<"<Continue statement> continue"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 };
 #endif

@@ -50,7 +50,23 @@ public:
 		}
       		dst << indent << "]"<<'\n';
 	};
-	virtual void compile(Context &input, int p = 2)const override{}
+	virtual void compile(Context &input, int p = 2)const override{
+		if(left != NULL)
+		{
+		for(int i=0;i<left->size();i++)
+		{
+			(left->at(i))->compile(input,p);
+		}
+		}	
+		if(right != NULL)
+		{
+		for(int i=0;i<right->size();i++)
+		{
+			(right->at(i))->compile(input,p);
+		}
+		}
+	}
+	virtual double evaluate()const override{}
 private:
 	Statementlistptr left;
 	Statementlistptr right;
@@ -73,6 +89,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementlistptr left;
 };

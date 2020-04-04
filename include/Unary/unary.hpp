@@ -19,6 +19,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr target;
 };
@@ -37,6 +38,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr target;
 };
@@ -53,6 +55,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr target;
 };
@@ -69,6 +72,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr target;
 };
@@ -85,6 +89,8 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{		double v1 = target->evaluate();
+		return +v1;}
 private:
 	Statementptr target;
 };
@@ -102,6 +108,8 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{		double v1 = target->evaluate();
+		return -v1;}
 private:
 	Statementptr target;
 };
@@ -118,6 +126,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 
 private:
 	Statementptr target;
@@ -135,6 +144,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 
 private:
 	Statementptr target;
@@ -152,6 +162,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr target;
 };
@@ -168,6 +179,7 @@ public:
 		dst<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr target;
 };
@@ -184,6 +196,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr target;
 };
@@ -200,6 +213,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr target;
 };

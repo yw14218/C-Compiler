@@ -4,6 +4,8 @@
 #include"Statement.hpp"
 #include"Statementlist.hpp"
 
+extern int NumVariables;
+
 class declaration : public Statement {
 public:
 	declaration(Statementptr p1){left = p1;};
@@ -39,7 +41,21 @@ public:
 		}		
 		dst<<indent<<"]"<<'\n';
 	};
-	virtual void compile(Context &input, int p = 2)const override{}
+	virtual void compile(Context &input, int p = 2)const override{
+	left->compile(input,p);
+	if(mid != NULL)
+		{
+			mid->compile(input,p);
+		}
+	if(right != NULL)
+		{
+			for(int i=0;i<right->size();i++)
+			{
+				(right->at(i))->compile(input, p);
+			}
+		}
+	}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementlistptr right;
@@ -62,6 +78,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -82,7 +99,11 @@ public:
 		dst<<indent<<"<global declaration> ["<<'\n';		
 		left->treeprint(dst, indent+"  ");	
 	}
-	virtual void compile(Context &input, int p = 2)const override{}
+	virtual void compile(Context &input, int p = 2)const override{
+		globalvariable = true;
+		left->compile(input,p);	
+	}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 };
@@ -102,7 +123,14 @@ public:
 			{right->treeprint(dst, indent+"  ");}
 		dst<<indent<<"]"<<'\n';
 	};
-	virtual void compile(Context &input, int p = 2)const override{}
+	virtual void compile(Context &input, int p = 2)const override{
+		left->compile(input,p);
+		if(right != NULL)
+		{
+			right->compile(input,p);
+		}	
+	}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -124,15 +152,33 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;
 };
 
+class declarator : public Statement {
+public:
+	declarator(Statementptr p1){left = p1;};
+	virtual ~declarator(){};
+	Statementptr get_p1(){return left;}
+	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
+	virtual void treeprint(std::ostream &dst, std::string indent)const override {
+		dst<<indent<<"<declarator> ["<<'\n';
+		left->treeprint(dst, indent+"  ");
+		dst<<indent<<"]"<<'\n';
+	};
+	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
+private:
+	Statementptr left;
+};
+
 class initdeclarator : public Statement {
 public:
 	initdeclarator(Statementptr p1){left = p1;};
-	initdeclarator(Statementptr p1, Statementptr p2){left = p1;right = p2;};
+	initdeclarator(Statementptr p1, Statementptr p2){left = p1;right = p2;NumVariables++;};
 	virtual ~initdeclarator(){};
 	Statementptr get_p1(){return left;}
 	Statementptr get_p2(){return right;}
@@ -154,7 +200,19 @@ public:
 			{right->treeprint(dst, indent+"  ");}
 		dst<<indent<<"]"<<'\n';
 	};
-	virtual void compile(Context &input, int p = 2)const override{}
+	virtual void compile(Context &input, int p = 2)const override{
+		if(right == NULL)
+		{
+			left->compile(input,p);
+		}
+		if(right != NULL)
+		{
+			variableassigned = true;
+			left->compile(input,p);
+			right->compile(input,p);
+		}
+	}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -162,7 +220,7 @@ private:
 
 class pointerdeclarator : public Statement {
 public:
-	pointerdeclarator(Statementptr p1){left = p1;};
+	pointerdeclarator(Statementptr p1){left = p1;NumVariables++;};
 	virtual ~pointerdeclarator(){};
 	Statementptr get_p1(){return left;}
 	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
@@ -172,6 +230,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 };
@@ -180,7 +239,7 @@ class arraydeclarator : public Statement {
 public:
 	arraydeclarator(){};
 	arraydeclarator(Statementptr p1){left = p1;};
-	arraydeclarator(Statementptr p1, Statementptr p2){left = p1; right = p2;};
+	arraydeclarator(Statementptr p1, Statementptr p2){left = p1; right = p2;NumVariables = NumVariables+right->evaluate();};
 	virtual ~arraydeclarator(){};
 	Statementptr get_p1(){return left;}
 	virtual void translate(std::ostream &dst,std::string indent, bool &addglobal, std::vector<std::string> &globalvariables)const override{}
@@ -192,6 +251,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -220,6 +280,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 	Statementptr right;
@@ -239,7 +300,16 @@ public:
 			{left->treeprint(dst, indent+"  ");}
 		dst<<indent<<"]"<<'\n';
 	};
-	virtual void compile(Context &input, int p = 2)const override{}
+	virtual void compile(Context &input, int p = 2)const override{
+		if(Context.globalvariable == true || Context.variableassigned == true)		
+		{	
+		double val = left->evaluate();
+		input.print() << val << std::endl;
+		input.print() << "\t.text" << std::endl; 
+		input.print() << "\t.align\t2" << std::endl;
+		}
+	}
+	virtual double evaluate()const override{}
 private:
 	Statementptr left;
 };

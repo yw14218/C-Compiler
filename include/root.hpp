@@ -10,7 +10,7 @@ public:
 		{
 		for(int i=0;i<left->size();i++)
 		{
-			(left->at(i))->translate(dst,indent,addglobal,globalvariables);
+			(left->at(i))->                                translate(dst,indent,addglobal,globalvariables);
 		}
 		}
 	}
@@ -26,8 +26,14 @@ public:
       		dst << indent << "]"<<'\n';
 	}
 	virtual void compile(Context &input, int p = 2)const override{
-		input.print()<<"compile starts"<<std::endl;
+		if(left != NULL){		
+		for(int i=0;i<left->size();i++)
+		{
+			(left->at(i))->compile(input,p);
+		}
+		}
 	}
+	virtual double evaluate()const override{}
 
 private:
 	Statementlistptr left;

@@ -15,6 +15,7 @@ public:
 	std::string tmpvariable; 
 	void addglobal(std::string string, double in){globalvariables[string] = in;}
 	void addlocal(std::string string, double in){localvariables[string] = in;}
+	int tmp_reg = 4;
 
 	bool globalvariable = false;
 	bool variableassigned = false;

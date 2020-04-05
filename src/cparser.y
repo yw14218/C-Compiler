@@ -254,7 +254,8 @@ DECLARATOR: DIRECT_DECLARATOR {$$ = $1;}
 		| POINTER DIRECT_DECLARATOR {$$ = new pointerdeclarator($2);}
 		;
 
-DIRECT_DECLARATOR: T_IDENTIFIER {$$ = new declarator(new identifier(*$1));}
+DIRECT_DECLARATOR: T_IDENTIFIER {$$ = new identifier(*$1);}
+		| T_IDENTIFIER {$$ = new declarator(new identifier(*$1));}
 		| T_L_ROUND_BRACKET DECLARATOR T_R_ROUND_BRACKET {$$ = $2;}
 		| DIRECT_DECLARATOR T_L_SQUARE_BRACKET T_R_SQUARE_BRACKET {$$ = new arraydeclarator($1);}
 		| DIRECT_DECLARATOR T_L_SQUARE_BRACKET CONSTANT_EXPRESSION T_R_SQUARE_BRACKET {$$ = new arraydeclarator($1,$3);}

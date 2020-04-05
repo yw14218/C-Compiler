@@ -7,6 +7,7 @@
 extern std::string Funcnameadd;
 extern std::vector<std::string> Funcname;
 extern int NumVariables;
+extern bool mainflag;
 
 class functioncall : public Statement{
 public:
@@ -44,8 +45,9 @@ class functiondefinition : public Statement{
 public:
 	virtual ~functiondefinition(){};
 	functiondefinition(Statementptr p1, Statementptr p2, Statementptr p3){left = p1 ; mid = p2;right = p3;
-		Funcname.push_back(Funcnameadd);
-		Funcnameadd = "";
+		
+		if(Funcnameadd!="main"){Funcname.push_back(Funcnameadd); mainflag = false;Funcnameadd = "";}
+		else{mainflag = true;}
 		}
 	functiondefinition(Statementptr p1, Statementptr p2){mid = p1 ; right = p2;}
 	Statementptr get_id(){return left;}
@@ -76,28 +78,47 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{
-		input.print() <<"\t.global\t" << Funcname[0] << std::endl;
-		input.print() <<"\t.ent\t" << Funcname[0] << std::endl;
-		input.print() << Funcname[0]<<":"<<std::endl;
-		input.print() <<"\taddiu\t" << "$sp,$sp,-" << (NumVariables*4)+12 << std::endl;
-		input.print() <<"\tsw\t" << "$31,"<< (NumVariables*4)+8<< "($sp)" << std::endl;
-		input.print() <<"\tsw\t" << "$fp,"<< (NumVariables*4)+4<< "($sp)" << std::endl;
-		input.print() <<"\tmove\t" << "$fp,$sp" << std::endl;
-		if(left != NULL)
-		{
-			left->compile(input,p);
-		}		
-		mid->compile(input,p);
-		right->compile(input,p);	
-		input.print() <<"\tmove\t" << "$sp,$fp" << std::endl;
-		input.print() <<"\tlw\t" <<"$fp," << (NumVariables*4)+4 << "($sp)" << std::endl;
-		input.print() <<"\tlw\t" << "$31,"<< (NumVariables*4)+8<< "($sp)" << std::endl;
-		input.print() <<"\taddiu\t" << "$sp,$sp," <<(NumVariables*4)+12 << std::endl;
-		input.print()<<"\tj\t" <<"$31" << std::endl;
-		input.print() <<"\tnop"<< std::endl;
-		input.print() << std::endl;
-		input.print() <<"\t.end\t" << Funcname[0] << std::endl;
-		Funcname.erase(Funcname.begin());
+		int offset = NumVariables*4+12;
+		if(mainflag == false){
+			input.print() <<"\t.global\t" << Funcname[0] << std::endl;
+			input.print() <<"\t.ent\t" << Funcname[0] << std::endl;
+			input.print() << Funcname[0]<<":"<<std::endl;
+			input.print() <<".type "<<Funcname[0] <<", @function"<<std::endl;
+			input.print() <<"\taddiu\t" << "$sp,$sp,-" << (NumVariables*4)+12 << std::endl;
+			input.print() <<"\tsw\t" << "$fp,"<< (NumVariables*4)+8<< "($sp)" << std::endl;
+			input.print() <<"\tmove\t" << "$fp,$sp" << std::endl;
+			mid->compile(input,p);
+			right->compile(input,p);	
+			input.print() <<"\tmove\t" << "$sp,$fp" << std::endl;
+			input.print() <<"\tlw\t" <<"$fp," << (NumVariables*4)+4 << "($sp)" << std::endl;
+			input.print() <<"\tlw\t" << "$31,"<< (NumVariables*4)+8<< "($sp)" << std::endl;
+			input.print() <<"\taddiu\t" << "$sp,$sp," <<(NumVariables*4)+12 << std::endl;
+			input.print()<<"\tj\t" <<"$31" << std::endl;
+			input.print() <<"\tnop"<< std::endl;
+			input.print() << std::endl;
+			Funcname.erase(Funcname.begin());
+		}
+		else{
+			input.print() <<"\t.global\t" << "main" << std::endl;
+			input.print() <<"\t.ent\t" << "main" << std::endl;
+			input.print() <<"main"<<":"<<std::endl;
+			input.print() <<".type "<<"main" <<", @function"<<std::endl;
+			input.print() << "main" <<":"<<std::endl;
+			input.print() <<"\taddiu\t" << "$sp,$sp,-" << offset+8 << std::endl;
+			input.print() <<"\tsw\t" << "$31,"<< offset+4<< "($sp)" << std::endl;
+			input.print() <<"\tsw\t" << "$fp,"<< offset << "($sp)" << std::endl;
+			input.print() <<"\tmove\t" << "$fp,$sp" << std::endl;
+			mid->compile(input,p);
+			right->compile(input,p);
+			input.print() <<"\tmove\t" << "$sp,$fp" << std::endl;
+			input.print() <<"\tlw\t" <<"$fp," << offset << "($sp)" << std::endl;
+			input.print() <<"\tlw\t" << "$31,"<< offset+4<< "($sp)" << std::endl;
+			input.print() <<"\taddiu\t" << "$sp,$sp," << offset+8 << std::endl;
+			input.print()<<"\tj\t" <<"$31" << std::endl;
+			input.print() <<"\tnop"<< std::endl;
+			input.print() << std::endl;
+			input.print() <<"\t.end\t" << Funcname[0] << std::endl;
+		}
 	}
 	virtual double evaluate()const override{}
 private:

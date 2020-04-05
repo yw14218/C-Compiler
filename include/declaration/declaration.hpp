@@ -42,7 +42,6 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{
-	left->compile(input,p);
 	if(mid != NULL)
 		{
 			mid->compile(input,p);
@@ -100,7 +99,7 @@ public:
 		left->treeprint(dst, indent+"  ");	
 	}
 	virtual void compile(Context &input, int p = 2)const override{
-		globalvariable = true;
+		input.globalvariable = true;
 		left->compile(input,p);	
 	}
 	virtual double evaluate()const override{}
@@ -207,7 +206,7 @@ public:
 		}
 		if(right != NULL)
 		{
-			variableassigned = true;
+			input.variableassigned = true;
 			left->compile(input,p);
 			right->compile(input,p);
 		}
@@ -279,7 +278,9 @@ public:
 			{right->treeprint(dst, indent+"  ");}
 		dst<<indent<<"]"<<'\n';
 	};
-	virtual void compile(Context &input, int p = 2)const override{}
+	virtual void compile(Context &input, int p = 2)const override{
+		right->compile(input,p);	
+	}
 	virtual double evaluate()const override{}
 private:
 	Statementptr left;
@@ -301,7 +302,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{
-		if(Context.globalvariable == true || Context.variableassigned == true)		
+		if(input.globalvariable == true || input.variableassigned == true)		
 		{	
 		double val = left->evaluate();
 		input.print() << val << std::endl;

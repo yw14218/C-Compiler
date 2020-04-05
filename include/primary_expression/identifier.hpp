@@ -24,15 +24,15 @@ public:
 	}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {dst<<indent<<"<identifier> "<<id<<'\n';}
 	virtual void compile(Context &input, int p = 2)const override{
-		if(globalvariable == true || variableassigned == true)
+		if(input.globalvariable == true || input.variableassigned == true)
 		{
 		input.print() << "\t.globl\t" << id << std::endl;
 		input.print() << "\t.data\t" <<  std::endl;
 		
 		input.print() << id << ":" << std::endl;
 		input.print() << "\t.word\t";
-		globalvariable = false;
-		variableassigned = false;
+		input.globalvariable = false;
+		input.variableassigned = false;
 		}
 		//std::map<std::string double> iterator it;
 		//it = 

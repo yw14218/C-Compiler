@@ -27,7 +27,11 @@ public:
 		}
 		dst<<indent<<"]"<<'\n';
 	};
-	virtual void compile(Context &input, int p = 2)const override{}
+	virtual void compile(Context &input, int p = 2)const override{
+		for(int i=0;i<statementlistptr->size();i++){
+			(statementlistptr->at(i))->compile(input,p);
+		}
+}
 	virtual double evaluate()const override{}
 
 protected:

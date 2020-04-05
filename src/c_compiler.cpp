@@ -30,7 +30,7 @@ int main(int argc ,char *argv[]){
  	if(std::string(argv[1]) == "-S"){
 	std::ostream& out = std::cout;	
 	Context mips(&out);
-	ast -> compile(mips);
+    ast -> compile(mips);
 	}
 	//std::cout<<"finished"<<std::endl;
     return 0;

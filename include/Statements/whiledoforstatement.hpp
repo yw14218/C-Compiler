@@ -24,7 +24,9 @@ public:
 		right->treeprint(dst,indent+"  ");
 		dst<<indent<<"]"<<'\n';
 	};	
-	virtual void compile(Context &input, int p = 2)const override{}
+	virtual void compile(Context &input, int p = 2)const override{
+	
+	}
 	virtual double evaluate()const override{}
 private:
 	Statementptr left;
@@ -72,7 +74,21 @@ public:
 			{rightright->treeprint(dst, indent+"  ");}
 		dst<<indent<<"]"<<'\n';
 	};
-	virtual void compile(Context &input, int p = 2)const override{}
+	virtual void compile(Context &input, int p = 2)const override{
+		//input.print() << "\tsw\t$0, 8($fp)" << std::endl;
+		//input.print() << "\tb\t$L2"<<std::endl;
+		//input.print() << "\tnop" << std::endl;
+		//input.print() << "L3:" << std::endl;
+		//input.print() << "\tlw\t$t1,8($fp) "<< std::endl;
+		//input.print() << "\taddiu\t$2,$2,1" << std::endl;
+		//input.print() << "\tsw\t$t1,8($fp)" << std::endl;
+		//input.print() << "L2:" << std::endl;
+		//input.print() << "\tlw\t$t1,8($fp) "<< std::endl;
+		//input.print() << "\tblez\t$t1,$L3" << std::endl;
+		//input.print() << "\tnop" << std::endl;
+		//input.print() << "\tlw\t$t1,8($fp) "<< std::endl;
+		//input.print() << "\taddiu\t$t1,$t1,19937" << std::endl;
+	}
 	virtual double evaluate()const override{}
 private:
 	Statementptr leftleft;

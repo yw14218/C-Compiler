@@ -78,32 +78,31 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{
-		int offset = NumVariables*4+12;
+		int offset = NumVariables*4;
 		if(mainflag == false){
+			input.current_offset = offset;
 			input.print() <<"\t.global\t" << Funcname[0] << std::endl;
 			input.print() <<"\t.ent\t" << Funcname[0] << std::endl;
 			input.print() << Funcname[0]<<":"<<std::endl;
-			input.print() <<".type "<<Funcname[0] <<", @function"<<std::endl;
-			input.print() <<"\taddiu\t" << "$sp,$sp,-" << (NumVariables*4)+12 << std::endl;
-			input.print() <<"\tsw\t" << "$fp,"<< (NumVariables*4)+8<< "($sp)" << std::endl;
+
+			input.print() <<"\taddiu\t" << "$sp,$sp,-" << offset << std::endl;
+			input.print() <<"\tsw\t" << "$fp,"<< offset-4<< "($sp)" << std::endl;
 			input.print() <<"\tmove\t" << "$fp,$sp" << std::endl;
 			mid->compile(input,p);
 			right->compile(input,p);	
 			input.print() <<"\tmove\t" << "$sp,$fp" << std::endl;
-			input.print() <<"\tlw\t" <<"$fp," << (NumVariables*4)+4 << "($sp)" << std::endl;
-			input.print() <<"\tlw\t" << "$31,"<< (NumVariables*4)+8<< "($sp)" << std::endl;
-			input.print() <<"\taddiu\t" << "$sp,$sp," <<(NumVariables*4)+12 << std::endl;
+			input.print() <<"\tlw\t" <<"$fp," << offset-4 << "($sp)" << std::endl;
+			input.print() <<"\taddiu\t" << "$sp,$sp," << offset << std::endl;
 			input.print()<<"\tj\t" <<"$31" << std::endl;
 			input.print() <<"\tnop"<< std::endl;
 			input.print() << std::endl;
 			Funcname.erase(Funcname.begin());
+			input.print() <<"\t.end "<<Funcname[0] << std::endl;
 		}
 		else{
 			input.print() <<"\t.global\t" << "main" << std::endl;
 			input.print() <<"\t.ent\t" << "main" << std::endl;
-			input.print() <<"main"<<":"<<std::endl;
-			input.print() <<".type "<<"main" <<", @function"<<std::endl;
-			input.print() << "main" <<":"<<std::endl;
+  			input.print() << "main" <<":"<<std::endl;
 			input.print() <<"\taddiu\t" << "$sp,$sp,-" << offset+8 << std::endl;
 			input.print() <<"\tsw\t" << "$31,"<< offset+4<< "($sp)" << std::endl;
 			input.print() <<"\tsw\t" << "$fp,"<< offset << "($sp)" << std::endl;
@@ -111,13 +110,14 @@ public:
 			mid->compile(input,p);
 			right->compile(input,p);
 			input.print() <<"\tmove\t" << "$sp,$fp" << std::endl;
-			input.print() <<"\tlw\t" <<"$fp," << offset << "($sp)" << std::endl;
 			input.print() <<"\tlw\t" << "$31,"<< offset+4<< "($sp)" << std::endl;
+			input.print() <<"\tlw\t" <<"$fp," << offset << "($sp)" << std::endl;
 			input.print() <<"\taddiu\t" << "$sp,$sp," << offset+8 << std::endl;
 			input.print()<<"\tj\t" <<"$31" << std::endl;
 			input.print() <<"\tnop"<< std::endl;
 			input.print() << std::endl;
-			input.print() <<"\t.end\t" << Funcname[0] << std::endl;
+			input.print() <<"\t.end\t" << "main" << std::endl;
+			input.print() <<"\t.end main" << std::endl;
 		}
 	}
 	virtual double evaluate()const override{}

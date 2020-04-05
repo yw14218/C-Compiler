@@ -10,7 +10,7 @@ class declaration : public Statement {
 public:
 	declaration(Statementptr p1){left = p1;};
 	virtual ~declaration(){};
-	declaration(Statementptr p1,Statementptr p2){left = p1; mid = p2;};
+	declaration(Statementptr p1,Statementptr p2){left = p1; mid = p2;NumVariables++;};
 	declaration(Statementptr p1,Statementlistptr p2){left = p1; right = p2;};
 	Statementptr get_p1(){return left;}
 	Statementlistptr get_p2(){return right;}
@@ -42,17 +42,28 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{
-	if(mid != NULL)
-		{
-			mid->compile(input,p);
-		}
-	if(right != NULL)
-		{
+		
+			if(mid != NULL)
+			{
+				input.variableadd = true;
+				if(input.tmp_reg ==4){input.initial_offset = input.current_offset;}
+				input.print() << "\tsw\t$" << input.tmp_reg <<"," <<input.current_offset <<"($fp)"<<std::endl;
+				input.tmp_reg++;
+				input.current_offset +=4;
+						
+			}
+			left->compile(input,p);
+			if(mid != NULL)
+			{
+			 mid->compile(input,p);
+			}
+			if(right != NULL)
+			{
 			for(int i=0;i<right->size();i++)
 			{
-				(right->at(i))->compile(input, p);
+				(right->at(i))->compile(input,p);
 			}
-		}
+			}
 	}
 	virtual double evaluate()const override{}
 private:
@@ -200,6 +211,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{
+		input.variableadd = true;		
 		if(right == NULL)
 		{
 			left->compile(input,p);
@@ -279,7 +291,7 @@ public:
 		dst<<indent<<"]"<<'\n';
 	};
 	virtual void compile(Context &input, int p = 2)const override{
-		right->compile(input,p);	
+		if(right != NULL){right->compile(input,p);	}
 	}
 	virtual double evaluate()const override{}
 private:
@@ -305,10 +317,15 @@ public:
 		if(input.globalvariable == true || input.variableassigned == true)		
 		{	
 		double val = left->evaluate();
-		input.print() << val << std::endl;
-		input.print() << "\t.text" << std::endl; 
-		input.print() << "\t.align\t2" << std::endl;
+		input.print()<<val<<std::endl;
+		input.print()<<"\t.text"<<std::endl;
+		input.print()<<"\t.align\t2"<<std::endl;
+		input.print()<<std::endl;
 		}
+		double val_ = left->evaluate();
+		input.print() << "\tli\t" << "$2," << val_  << std::endl;
+		input.print() << "\tsw\t" << "$2," << input.devariable << "($sp)" << std::endl;
+		input.devariable +=4;
 	}
 	virtual double evaluate()const override{}
 private:

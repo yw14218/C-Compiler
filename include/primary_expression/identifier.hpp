@@ -24,20 +24,42 @@ public:
 	}
 	virtual void treeprint(std::ostream &dst, std::string indent)const override {dst<<indent<<"<identifier> "<<id<<'\n';}
 	virtual void compile(Context &input, int p = 2)const override{
+		
+		if(input.variableadd == true)
+		{
+			input.variableadd = false;
+			if(input.globalvariable == true)
+			{
+				input.addglobal(id, input.current_offset);
+			}
+			else
+			{
+				input.addlocal(id, input.current_offset);
+			}
+		}
+
+		
 		if(input.globalvariable == true || input.variableassigned == true)
 		{
-		input.print() << "\t.globl\t" << id << std::endl;
-		input.print() << "\t.data\t" <<  std::endl;
-		
-		input.print() << id << ":" << std::endl;
-		input.print() << "\t.word\t";
-		input.globalvariable = false;
-		input.variableassigned = false;
+			input.print() << "\t.globl\t" << id << std::endl;
+			input.print() << "\t.data\t" <<  std::endl;
+			input.print() << id << ":" << std::endl;
+			input.print() << "\t.word\t";
 		}
-		//std::map<std::string double> iterator it;
-		//it = 
+		if(input.globalvariable == true && input.variableassigned == true ){}
+		else{input.globalvariable = false;
+			input.variableadd = false;
+		}
+		//if(input.localvariables[id] != NULL){
+		//	input.print()<<"\tlw\t"<<"$"<<p<<","<<input.localvariables[id]<<"($FP)"<<std::endl;
+		//}
+		//if(input.globalvariables[id] != NULL){
+		//	input.print()<<"\tlw\t"<<"$"<<p<<","<<input.localvariables[id]<<"$(fp)"<<std::endl;
+		//}
+		input.print()<<"\tli\t"<<"$t1"<<","<<" 0"<<std::endl;
 	}
 	virtual double evaluate()const override{}
+	std::string get(){return id;}
 protected:
 	std::string id;
 };

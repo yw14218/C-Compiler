@@ -45,8 +45,14 @@ public:
 			{left->treeprint(dst, indent+"  ");}
 		dst<<indent<<"]"<<'\n';
 	};
-	virtual void compile(Context &input, int p = 2)const override{}
-	virtual double evaluate()const override{}
+	virtual void compile(Context &input, int p = 2)const override{
+		left->compile(input,p);
+		//int val = left->evaluate();
+		//input.print() << "\tli\t" << "$2," << val << std::endl;
+		input.print() << "\tmove\t$2, $t1" << std::endl;
+	}
+	virtual double evaluate()const override{
+	}
 private:
 	Statementptr left;
 };
